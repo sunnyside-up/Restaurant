@@ -5,8 +5,7 @@
 		"password" : "",
 		"phoneNumber" : "",
 		"creditCard" : "",
-		"favoriteList" : {
-		}
+		"favoriteList" : {}
 	},
 	{
 		"name" : "",
@@ -14,7 +13,6 @@
 		"password" : "",
 		"phoneNumber" : "",
 		"creditCard" : "",
-		"favoriteList" : {
-		}
+		"favoriteList" : {}
 	}
 ]
