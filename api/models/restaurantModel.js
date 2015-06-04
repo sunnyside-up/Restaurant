@@ -9,6 +9,13 @@ var userRestaurantSchema = new Schema({
 		type: String,
 		required: true
 	},
+
+	businessEmail: {
+		type: String,
+		unique: true,
+		required: true
+	},
+
 	password: {
 		type: String,
 		required: true
@@ -22,14 +29,8 @@ var userRestaurantSchema = new Schema({
 
 	businessNumber: Number,
 
-	businessEmail: {
-		type: String,
-		unique: true,
-		required: true
-	},
-
-	businessHoursdays: String,
-	businessHourshours: Number,
+	businessDays: String,
+	businessHours: Number,
 
 	tableNumber: Number,
 	capacity: Number,

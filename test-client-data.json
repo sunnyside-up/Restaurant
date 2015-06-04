@@ -1,0 +1,38 @@
+[
+	{
+		"name" : "",
+		"email" : "",
+		"password" : "",
+		"businessAddress" : {
+			"addressOne" : "",
+			"addressTwo" : "",
+			"city" : "",
+			"state" : "",
+			"zip" : ""
+		},
+		"phoneNumber" : "",
+		"creditCard" : "",
+		"favoriteList" : {
+			"tableNumber" : "",
+			"capacity" : ""
+		}
+	},
+	{
+		"name" : "",
+		"email" : "",
+		"password" : "",
+		"businessAddress" : {
+			"addressOne" : "",
+			"addressTwo" : "",
+			"city" : "",
+			"state" : "",
+			"zip" : ""
+		},
+		"phoneNumber" : "",
+		"creditCard" : "",
+		"favoriteList" : {
+			"tableNumber" : "",
+			"capacity" : ""
+		}
+	}
+]
