@@ -3,18 +3,19 @@ var app = angular.module('MRE', ['ui.router','ui.bootstrap']);
 
 app.config(function($stateProvider, $urlRouterProvider){
 
-	$urlRouterProvider.otherwise('/reservations');
+	$urlRouterProvider.otherwise('/re/reservations');
 
 	$stateProvider
 		.state('profile', {
-			url: '/profile',
-			templateUrl: '/Public/routes/profile/profile.html',
-			controller: 'profileCtrl'
+			url: '/re/profile',
+			templateUrl: '/routes/profile/profile.html',
+			controllerAs: 'ProfileCtrl as PR', 
+			
 		})
 		
 		.state('reservations', {
-			url: '/reservations',
+			url: '/re/reservations',
 			templateUrl: '/routes/reservations/reservations.html',
-			controller: 'reservationsCtrl'
+			controllerAs: 'ReservationsCtrl as RE'
 		});
 });

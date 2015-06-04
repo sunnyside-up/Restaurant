@@ -1,11 +1,13 @@
 //--node_modules--//
 var express = require('express');
+var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-
+var server = require('http').createServer(app);
+var io = require('socket.io').listen(server);
 
 //--internal modules--//
 var env = require('./.envVar');
@@ -15,7 +17,6 @@ var RestaurantController = require('./api/controllers/restaurantController');
 var AuthController = require('./api/controllers/authController');
 
 //--app variables--//
-var app = express();
 var port = env.PORT || 10000;
 
 //--middleware--//
@@ -36,7 +37,7 @@ require('./pass.js')(passport, LocalStrategy, User);
 
 
 //--connections--//
-app.listen(port, function(){
+server.listen(port, function(){
 	console.log('Listening on port: ', port);
 });
 
