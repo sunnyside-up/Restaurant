@@ -1,0 +1,62 @@
+[
+	{
+		"businessName" : "Mr Pi's",
+		"businessEmail" : "",
+		"password" : "",
+		"businessAddress" : {
+			"addressOne" : "",
+			"addressTwo" : "",
+			"city" : "",
+			"state" : "",
+			"zip" : ""
+		},
+		"businessNumber" : "",
+		"operatingHours" : {
+			"businessDays" : "",
+			"businessHours" : ""
+		},
+		"tablePlacement" : [{
+			"tableNumber" : "",
+			"capacity" : ""
+		}],
+		"menu" : [{ 
+			"category" : "",
+			"items" : [{
+				"name" : "",
+				"cost" : "",
+				"description" : "",
+				"photo" : ""
+				}]				
+		}]
+	},
+	{
+		"businessName" : "",
+		"businessEmail" : "",
+		"password" : "",
+		"businessAddress" : {
+			"addressOne" : "",
+			"addressTwo" : "",
+			"city" : "",
+			"state" : "",
+			"zip" : ""
+		},
+		"businessNumber" : "",
+		"operatingHours" : {
+			"businessDays" : "",
+			"businessHours" : ""
+		},
+		"tablePlacement" : [{
+			"tableNumber" : "",
+			"capacity" : ""
+		}],
+		"menu" : [{ 
+			"category" : "",
+			"items" : [{
+				"name" : "",
+				"cost" : "",
+				"description" : "",
+				"photo" : ""
+				}]				
+		}]
+	}
+]
