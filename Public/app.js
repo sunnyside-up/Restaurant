@@ -8,14 +8,14 @@ app.config(function($stateProvider, $urlRouterProvider){
 	$stateProvider
 		.state('profile', {
 			url: '/re/profile',
-			templateUrl: '/routes/profile/profile.html',
+			templateUrl: 'routes/profile/profile.html',
 			controllerAs: 'ProfileCtrl as PR', 
 			
 		})
 		
 		.state('reservations', {
 			url: '/re/reservations',
-			templateUrl: '/routes/reservations/reservations.html',
+			templateUrl: 'routes/reservations/reservations.html',
 			controllerAs: 'ReservationsCtrl as RE'
 		});
 });
