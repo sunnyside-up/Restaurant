@@ -1,6 +1,8 @@
 //--node_modules--//
 var express = require('express');
 var app = express();
+
+var bcrypt = require('bcrypt-nodejs');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
@@ -15,6 +17,10 @@ var User = require('./models/userModel');
 var ClientController = require('./api/controllers/clientController');
 var RestaurantController = require('./api/controllers/restaurantController');
 var AuthController = require('./api/controllers/authController');
+
+//--server side model--//
+var clientUser = require('./api/models/clientModel');
+var restaurantUser = require('./api/models/restaurantModel');
 
 //--app variables--//
 var port = env.PORT || 10000;
