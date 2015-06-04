@@ -21,12 +21,16 @@ var userRestaurantSchema = new Schema({
 		required: true
 	},
 
-	addressOne: String,
-	addressTwo: String,
-	city: String,
-	state: String,
-	zip: Number,
+	businessAddress: 
+		{
+			addressOne: String,
+			addressTwo: String,
+			city: String,
+			state: String,
+			zip: Number,
 
+		},
+	
 	businessNumber: Number,
 
 	businessDays: String,
@@ -35,9 +39,14 @@ var userRestaurantSchema = new Schema({
 	tableNumber: Number,
 	capacity: Number,
 
-	menuCategory: String,
-	menuItem: String,
-	menuCost: Number
+	menus: [
+		{
+			menuCategory: String,
+			menuItem: String,
+			menuCost: Number
+		}
+	]
+	
 
 });
 

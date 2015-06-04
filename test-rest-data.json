@@ -21,60 +21,14 @@
 		},
 		"menus" : 
 			[
-				{
-					"menuCategory" : "",
-					"menuItem" : "",
-					"menuCost" : ""
-				},
-				{
-					"menuCategory" : "",
-					"menuItem" : "",
-					"menuCost" : ""
-				},
-				{
-					"menuCategory" : "",
-					"menuItem" : "",
-					"menuCost" : ""
-				},
-			]
-	},
-	{
-		"businessName" : "",
-		"businessEmail" : "",
-		"password" : "",
-		"businessAddress" : {
-			"addressOne" : "",
-			"addressTwo" : "",
-			"city" : "",
-			"state" : "",
-			"zip" : ""
-		},
-		"businessNumber" : "",
-		"operatingHours" : {
-			"businessDays" : "",
-			"businessHours" : ""
-		},
-		"tablePlacement" : {
-			"tableNumber" : "",
-			"capacity" : ""
-		},
-		"menus" : 
-			[
-				{
-					"menuCategory" : "",
-					"menuItem" : "",
-					"menuCost" : ""
-				},
-				{
-					"menuCategory" : "",
-					"menuItem" : "",
-					"menuCost" : ""
-				},
-				{
-					"menuCategory" : "",
-					"menuItem" : "",
-					"menuCost" : ""
-				},
+				{ 
+					"menuCategory" : 
+					{
+						"menuItem" : "",
+						"menuCost" : ""
+					},
+					
+				}
 			]
 	}
 ]
