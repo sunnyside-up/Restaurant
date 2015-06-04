@@ -3,29 +3,19 @@ var app = angular.module('MRE', ['ui.router','ui.bootstrap']);
 
 app.config(function($stateProvider, $urlRouterProvider){
 
-	$urlRouterProvider.otherwise('/login');
+	$urlRouterProvider.otherwise('/re/reservations');
 
 	$stateProvider
 		.state('profile', {
-			url: '/profile',
-			templateUrl: '',
-			controller: 'profileCtrl'
+			url: '/re/profile',
+			templateUrl: 'routes/profile/profile.html',
+			controllerAs: 'ProfileCtrl as PR', 
+			
 		})
-		.state('dashboard', {
-			url: '/dashboard',
-			templateUrl: 'app/routes/dashboard/dashboard.html',
-			controller: 'dashboardCtrl'
-
-		.state('admin',{
-			url: '/admin',
-			templateUrl: 'app/routes/admin/admin.html',
-			controller: 'adminCtrl'
-		})
-		.state('archive',{
-			url: '/archive',
-			templateUrl: 'app/routes/archive/archive.html',
-			controller: 'archiveCtrl'
+		
+		.state('reservations', {
+			url: '/re/reservations',
+			templateUrl: 'routes/reservations/reservations.html',
+			controllerAs: 'ReservationsCtrl as RE'
 		});
-
-
 });
