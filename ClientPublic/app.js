@@ -7,15 +7,15 @@ app.config(function($stateProvider, $urlRouterProvider){
 
 	$stateProvider
 		.state('profile', {
-			url: '/re/profile',
+			url: '/profile',
 			templateUrl: 'routes/profile/profile.html',
 			controllerAs: 'ProfileCtrl as PR', 
 			
 		})
-		
 		.state('reservations', {
-			url: '/re/reservations',
-			templateUrl: 'routes/reservations/reservations.html',
+			url: '/reservations',
+			templateUrl: 'views/reservations.html',
 			controllerAs: 'ReservationsCtrl as RE'
 		});
+		.state('')
 });
