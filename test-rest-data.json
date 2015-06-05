@@ -10,11 +10,59 @@
 			"state" : "",
 			"zip" : ""
 		},
-		"businessNumber" : "",
-		"operatingHours" : {
-			"businessDays" : "",
-			"businessHours" : ""
-		},
+
+		"operatingHours": [{		
+			"Monday": [
+				{ "status": ""},
+				{ "hours": [{	
+					"businessHoursFrom": "", 
+					"businessHoursTo": "" }]
+				}
+			],
+			"Tuesday": [
+				{ "status": ""},
+				{ "hours": [{	
+					"businessHoursFrom": "", 
+					"businessHoursTo": "" }]
+				}
+			],
+			"Wednesday": [
+				{ "status": ""},
+				{ "hours": [{	
+					"businessHoursFrom": "", 
+					"businessHoursTo": "" }]
+				}
+			],
+			"Thursday": [
+				{ "status": ""},
+				{ "hours": [{	
+					"businessHoursFrom": "", 
+					"businessHoursTo": "" }]
+				}
+			],
+			"Friday": [
+				{ "status": ""},
+				{ "hours": [{	
+					"businessHoursFrom": "", 
+					"businessHoursTo": "" }]
+				}
+			],
+			"Saturday": [
+				{ "status": ""},
+				{ "hours": [{	
+					"businessHoursFrom": "", 
+					"businessHoursTo": "" }]
+				}
+			],
+			"Sunday": [
+				{ "status": ""},
+				{ "hours": [{	
+					"businessHoursFrom": "", 
+					"businessHoursTo": "" }]
+				}
+			]			
+		}],
+		
 		"tablePlacement" : [{
 			"tableNumber" : "",
 			"capacity" : ""
