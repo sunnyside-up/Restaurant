@@ -12,8 +12,10 @@
 				deferred.resolve(response.data)
 			})
 				return deferred.promise;
-		}	
-		
-			
+		}
+
 		}]); //end of service
+		}
 })();
+
+//test test
