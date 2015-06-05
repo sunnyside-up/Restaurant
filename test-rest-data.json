@@ -1,6 +1,6 @@
 [
 	{
-		"businessName" : "Mr Pi's",
+		"businessName" : "",
 		"businessEmail" : "",
 		"password" : "",
 		"businessAddress" : {
@@ -43,7 +43,8 @@
 		"businessNumber" : "",
 		"operatingHours" : {
 			"businessDays" : "",
-			"businessHours" : ""
+			"businessHoursFrom" : "",
+			"businessHoursTo" : ""
 		},
 		"tablePlacement" : [{
 			"tableNumber" : "",

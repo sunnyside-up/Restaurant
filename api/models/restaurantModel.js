@@ -23,7 +23,8 @@ var userRestaurantSchema = new mongoose.Schema({
 
 	operatingHours: {
 		businessDays: String,
-		businessHours: Number,
+		businessHoursFrom: Number,
+		businessHoursTo: Number,
 	},
 	
 
