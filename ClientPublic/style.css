@@ -44,6 +44,11 @@ html, body {
 	/*border: 1vh solid #E1CA7C;*/
 }
 
+iframe {
+	width: 100vw;
+	height: 80vh;
+}
+
 /*.border-menu {
   position: relative;
   padding-left: 1.25em;
