@@ -9,7 +9,12 @@ app.config(function($stateProvider, $urlRouterProvider){
 		.state('profile', {
 			url: '/re/profile',
 			templateUrl: 'routes/profile/profile.html',
-			controllerAs: 'ProfileCtrl as PR', 
+			controllerAs: 'ProfileCtrl as PR'
+			/* resolve : {    wait until we got a end point then unleash
+				profile : function(ProfileService){
+					return ProfileService.getRestaruantInfo();
+				} 
+			} */
 			
 		})
 		

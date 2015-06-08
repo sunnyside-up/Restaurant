@@ -1,25 +1,119 @@
+<!--restaurantsProfile !-->
 <div class="container-fluid">
-    <div class="container col-md-12">
-        <h1 class="text-center">Profile</h1>
+    <div class="container">
+        <p class="text-center profile">Profile</p>
+    </div>
+    <div>
+         <form class='restProfileForm'>
+        <ul class="profilelist list-group"> 
+            <li>
+            <i class="fa fa-university blueicon"></i>&nbsp&nbsp 
+            Restaurant Name : {{PR.profile.businessName}}
+            Konoha Raman
+            </li></br>
+
+            <li>
+            <i class="fa fa-map-marker blueicon"></i>&nbsp&nbsp
+            Address : {{PR.profile.businessAddress.addressOne}}&nbsp 
+            {{PR.profile.businessAddress.addressTwo}}, 
+            {{PR.profile.businessAddress.city}}, 
+            {{PR.profile.businessAddress.state}},
+            {{PR.profile.businessAddress.zip}}
+            Fire Village, sakura ave, #113
+            </li></br>
+
+            <li>
+            <i class="fa fa-phone blueicon"></i>&nbsp&nbsp
+            Contact Number : {{PR.profile.businessNumber}} 
+            123.4566
+            </li></br>
+
+            <li><i class="fa fa-envelope-o blueicon"></i>&nbsp&nbsp
+            Email : {{PR.profile.businessEmail}}
+            konoharaman@ninja.com
+            </li></br>
+
+            <li><i class="fa fa-clock-o blueicon"></i>&nbsp&nbsp
+            business Hours : {{PR.profile.businessHours}}
+            12 am - 5 pm
+            </li></br>
+
+            <li><i class="fa fa-users blueicon"></i>&nbsp&nbsp
+            Max capacity : {{PR.profile.capacity}}
+            15 
+            </li>
+        </ul>
+        <div id='restEditButton'>
+            <button class="btn btn-link" ng-click="toggle">edit</button>
+        </div>
+        
+    </form>
     </div>
     <!-- edit option for profile !-->
-    <div class="text-center">
-        <ul class="text-center profilelist">
-            <li>Restaurant Name : {{PR.restarantInfo.businessName}}</li>
-            <li>Address : {{PR.restarantInfo.businessAddress.addressOne}}&nbsp 
-            {{PR.restarantInfo.businessAddress.addressTwo}}, 
-            {{PR.restarantInfo.businessAddress.city}}, 
-            {{PR.restarantInfo.businessAddress.state}},
-            {{PR.restarantInfo.businessAddress.zip}}
-            </li>
-            <li>Contact Number : {{PR.restarantInfo.businessNumber}} 
-            </li>
-            <li>Email : {{PR.restarantInfo.businessEmail}} </li>
-            <li>business Hours : {{PR.restarantInfo.businessHours}}</li> <!-- need to talk about this might be two numbers needed ex.12 - 5 !-->
-            <li>Max capacity : {{PR.restarantInfo.capacity}}</li>
-            <li>Social Media : {{PR.restarantInfo}}</li>   <!--string array here? and ng repeat?!-->
-        </ul>
-        <button class="btn btn-link">
-            <link href="">edit</button>
+   
+</div>
+
+<!--restaurantsProfile !-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <form class="form-horizontal" method="post">
+                    <fieldset>
+                        <legend class="text-center profileheader">Edit Profile</legend>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user profileicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="fname" name="name" type="text" placeholder="First Name" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user profileicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="lname" name="name" type="text" placeholder="Last Name" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o profileicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="email" name="email" type="text" placeholder="Email Address" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square profileicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o profileicon"></i></span>
+                            <div class="col-md-8">
+                                <textarea class="form-control" id="message" name="message" placeholder="Enter your massage for us here. We will get back to you within 2 business days." rows="7"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
+
+
+  
+<style>
+
+
+</style>
+
+
