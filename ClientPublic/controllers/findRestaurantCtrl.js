@@ -27,10 +27,13 @@ app.controller('FindRestaurant', function($scope) {
 	}
 
 	FR.phoneNumberFormat = function(number) {
-		var arr = [number]
-		// var number = arr.split('')
-		console.log(arr)
-		return number;
+		number = number.toString().split('')
+		var beginning = number.slice(0, 3)
+		var middle = number.slice(3, 6)
+		var end = number.slice(6, 10)
+
+
+		return "(" + beginning.join('') + ")";
 	}
 
 
