@@ -2,13 +2,12 @@
 	{
 		"name" : "",
 		"email" : "",
-		"password" : "",
+		"time" : "",
 		"phoneNumber" : "",
 		"creditCard" : [ {
 			"cardName" : "",
 			"cardNumber" : "",
 			"cardExp" : ""
-		}],
-		"favoriteList" : {}
+		}]
 	}
 ]
