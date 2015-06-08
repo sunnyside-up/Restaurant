@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app='MRE'>
+	<head>
+		<meta charset="UTF-8">
+		<title>M.RE</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="styles/style.css">
+	</head>
+	<body ng-controller='LandingCtrl'>
+
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Logo/Icon</a>
+		</div>
+
+		<div class='navbar navbar-right'>
+			<!-- Single button -->
+			<div class="btn-group" dropdown is-open="status.isopen">
+				<a type="button" class="btn dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+				Sign In <span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="#">Users</a></li>
+					<li><a href="#">Restaurant Owners</a></li>
+					<li><a href="#">Registration</a></li>
+				</ul>
+			</div>
+		</div>
+		
+
+
+		<!-- Angular -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.14/angular-ui-router.min.js"></script>
+		<script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
+					
+		<!-- App Js Files-->
+		<script src="assets/js/app.js"></script>
+		<script src="assets/js/Controllers/LandingCtrl.js"></script>
+							
+		<!--<script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+		<script>
+		  var socket = io.connect('http://localhost:8005');
+		  socket.on('news', function (data) {
+		    console.log(data);
+		    socket.emit('my other event', { my: 'data' });
+		  });
+		</script>-->
+
+	</body>
+</html>
