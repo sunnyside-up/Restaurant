@@ -33,7 +33,7 @@ app.controller('FindRestaurant', function($scope) {
 		var end = number.slice(6, 10)
 
 
-		return "(" + beginning.join('') + ")";
+		return "(" + beginning.join('') + ") " + middle.join('') + " - " + end.join('');
 	}
 
 
