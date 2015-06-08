@@ -1,3 +1,39 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class='find-rest-title'>
 	Restaurants
 </div>
@@ -19,12 +55,16 @@
 
 	</div>
 	{{FR.daySelector(FR.dayOfWeek, obj.operatingHours)}}
-	<div class='rest hours' ng-repeat='obj in FR.today'>
-		<div class='hours' ng-repeat='open in obj.hours'>
-			<span>{{FR.dayOfWeek}}</span>
-			<span>Open:  {{open.businessHoursFrom}}</span>
-			<span>Close:  {{open.businessHoursTo}}</span>
+	<div class='rest hours'>
+		<div ng-repeat='obj in FR.today'>
+			<div class='hours' ng-repeat='open in obj.hours'>
+				<span>{{FR.dayOfWeek}}</span>
+				<span>Open:  {{open.businessHoursFrom}}</span>
+				<span>Close:  {{open.businessHoursTo}}</span>
+			</div>
 		</div>
+		<span>Phone: {{FR.phoneNumberFormat(obj.businessNumber)}}</span>
 	</div>
+				
 		
 </div>

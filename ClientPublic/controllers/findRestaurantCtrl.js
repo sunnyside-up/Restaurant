@@ -26,6 +26,13 @@ app.controller('FindRestaurant', function($scope) {
 		// }
 	}
 
+	FR.phoneNumberFormat = function(number) {
+		var arr = [number]
+		// var number = arr.split('')
+		console.log(arr)
+		return number;
+	}
+
 
 FR.restaurants = [
 	{
@@ -39,6 +46,7 @@ FR.restaurants = [
 			"state" : "Idaho",
 			"zip" : "83401"
 		},
+		businessNumber: 2085342947,
 
 		"operatingHours": [{
 			"Sunday": [
@@ -117,6 +125,7 @@ FR.restaurants = [
 			"state" : "Utah",
 			"zip" : "84097"
 		},
+		businessNumber: 8017343957,
 
 		"operatingHours": [{
 			"Sunday": [
