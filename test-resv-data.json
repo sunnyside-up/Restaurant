@@ -1,6 +1,7 @@
 [
 	{
 		"name" : "",
+		"guestNumber" : "",
 		"email" : "",
 		"time" : "",
 		"phoneNumber" : "",
@@ -8,6 +9,7 @@
 			"cardName" : "",
 			"cardNumber" : "",
 			"cardExp" : ""
-		}]
+		}],
+		"orderCart": [{"_id": ""}]
 	}
 ]
