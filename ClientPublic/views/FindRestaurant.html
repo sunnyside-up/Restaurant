@@ -1,42 +1,30 @@
+<div class="container-fluid">
+	<div class="row search-input">
+		<div class="col-lg-4 col-lg-offset-4">	
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Search Restaurants..."/> 
+	            <span class="input-group-btn">
+	                <button class="btn btn-default" type="button">Go!</button>
+	            </span>
+			</div>
+		</div>
+	</div>
+	<div class="row search-input">
+		<div class="form-group col-lg-4 col-lg-offset-4">
+			<label class="distance">Distance:</label>
+			<div class="distance">
+				<select name="distance" class="form-control ng-pristine ng-valid ng-touched">
+					<option value="0">5 mi</option>
+					<option value="1">10 mi</option>
+					<option value="2">50 mi</option>
+					<option value="3">100 mi</option>
+					<option value="4">No Filter</option>
+				</select>
+			</div>
+			<button type="link" class="btn btn-link">Change Location</button>
+		</div>
+	</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class='find-rest-title'>
-	Restaurants
-</div>
 
 <div class='find-rest-data' ng-repeat='obj in FR.restaurants'>
 	<div class='rest image'></div>
