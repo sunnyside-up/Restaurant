@@ -1,12 +1,12 @@
 (function () {
 	angular.module('MRE')
-		.controller('ProfileCtrl', ['$scope','$modal','$log', function($scope, ProfileService, profile, $modal){
+		.controller('ProfileCtrl', ['$scope','$modal','$log', function($scope, ProfileService, profile, $modal, $log){
 		var PR = this;
 		PR.profile = profile;  //inject from profileService
 	
 
 	//open modal to update restaurant
-	$scope.open = function (size) {
+	$scope.open = function() {
 
     var modalInstance = $modal.open({
       animation: $scope.animationsEnabled,
