@@ -13,7 +13,18 @@
 }
 
 .Reservations {
-	width: 100%;
-	background: wheat;
+	width: auto;
+	background: transparent;
+	height: auto;
+	margin: 0 auto;
 	
+}
+
+
+.resCard {
+	
+	height: 50px;
+	background-color: lemonchiffon;
+	margin: 0 auto;
+	opacity: .75;
 }

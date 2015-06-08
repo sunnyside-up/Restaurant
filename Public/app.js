@@ -9,13 +9,15 @@ app.config(function($stateProvider, $urlRouterProvider){
 		.state('profile', {
 			url: '/re/profile',
 			templateUrl: 'routes/profile/profile.html',
-			controllerAs: 'ProfileCtrl as PR', 
+			controller: 'ProfileCtrl',
+			controllerAs: 'PR', 
 			
 		})
 		
 		.state('reservations', {
 			url: '/re/reservations',
 			templateUrl: 'routes/reservations/reservations.html',
-			controllerAs: 'ReservationsCtrl as RE'
-		});
+			controller: 'ReservationsCtrl',
+			controllerAs: 'RE'
+		})
 });
