@@ -24,4 +24,35 @@
 			<button type="link" class="btn btn-link">Change Location</button>
 		</div>
 	</div>
+
+
+<div class='find-rest-data' ng-repeat='obj in FR.restaurants'>
+	<div class='rest image'></div>
+	<div>
+
+		<div class='rest name'>
+			{{obj.businessName}}
+		</div>
+		<div class='rest address'>
+			<span>{{obj.businessAddress.addressOne}}</span>
+			<span>{{obj.businessAddress.addressTwo}}
+			{{obj.businessAddress.city}}
+			{{obj.businessAddress.state}}</span>
+			<span>{{obj.businessAddress.zip}}</span>
+		</div>
+
+	</div>
+	{{FR.daySelector(FR.dayOfWeek, obj.operatingHours)}}
+	<div class='rest hours'>
+		<div ng-repeat='obj in FR.today'>
+			<div class='hours' ng-repeat='open in obj.hours'>
+				<span>{{FR.dayOfWeek}}</span>
+				<span>Open:  {{open.businessHoursFrom}}</span>
+				<span>Close:  {{open.businessHoursTo}}</span>
+			</div>
+		</div>
+		<span>Phone: {{FR.phoneNumberFormat(obj.businessNumber)}}</span>
+	</div>
+				
+		
 </div>
