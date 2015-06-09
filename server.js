@@ -84,6 +84,35 @@ var requireAuth = function(req, res, next) {
 };
 
 //--routes--//
+// create user end-point
+app.post('/api/users', UserCtrl.create);
+app.post('/api/business', BusinessCtrl.create);
+// login endpoint
+app.post('/api/users/auth', passport.authenticate('local', { failureRedirect: '/mainLanding' }), function(req, res) {
+	res.status(200).end();
+});
+app.post('/api/business/auth', passport.authenticate('local', { failureRedirect: '/mainLanding' }), function(req, res) {
+	res.status(200).end();
+});
+// restaurant endpoint
+app.post('/api/menu', restaurantController.create);
+app.get('/api/menu', restaurantController.read);
+app.put('/api/menu/:id', restaurantController.update);
+app.delete('/api/menu/:id', restaurantController.delete);
+// client endpoint
+app.post('/api/menu', clientController.create);
+app.get('/api/menu', clientController.read);
+app.put('/api/menu/:id', clientController.update);
+app.delete('/api/menu/:id', clientController.delete);
+// menu endpoint
+app.post('/api/menu', menuController.create);
+app.get('/api/menu', menuController.read);
+app.put('/api/menu/:id', menuController.update);
+app.delete('/api/menu/:id', menuController.delete);
+
+
+
+
 
 
 //--connections--//

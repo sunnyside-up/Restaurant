@@ -82,18 +82,7 @@ var userRestaurantSchema = new mongoose.Schema({
 	}],
 	
 
-	menu: [
-		{ 	category: String },
-		{	items: [{ 
-				name: String,
-				cost: Number,
-				description: String,
-				photos: [{type: String}]
-			}]
-		}
-	]
-
-	
+	menu: [{type: Schema.Types.ObjectId, ref: 'MenuItem'}]	
 	
 
 });

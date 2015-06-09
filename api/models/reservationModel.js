@@ -3,12 +3,14 @@ var bcrypt = require('bcrypt-nodejs'); // required for windows users*
 // if using linux or apple ios, use bcrypt
 var q = require('q');
 
-var UserReservationSchema = new mongoose.Schema({
+var userReservationSchema = new mongoose.Schema({
 	
 	name: {
 		first: { type: String, required: true },
 		last:  { type: String, required: true }
 	},
+
+	guestNumber: { type: Number, required: true },
 	
 	email: { type: String, required: true, unique: true	},
 
@@ -23,10 +25,12 @@ var UserReservationSchema = new mongoose.Schema({
 			cardExp: { type: Number , required: true, unique: true}
 		}
 	],
+
+	orderCart: [{type: Schema.Types.ObjectId, ref: 'MenuItem'}]
 		
 
 });
 
 
 
-module.exports = mongoose.model('UserReservation', userClientSchema);
+module.exports = mongoose.model('UserReservation', userReservationSchema);

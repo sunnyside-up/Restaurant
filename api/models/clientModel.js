@@ -25,7 +25,7 @@ var userClientSchema = new mongoose.Schema({
 	],
 		
 
-	favoriteList: [{type: mongoose.Schema.Types.ObjectId, ref: 'Restaurant'}]
+	favoriteList: [{type: mongoose.Schema.Types.ObjectId, ref: 'UserRestaurant'}]
 
 });
 
