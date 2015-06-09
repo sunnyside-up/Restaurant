@@ -5,6 +5,7 @@ var q = require('q');
 
 var menuItemSchema = new mongoose.Schema({
 	
+	restaurant: [{type: mongoose.Schema.Types.ObjectId, ref: 'UserRestaurant'}],
 
 	menu: [
 		{ 	category: String },

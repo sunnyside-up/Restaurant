@@ -1,0 +1,24 @@
+<div type="text/ng-template">
+
+    <div class="modal-header">
+        <h3 class="modal-title">User Sign in:</h3>
+    </div>
+
+    <div class="modal-body">
+        <form class="login-form">
+            <label for="inputUsername" class="sr-only">Username</label>
+            <input type="text" id="inputUsername" class="form-control" placeholder="Email" required autofocus ng-model="User.username">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="User.password">
+            <br>
+            <div class="text-danger">{{error}}</div>            
+        </form>
+
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="login()">Login</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+
+</div>

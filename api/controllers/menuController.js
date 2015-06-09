@@ -2,8 +2,8 @@ var Restaurant = require('../models/restaurantModel');
 
 module.exports = {
 	create: function(req, res) {
-		var newRestaurant = new Restaurant(req.body);
-		newRestaurant.save(function(err, result) {
+		var newMenu = new Menu(req.body);
+		newMenu.save(function(err, result) {
 			if (err) {
 				return res.status(500).res.send(err);
 			} else {
@@ -13,7 +13,7 @@ module.exports = {
 	},
 
 	read: function(req, res) {
-		Restaurant
+		Menu
 		.find(req.query)
 		.exec(function(err, result) {
 			if (err) {
@@ -25,7 +25,7 @@ module.exports = {
 	},
 
 	update: function(req, res) {
-		Restaurant.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
+		Menu.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
 			if (err) {
 				return res.status(500).res.send(err);
 			} else {
@@ -35,7 +35,7 @@ module.exports = {
 	},
 
 	delete: function(req, res) {
-		Restaurant.findByIdAndRemove(req.params.id, function(err, result) {
+		Menu.findByIdAndRemove(req.params.id, function(err, result) {
 			if (err) {
 				return res.status(500).res.send(err);
 			} else {
