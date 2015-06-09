@@ -2,7 +2,7 @@ var app = angular.module('MRE');
 
 app.controller('LandingCtrl', function($scope, $log, $modal) {
 
-	// modal for login tab
+	// modal for user login tab
 	$scope.openLoginUser = function (size) {
 
 	    var modalInstance = $modal.open({
@@ -19,7 +19,7 @@ app.controller('LandingCtrl', function($scope, $log, $modal) {
 		});
 	};
 
-	// modal for login tab
+	// modal for business login tab
 	$scope.openLoginBusiness = function (size) {
 
 	    var modalInstance = $modal.open({
@@ -41,7 +41,7 @@ app.controller('LandingCtrl', function($scope, $log, $modal) {
 
 	    var modalInstance = $modal.open({
 	      	animation: $scope.animationsEnabled,
-	      	templateUrl: 'views/registration.html',
+	      	templateUrl: 'views/registration.html?bust=' + Math.random().toString(36).slice(2),
 	      	controller: 'RegistrationCtrl',
 	      	size: size
 	    });
