@@ -1,9 +1,9 @@
-var Menu = require('../models/menuItemModel');
+var Reservation = require('../models/reservationModel');
 
 module.exports = {
 	create: function(req, res) {
-		var newMenu = new Menu(req.body);
-		newMenu.save(function(err, result) {
+		var newReservation = new Reservation(req.body);
+		newReservation.save(function(err, result) {
 			if (err) {
 				return res.status(500).res.send(err);
 			} else {
@@ -13,7 +13,7 @@ module.exports = {
 	},
 
 	read: function(req, res) {
-		Menu
+		Reservation
 		.find(req.query)
 		.exec(function(err, result) {
 			if (err) {
@@ -25,7 +25,7 @@ module.exports = {
 	},
 
 	update: function(req, res) {
-		Menu.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
+		Reservation.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
 			if (err) {
 				return res.status(500).res.send(err);
 			} else {
@@ -35,7 +35,7 @@ module.exports = {
 	},
 
 	delete: function(req, res) {
-		Menu.findByIdAndRemove(req.params.id, function(err, result) {
+		Reservation.findByIdAndRemove(req.params.id, function(err, result) {
 			if (err) {
 				return res.status(500).res.send(err);
 			} else {

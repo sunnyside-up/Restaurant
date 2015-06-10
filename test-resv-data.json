@@ -3,7 +3,10 @@
 		"name" : "",
 		"guestNumber" : "",
 		"email" : "",
-		"time" : "",
+		"resvSch" : [{
+			"resvDate": "",
+			"time" : ""
+		}],
 		"phoneNumber" : "",
 		"creditCard" : [ {
 			"cardName" : "",
