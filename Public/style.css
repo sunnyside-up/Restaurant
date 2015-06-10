@@ -14,7 +14,6 @@
 
 .Reservations {
 	width: auto;
-	background: transparent;
 	height: auto;
 	margin: 0 auto;
 	
@@ -23,8 +22,8 @@
 
 .resCard {
 	
-	height: 50px;
+	height: auto;
 	background-color: lemonchiffon;
-	margin: 0 auto;
+	margin: 20px;
 	opacity: .75;
 }
