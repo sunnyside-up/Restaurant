@@ -70,7 +70,7 @@ html, body {
 
 .distance {
 	display: inline-block;
-=======
+}
 .hours {
 	display: flex;
 	flex-direction: column;

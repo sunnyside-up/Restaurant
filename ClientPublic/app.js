@@ -19,10 +19,10 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controller: 'FindRestaurant',
 			controllerAs: 'FR'
 		})
-		.state('reservations', {
-			url: '/reservations',
-			templateUrl: 'views/reservations.html',
-			controller: 'ReservationsCtrl',
+		.state('restaurant', {
+			url: '/restaurant',
+			templateUrl: 'views/restaurant.html',
+			controller: 'RestaurantCtrl',
 			controllerAs: 'RE'
 		});
 });
