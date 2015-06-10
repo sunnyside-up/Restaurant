@@ -51,8 +51,19 @@
 				<span>Close:  {{open.businessHoursTo}}</span>
 			</div>
 		</div>
-		<span>Phone: {{FR.phoneNumberFormat(obj.businessNumber)}}</span>
+		<span>{{FR.phoneNumberFormat(obj.businessNumber)}}</span>
 	</div>
 				
 		
 </div>
+<div>
+	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+	<div id="map-canvas"></div>
+</div>
+	
+	<!-- Google search scripts -->
+	<script type="text/javascript-lazy" src="//maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+	<script type="text/javascript-lazy" src='../google/google.js'>
+		console.log('it works')
+	</script>
+
