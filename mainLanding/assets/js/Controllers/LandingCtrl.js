@@ -2,12 +2,14 @@ var app = angular.module('MRE');
 
 app.controller('LandingCtrl', function($scope, $log, $modal) {
 
+	var randStr = '?bust=' + Math.random().toString(36).slice(2);
+
 	// modal for user login tab
 	$scope.openLoginUser = function (size) {
 
 	    var modalInstance = $modal.open({
 	      	animation: $scope.animationsEnabled,
-	      	templateUrl: 'views/loginUser.html',
+	      	templateUrl: 'views/loginUser.html'+randStr,
 	      	controller: 'UserLoginCtrl',
 	      	size: size
 	    });
@@ -24,7 +26,7 @@ app.controller('LandingCtrl', function($scope, $log, $modal) {
 
 	    var modalInstance = $modal.open({
 	      	animation: $scope.animationsEnabled,
-	      	templateUrl: 'views/loginBusiness.html',
+	      	templateUrl: 'views/loginBusiness.html'+randStr,
 	      	controller: 'BusinessLoginCtrl',
 	      	size: size
 	    });
@@ -41,7 +43,7 @@ app.controller('LandingCtrl', function($scope, $log, $modal) {
 
 	    var modalInstance = $modal.open({
 	      	animation: $scope.animationsEnabled,
-	      	templateUrl: 'views/registration.html?bust=' + Math.random().toString(36).slice(2),
+	      	templateUrl: 'views/registration.html'+randStr,
 	      	controller: 'RegistrationCtrl',
 	      	size: size
 	    });
