@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs'); // required for windows users*
 // if using linux or apple ios, use bcrypt
+var Schema = mongoose.Schema;
 var q = require('q');
 
 var userRestaurantSchema = new mongoose.Schema({
@@ -82,18 +83,7 @@ var userRestaurantSchema = new mongoose.Schema({
 	}],
 	
 
-	menu: [
-		{ 	category: String },
-		{	items: [{ 
-				name: String,
-				cost: Number,
-				description: String,
-				photos: [{type: String}]
-			}]
-		}
-	]
-
-	
+	menu: [{type: Schema.Types.ObjectId, ref: 'MenuItem'}]	
 	
 
 });

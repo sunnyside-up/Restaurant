@@ -1,13 +1,18 @@
 [
 	{
 		"name" : "",
+		"guestNumber" : "",
 		"email" : "",
-		"time" : "",
+		"resvSch" : [{
+			"resvDate": "",
+			"time" : ""
+		}],
 		"phoneNumber" : "",
 		"creditCard" : [ {
 			"cardName" : "",
 			"cardNumber" : "",
 			"cardExp" : ""
-		}]
+		}],
+		"orderCart": [{"_id": ""}]
 	}
 ]

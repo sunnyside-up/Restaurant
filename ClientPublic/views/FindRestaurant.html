@@ -1,4 +1,69 @@
-<div class='search-view'>
-	<a class='view-select'>Map</a>
-	<a class='view-select'>List</a>
+<div class="container-fluid">
+	<div class="row search-input">
+		<div class="col-lg-4 col-lg-offset-4">	
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Search Restaurants..."/> 
+	            <span class="input-group-btn">
+	                <button class="btn btn-default" type="button">Go!</button>
+	            </span>
+			</div>
+		</div>
+	</div>
+	<div class="row search-input">
+		<div class="form-group col-lg-4 col-lg-offset-4">
+			<label class="distance">Distance:</label>
+			<div class="distance">
+				<select name="distance" class="form-control ng-pristine ng-valid ng-touched">
+					<option value="0">5 mi</option>
+					<option value="1">10 mi</option>
+					<option value="2">50 mi</option>
+					<option value="3">100 mi</option>
+					<option value="4">No Filter</option>
+				</select>
+			</div>
+			<button type="link" class="btn btn-link">Change Location</button>
+		</div>
+	</div>
+
+
+<div class='find-rest-data' ng-repeat='obj in FR.restaurants'>
+	<div class='rest image'></div>
+	<div>
+
+		<div class='rest name'>
+			{{obj.businessName}}
+		</div>
+		<div class='rest address'>
+			<span>{{obj.businessAddress.addressOne}}</span>
+			<span>{{obj.businessAddress.addressTwo}}
+			{{obj.businessAddress.city}}
+			{{obj.businessAddress.state}}</span>
+			<span>{{obj.businessAddress.zip}}</span>
+		</div>
+
+	</div>
+	{{FR.daySelector(FR.dayOfWeek, obj.operatingHours)}}
+	<div class='rest hours'>
+		<div ng-repeat='obj in FR.today'>
+			<div class='hours' ng-repeat='open in obj.hours'>
+				<span>{{FR.dayOfWeek}}</span>
+				<span>Open:  {{open.businessHoursFrom}}</span>
+				<span>Close:  {{open.businessHoursTo}}</span>
+			</div>
+		</div>
+		<span>{{FR.phoneNumberFormat(obj.businessNumber)}}</span>
+	</div>
+				
+		
 </div>
+<div>
+	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+	<div id="map-canvas"></div>
+</div>
+	
+	<!-- Google search scripts -->
+	<script type="text/javascript-lazy" src="//maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+	<script type="text/javascript-lazy" src='../google/google.js'>
+		console.log('it works')
+	</script>
+

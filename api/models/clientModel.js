@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs'); // required for windows users*
 // if using linux or apple ios, use bcrypt
+var Schema = mongoose.Schema;
 var q = require('q');
 
 var userClientSchema = new mongoose.Schema({
@@ -25,7 +26,7 @@ var userClientSchema = new mongoose.Schema({
 	],
 		
 
-	favoriteList: [{type: mongoose.Schema.Types.ObjectId, ref: 'Restaurant'}]
+	favoriteList: [{type: Schema.Types.ObjectId, ref: 'UserRestaurant'}]
 
 });
 
