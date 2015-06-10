@@ -17,6 +17,8 @@ var env = require('./.envVar');
 var ClientController = require('./api/controllers/clientController');
 var RestaurantController = require('./api/controllers/restaurantController');
 var AuthController = require('./api/controllers/authController');
+var MenuController = require('./api/controllers/menuController');
+var ReservationController = require('./api/controllers/reservationController');
 
 //--server side model--//
 var ClientUser = require('./api/models/clientModel');
@@ -27,6 +29,7 @@ var port = env.PORT || 10000;
 var mongoUri = 'mongodb://localhost:27017/mre';
 
 //--middleware--//
+app.use('/', express.static(__dirname+'/mainLanding'));
 app.use('/re', express.static(__dirname+'/Public'));
 app.use('/public', express.static(__dirname+'/ClientPublic'));
 app.use('/auth', express.static(__dirname+'/authPublic'));
@@ -36,7 +39,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
 	resave: false,
 	saveUninitialized: true,
-	secret: env.SESSION_SECRET
+	secret: 'oursecrettext'//env.SESSION_SECRET
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -85,8 +88,8 @@ var requireAuth = function(req, res, next) {
 
 //--routes--//
 // create user end-point
-app.post('/api/users', UserCtrl.create);
-app.post('/api/business', BusinessCtrl.create);
+app.post('/api/client', ClientController.create);
+app.post('/api/restaurant', RestaurantController.create);
 // login endpoint
 app.post('/api/users/auth', passport.authenticate('local', { failureRedirect: '/mainLanding' }), function(req, res) {
 	res.status(200).end();
@@ -95,21 +98,23 @@ app.post('/api/business/auth', passport.authenticate('local', { failureRedirect:
 	res.status(200).end();
 });
 // restaurant endpoint
-app.post('/api/menu', restaurantController.create);
-app.get('/api/menu', restaurantController.read);
-app.put('/api/menu/:id', restaurantController.update);
-app.delete('/api/menu/:id', restaurantController.delete);
+app.get('/api/restaurant', RestaurantController.read);
+app.put('/api/restaurant/:id', RestaurantController.update);
+app.delete('/api/restaurant/:id', RestaurantController.delete);
 // client endpoint
-app.post('/api/menu', clientController.create);
-app.get('/api/menu', clientController.read);
-app.put('/api/menu/:id', clientController.update);
-app.delete('/api/menu/:id', clientController.delete);
+app.get('/api/client', ClientController.read);
+app.put('/api/client/:id', ClientController.update);
+app.delete('/api/client/:id', ClientController.delete);
 // menu endpoint
-app.post('/api/menu', menuController.create);
-app.get('/api/menu', menuController.read);
-app.put('/api/menu/:id', menuController.update);
-app.delete('/api/menu/:id', menuController.delete);
-
+app.post('/api/menu', MenuController.create);
+app.get('/api/menu', MenuController.read);
+app.put('/api/menu/:id', MenuController.update);
+app.delete('/api/menu/:id', MenuController.delete);
+// reservation endpoint
+app.post('/api/reservation', ReservationController.create);
+app.get('/api/reservation', ReservationController.read);
+app.put('/api/reservation/:id', ReservationController.update);
+app.delete('/api/reservation/:id', ReservationController.delete);
 
 
 

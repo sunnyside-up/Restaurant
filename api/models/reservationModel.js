@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs'); // required for windows users*
 // if using linux or apple ios, use bcrypt
+var Schema = mongoose.Schema;
 var q = require('q');
 
 var userReservationSchema = new mongoose.Schema({
@@ -14,7 +15,10 @@ var userReservationSchema = new mongoose.Schema({
 	
 	email: { type: String, required: true, unique: true	},
 
-	time: { type: Number, required: true },
+	resvSch: [{
+		resvDate: { type: Date, required: true},
+		time: { type: Number, required: true }
+	}],
 
 	phoneNumber: {type: Number, required: true },
 
