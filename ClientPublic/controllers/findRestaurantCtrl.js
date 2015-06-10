@@ -15,15 +15,12 @@ app.controller('FindRestaurant', function($scope) {
 			"Friday", 
 			"Saturday"];
 		FR.dayOfWeek = dayArr[day]
-		console.log(FR.dayOfWeek)
 	}()
 
 	FR.daySelector = function(today, schedule) {
-		// for (var day in schedule[0]) {
-			if(schedule[0].hasOwnProperty(today)) {
-				FR.today = schedule[0][today]
-			}
-		// }
+		if(schedule[0].hasOwnProperty(today)) {
+			FR.today = schedule[0][today]
+		}
 	}
 
 	FR.phoneNumberFormat = function(number) {
@@ -31,10 +28,12 @@ app.controller('FindRestaurant', function($scope) {
 		var beginning = number.slice(0, 3)
 		var middle = number.slice(3, 6)
 		var end = number.slice(6, 10)
-
-
 		return "(" + beginning.join('') + ") " + middle.join('') + " - " + end.join('');
 	}
+
+
+	
+
 
 
 FR.restaurants = [
@@ -198,5 +197,6 @@ FR.restaurants = [
 	},
 	
 ]
+
 
 });
