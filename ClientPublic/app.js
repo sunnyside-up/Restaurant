@@ -1,6 +1,5 @@
 var app = angular.module('MRE', ['ui.router', 'ui.bootstrap', 'ngLoadScript']);
 
-
 app.config(function($stateProvider, $urlRouterProvider){
 
 	$urlRouterProvider.otherwise('/find-restaurant');

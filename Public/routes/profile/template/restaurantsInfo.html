@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="container col-md-12">
+        <p class="text-center profile">Profile</p>
+    </div>
+    <!-- edit option for profile !-->
+    <div class="text-center">
+        <ul class="text-center profilelist">
+            <li>Restaurant Name : {{PR.restarantInfo.businessName}}</li>
+            <li>Address : {{PR.restarantInfo.businessAddress.addressOne}}&nbsp 
+            {{PR.restarantInfo.businessAddress.addressTwo}}, 
+            {{PR.restarantInfo.businessAddress.city}}, 
+            {{PR.restarantInfo.businessAddress.state}},
+            {{PR.restarantInfo.businessAddress.zip}}
+            </li>
+            <li>Contact Number : {{PR.restarantInfo.businessNumber}} 
+            </li>
+            <li>Email : {{PR.restarantInfo.businessEmail}} </li>
+            <li>business Hours : {{PR.restarantInfo.businessHours}}</li> <!-- need to talk about this might be two numbers needed ex.12 - 5 !-->
+            <li>Max capacity : {{PR.restarantInfo.capacity}}</li>
+            <li>Social Media : {{PR.restarantInfo}}</li>   <!--string array here? and ng repeat?!-->
+        </ul>
+        <button class="btn btn-link"><link href="">edit</button>
+    </div>
+</div>

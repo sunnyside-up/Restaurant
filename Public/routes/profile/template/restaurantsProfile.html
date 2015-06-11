@@ -1,0 +1,61 @@
+<form class="form-horizontal" method="post">
+    <div class='modal-header'>
+        <h1 class="profileicon text-center">Edit Profile</h1>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-university profileicon" style="font-size: 27px;"></i></span>
+            <div class="col-md-8">
+                <input id="restaurantName" ng-model="PR.name" name="name" type="text" placeholder="Restaurant Name" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-map-marker profileicon" style="font-size: 27px;"></i></span>
+            <div class="col-md-8">
+                <input id="lname" name="name" type="text" placeholder="Address" ng-model="PR.addressOne" class="form-control">
+                <input id="lname" name="name" type="text" placeholder="Suite, unit, building, floor, etc" ng-model="PR.addressTwo" class="form-control">
+            </div>
+            <span class="col-md-1 col-md-offset-1 text-center"></span>
+            <div class="col-md-3 col-md-offset-2">
+                <input id="lname" name="name" type="text" placeholder="City" ng-model="PR.city" class="form-control">
+                <input id="lname" name="name" type="text" placeholder="State" ng-model="PR.state" class="form-control">
+                <input id="lname" name="name" type="text" placeholder="Zip" ng-model="PR.zip" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-envelope-o profileicon" style="font-size: 27px;"></i></span>
+            <div class="col-md-8">
+                <input id="email" name="email" type="text" placeholder="Email Address" ng-model="RE.email" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-phone-square profileicon" style="font-size: 27px;"></i></span>
+            <div class="col-md-8">
+                <input id="phone" name="phone" type="text" placeholder="Contact number" ng-model="PR.phone" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-clock-o profileicon" style="font-size: 27px;"></i></span>
+            <div class="col-md-8">
+                <input id="hours" name="hours" type="text" placeholder="Business Hours" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-street-view profileicon" style="font-size: 27px;"></i></span>
+            <div class="col-md-8">
+                <input name="table" type="text" ng-model="PR.tableNumber" placeholder="number of tables" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-users profileicon" style="font-size: 27px;"></i></span>
+            <div class="col-md-8">
+                <input id="hours" name="hours" type="text" ng-model="PR.capacity" placeholder="maximum guest capacity" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary btn-lg" ng-click="PR.updateProfile()">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>

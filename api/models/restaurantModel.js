@@ -3,7 +3,7 @@ var bcrypt = require('bcrypt-nodejs'); // required for windows users*
 // if using linux or apple ios, use bcrypt
 var Schema = mongoose.Schema;
 var q = require('q');
-
+ 
 var userRestaurantSchema = new mongoose.Schema({
 	
 	// businessName: { type: String, required: true },

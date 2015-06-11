@@ -1,2 +1,3 @@
 node_modules
 .envVar.js
+.DS_Store
