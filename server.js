@@ -94,7 +94,7 @@ app.post('/api/restaurant', RestaurantController.create);
 app.post('/api/client/auth', passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
 	res.status(200).end();
 });
-app.post('/api/business/auth', passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
+app.post('/api/restaurant/auth', passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
 	res.status(200).end();
 });
 // restaurant endpoint

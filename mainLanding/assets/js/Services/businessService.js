@@ -21,10 +21,6 @@ app.service('businessService', function($http, $q, $window) {
 	this.login = function(user) {
 		console.log('user in businessService: ', user);
 
-		user.businessEmail = user.email;
-		delete user.email;
-		console.log("after businessService change: ",user);
-
 		return $http({
 			method: 'POST',
 			url: '/api/restaurant/auth',
