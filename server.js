@@ -29,10 +29,10 @@ var port = env.PORT || 10000;
 var mongoUri = 'mongodb://localhost:27017/mre';
 
 //--middleware--//
-app.use('/', express.static(__dirname+'/mainLanding'));
 app.use('/re', express.static(__dirname+'/Public'));
 app.use('/public', express.static(__dirname+'/ClientPublic'));
 app.use('/auth', express.static(__dirname+'/authPublic'));
+app.use('/', express.static(__dirname+'/mainLanding'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -91,7 +91,7 @@ var requireAuth = function(req, res, next) {
 app.post('/api/client', ClientController.create);
 app.post('/api/restaurant', RestaurantController.create);
 // login endpoint
-app.post('/api/users/auth', passport.authenticate('local', { failureRedirect: '/mainLanding' }), function(req, res) {
+app.post('/api/client/auth', passport.authenticate('local', { failureRedirect: '/mainLanding' }), function(req, res) {
 	res.status(200).end();
 });
 app.post('/api/business/auth', passport.authenticate('local', { failureRedirect: '/mainLanding' }), function(req, res) {
