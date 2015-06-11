@@ -4,6 +4,23 @@ app.controller('LandingCtrl', function($scope, $log, $modal) {
 
 	var randStr = '?bust=' + Math.random().toString(36).slice(2);
 
+	// modal for about us login tab
+	$scope.openAboutUs = function (size) {
+
+	    var modalInstance = $modal.open({
+	      	animation: $scope.animationsEnabled,
+	      	templateUrl: 'views/aboutUs.html'+randStr,
+	      	controller: 'AboutUsCtrl',
+	      	size: size
+	    });
+
+	    modalInstance.result.then(function (selectedItem) {
+	      	$scope.selected = selectedItem;
+	    }, function () {
+	      	$log.info('Modal dismissed at: ' + new Date());
+		});
+	};
+
 	// modal for user login tab
 	$scope.openLoginUser = function (size) {
 

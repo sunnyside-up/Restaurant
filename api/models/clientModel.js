@@ -17,13 +17,13 @@ var userClientSchema = new mongoose.Schema({
 
 	phoneNumber: Number,
 
-	// creditCard: [
-	// 	{ 
-	// 		cardName: String,
-	// 		cardNumber: { type: Number , required: true},
-	// 		cardExp: { type: Number , required: true}
-	// 	}
-	// ],
+	creditCard: [
+		{ 
+			cardName: String,
+			cardNumber: { type: Number},
+			cardExp: { type: Number}
+		}
+	],
 		
 
 	favoriteList: [{type: Schema.Types.ObjectId, ref: 'UserRestaurant'}]
