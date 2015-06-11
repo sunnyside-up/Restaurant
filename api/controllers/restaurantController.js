@@ -5,7 +5,7 @@ module.exports = {
 		var newRestaurant = new Restaurant(req.body);
 		newRestaurant.save(function(err, result) {
 			if (err) {
-				return res.status(500).res.send(err);
+				return res.status(500).send(err);
 			} else {
 				return res.send(result);
 			}
@@ -17,7 +17,7 @@ module.exports = {
 		.find(req.query)
 		.exec(function(err, result) {
 			if (err) {
-				return res.status(500).res.send(err);
+				return res.status(500).send(err);
 			} else {
 				return res.send(result);
 			}
@@ -27,7 +27,7 @@ module.exports = {
 	update: function(req, res) {
 		Restaurant.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
 			if (err) {
-				return res.status(500).res.send(err);
+				return res.status(500).send(err);
 			} else {
 				return res.send(result);
 			}
@@ -37,7 +37,7 @@ module.exports = {
 	delete: function(req, res) {
 		Restaurant.findByIdAndRemove(req.params.id, function(err, result) {
 			if (err) {
-				return res.status(500).res.send(err);
+				return res.status(500).send(err);
 			} else {
 				return res.send(result);
 			}
