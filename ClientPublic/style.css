@@ -49,36 +49,6 @@ html, body {
 	flex-direction: column;
 }
 
-/*.border-menu {
-  position: relative;
-  padding-left: 1.25em;
-}
-.border-menu:before {
-  content: "";
-  position: absolute;
-  top: 0.25em;
-  left: 0;
-  width: 1em;
-  height: 0.125em;
-  border-top: 0.375em double #000;
-  border-bottom: 0.125em solid #000;
-}*/
-
-/*styling for mobile menu button on navigation bar*/
-.main-pulldown {
-	border-style: none;
-}
-
-/*additional styling for search input bar*/
-.search-input {
-	padding-top: 30px;
-}
-
-.distance {
-	display: inline-block;
-}
-
-
 /*google mapss styling*/
 
 #map-canvas {
