@@ -1,1 +1,18 @@
-<div>hi im rfeservations</div>
+<div  class="Reservations">
+  <div class="row">
+    <div class="col-sm-12 resCont">
+      Level 2
+        <div class="col-sm-4">
+        <div ng-repeat ="obj in RE.reservations | orderBy: '-time':true">
+          <div class="resCard">
+            <div>{{obj.name}}</div>
+            <div>{{obj.time}}</div>
+            <div>{{obj.email}}</div>
+            <div>{{obj.phoneNumber}}</div>
+          </div>
+        </div>
+        </div>
+          <div class="col-sm-6" >seating</div>
+    </div>
+  </div>
+</div>  
