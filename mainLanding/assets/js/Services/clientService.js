@@ -15,17 +15,13 @@ app.service('clientService', function($http, $q, $window) {
 
 	this.login = function(user) {
 		console.log('user in userService: ', user);
-		var deferred = $q.defer();
-		$http({
+		return $http({
 			method: 'POST',
 			url: '/api/client/auth',
 			data: user
 		}).then(function(res) {
-			deferred.resolve(res.data);
-		}).catch(function(res) {
-			deferred.reject(res.data);
+			$window.location.href = '/public'
 		});
-		return deferred.promise;
 	};
 	
 });

@@ -28,16 +28,16 @@
   //business hours not complete
   this.updateProfile = function(name, addressOne, addressTwo, city, state, zip, email, phone, businessHour, tableNumber,capactiy){
     var userRestaurant = {
-      userRestaurant.businessName : name,
-      userRestaurant.businessAddress.addressOne : addressOne,
-      userRestaurant.businessAddress.addressTwo : addressTwo,
-      userRestaurant.businessAddress.city : city,
-      userRestaurant.businessAddress.state : state,
-      userRestaurant.businessAddress.zip : zip,
-      userRestaurant.businessEmail : email,
-      userRestaurant.businessNumber : phone,
-      userRestaurant.tablePlacement.tableNumber : tableNumber,
-      userRestaurant.tablePlacement.capacity : capacity,
+      businessName : name,
+      addressOne : addressOne,
+      addressTwo : addressTwo,
+      city : city,
+      state : state,
+      zip : zip,
+      businessEmail : email,
+      businessNumber : phone,
+      tableNumber : tableNumber,
+      capacity : capacity,
     }
   }
 
