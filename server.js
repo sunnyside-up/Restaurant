@@ -91,10 +91,10 @@ var requireAuth = function(req, res, next) {
 app.post('/api/client', ClientController.create);
 app.post('/api/restaurant', RestaurantController.create);
 // login endpoint
-app.post('/api/client/auth', passport.authenticate('local', { failureRedirect: '/mainLanding' }), function(req, res) {
+app.post('/api/client/auth', passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
 	res.status(200).end();
 });
-app.post('/api/business/auth', passport.authenticate('local', { failureRedirect: '/mainLanding' }), function(req, res) {
+app.post('/api/business/auth', passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
 	res.status(200).end();
 });
 // restaurant endpoint
