@@ -49,7 +49,8 @@ html, body {
 	flex-direction: column;
 }
 
-/*.border-menu {
+
+.border-menu {
   position: relative;
   padding-left: 1.25em;
 }
@@ -62,7 +63,7 @@ html, body {
   height: 0.125em;
   border-top: 0.375em double #000;
   border-bottom: 0.125em solid #000;
-}*/
+}
 
 /*styling for mobile menu button on navigation bar*/
 .main-pulldown {
