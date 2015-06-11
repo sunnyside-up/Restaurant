@@ -3,7 +3,7 @@
     <div class="col-sm-12 resCont">
       Level 2
         <div class="col-sm-4">
-        <div ng-repeat ="obj in RE.reservations | orderBy: '-time':true">
+        <div ng-repeat ="obj in RE.reservations | orderBy: '-time':true" ng-show="">
           <div class="resCard">
             <div>{{obj.name}}</div>
             <div>{{obj.time}}</div>
