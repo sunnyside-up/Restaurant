@@ -29,3 +29,52 @@ html, body {
 	margin-top: 0;
 }
 
+<<<<<<< HEAD
+=======
+.carousel { z-index: -99; } /* keeps this behind all content */
+.carousel .item {
+    position: fixed; 
+    width: 100%; height: 100%;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+ 
+}
+.carousel .one {
+    background: url(../assets/images/rest-bg-one.jpg) center center no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -moz-background-size: cover;
+}
+.carousel .two {
+    background: url(../assets/images/rest-bg-two.jpg) center center no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -moz-background-size: cover;
+}
+.carousel .three {
+    background: url(../assets/images/rest-bg-three.jpg) center center no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -moz-background-size: cover;
+}
+.carousel .four {
+    background: url(../assets/images/rest-bg-four.jpg) center center no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -moz-background-size: cover;
+}
+.carousel .five {
+    background: url(../assets/images/rest-bg-five.jpg) center center no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -moz-background-size: cover;
+}
+.carousel .active.left {
+    left:0;
+    opacity:0;
+    z-index:2;
+}
+>>>>>>> 3a8f2cb3c6c5ca3656a497bbd956cffb3b58e711

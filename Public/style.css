@@ -20,82 +20,26 @@ body {
 
 
 
-
-.test {
-	background-color: #D88C46;
-	box-sizing: content-box;
-
+.body {
+	height: 100%;
+	width: 100%;
 }
 
-.in-yard {
-	width: 200px;
+
+.main {
+	background-image: url(https://snap-photos.s3.amazonaws.com/img-thumbs/960w/0HCMIT272C.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-color: transparent
+	height: 1000px;
+	padding: 50px;
+}
+
+.Reservations {
+	width: auto;
 	height: auto;
-	background:#222222; 
-	float: right;
-	margin: 10px 15px 0 0;
-}
-
-.card {
-  background: #222222;
-  position: relative;
-  width: 300px;
-  height: auto;
-  color: #7b8087;
-  float: left;
-	margin-top: 20px;
-}
-
-.new-card {
-  background: #222222;
-  position: relative;
-  width: 600px;
-  height: 500px;
-  color: #7b8087;
-  float: left;
-	margin-top: 40px;
-}
-
-.grower {
-	padding: 8px 20px;
-	margin-top: 5px;
-	margin-left: 20px;
-	display: inline-block;
-}
-
-.acres {
-	text-align: center;
-	font-size: 16px;
-	padding: 5px;
-	display: inline-block;
-}
-
-.field {
-	text-align: center;
-	font-size: 36px;
-	padding: 10px;
-}
-
-.geo-shape {
-	height: 150px;
-	width: 225px;
-	background: #7b8087;
 	margin: 0 auto;
 	
-}
-
-.btm-button {
-	margin:10px 0px 0px 43px;
-}
-
-.trucks {
-	margin: 5px ;
-	width: 30px;
-	height: 25px;
-	background: #7b8087;
-	display: inline-block;
-	text-align: center;
-	font-size: 12px;
-	color:#222222;
 }
 
 .time{
@@ -211,4 +155,10 @@ margin-right: auto;
   margin-right: auto;
 }
 
+.resCard {
+	height: auto;
+	background-color: lemonchiffon;
+	margin: 20px;
+	opacity: .75;
+}
 

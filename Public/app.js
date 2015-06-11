@@ -16,7 +16,6 @@ app.config(function($stateProvider, $urlRouterProvider){
 					return ProfileService.getRestaruantInfo();
 				} 
 			} */
-			
 		})
 		
 		.state('reservations', {
@@ -25,6 +24,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controller: 'ReservationsCtrl',
 			controllerAs: 'RE'
 		})
+
 
 		.state('menu', {
 			url: '/re/menu',

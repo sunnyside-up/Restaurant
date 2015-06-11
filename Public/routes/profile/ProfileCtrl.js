@@ -27,7 +27,7 @@
   //submit function for updating profile
   //business hours not complete
   this.updateProfile = function(name, addressOne, addressTwo, city, state, zip, email, phone, businessHour, tableNumber,capactiy){
-    var update = {
+    var userRestaurant = {
       userRestaurant.businessName : name,
       userRestaurant.businessAddress.addressOne : addressOne,
       userRestaurant.businessAddress.addressTwo : addressTwo,

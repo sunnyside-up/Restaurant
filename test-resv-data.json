@@ -1,13 +1,27 @@
 [
 	{
 		"name" : "",
+<<<<<<< HEAD
 		"email" : "",
 		"time" : "",
+=======
+		"guestNumber" : "",
+		"email" : "",
+		"resvSch" : [{
+			"resvDate": "",
+			"time" : ""
+		}],
+>>>>>>> 3a8f2cb3c6c5ca3656a497bbd956cffb3b58e711
 		"phoneNumber" : "",
 		"creditCard" : [ {
 			"cardName" : "",
 			"cardNumber" : "",
 			"cardExp" : ""
+<<<<<<< HEAD
 		}]
+=======
+		}],
+		"orderCart": [{"_id": ""}]
+>>>>>>> 3a8f2cb3c6c5ca3656a497bbd956cffb3b58e711
 	}
 ]
