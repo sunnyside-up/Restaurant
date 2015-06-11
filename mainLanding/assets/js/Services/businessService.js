@@ -20,17 +20,14 @@ app.service('businessService', function($http, $q, $window) {
 
 	this.login = function(user) {
 		console.log('user in businessService: ', user);
-		var deferred = $q.defer();
-		$http({
+
+		return $http({
 			method: 'POST',
 			url: '/api/restaurant/auth',
 			data: user
 		}).then(function(res) {
-			deferred.resolve(res.data);
-		}).catch(function(res) {
-			deferred.reject(res.data);
+			$window.location.href = '/re';
 		});
-		return deferred.promise;
 	};
 
 });
