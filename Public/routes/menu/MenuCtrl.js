@@ -10,17 +10,6 @@
                     })
                 }
 
-
-                // Menu.item = menu : [
-                // 	category: "drinks"
-                // 	items: [{
-                // 		name : "ice tea",
-                // 		cost : 4.5,
-                // 		description : "tea",
-                // 		photos : ""
-                // 	}]
-                // ] 
-
                 //adding item to the menu
                 this.addMenuItem = function(category, name, cost, description, photos) {
                     var newItem = {
@@ -32,6 +21,7 @@
                             photos: photos
                         }]
                     }
+                    
                     MenuService.addMenuItem(newItem).then(function(res) {
                         userRestaurant.menu.push(newItem);
                         MENU.category = '';

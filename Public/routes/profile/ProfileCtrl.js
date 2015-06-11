@@ -34,8 +34,8 @@
         addressTwo : addressTwo,
         city : city,
         state : state,
-        zip : zip,
-      }
+        zip : zip
+      },
       businessEmail : email,
       businessNumber : phone,
       tablePlacement : [
