@@ -20,7 +20,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controllerAs: 'FR'
 		})
 		.state('restaurant', {
-			url: '/restaurant',
+			url: '/restaurant/:id',
 			templateUrl: 'views/restaurant.html',
 			controller: 'RestaurantCtrl',
 			controllerAs: 'RE'

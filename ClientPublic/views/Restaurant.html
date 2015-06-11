@@ -1,0 +1,77 @@
+<div class="container-fluid"> <!-- container -->
+	<div> <!-- restaurant info -->
+		<div class='find-rest-data' ng-repeat='obj in FR.restaurants'>
+		<div class='rest image'></div>
+		<div>
+
+		<div class='rest name'>
+			{{obj.businessName}}
+		</div>
+		<div class='rest address'>
+			<span>{{obj.businessAddress.addressOne}}</span>
+			<span>{{obj.businessAddress.addressTwo}}
+			{{obj.businessAddress.city}}
+			{{obj.businessAddress.state}}</span>
+			<span>{{obj.businessAddress.zip}}</span>
+		</div>
+
+		</div>
+		{{FR.daySelector(FR.dayOfWeek, obj.operatingHours)}}
+		<div class='rest hours'>
+		<div ng-repeat='obj in FR.today'>
+			<div class='hours' ng-repeat='open in obj.hours'>
+				<span>{{FR.dayOfWeek}}</span>
+				<span>Open:  {{open.businessHoursFrom}}</span>
+				<span>Close:  {{open.businessHoursTo}}</span>
+			</div>
+		</div>
+		<span>{{FR.phoneNumberFormat(obj.businessNumber)}}</span>
+		</div>
+				
+
+		</div>
+	</div>
+	
+	<div> <!-- form container -->
+		<form>
+			<fieldset class="res-time"> <!-- day and time of reservation -->
+				<div class="res-input">
+					<label>Date</label>
+					<input />
+				</div>
+				<div class="res-input">
+					<label>Hours</label>
+					<input />
+				</div>
+				<div class="res-input">
+					<label>Minutes</label>
+					<input />
+				</div>
+				<div class="res-input">
+					<label>Time of Day</label>
+					<input />
+				</div>
+			</fieldset>
+			<fieldset class="res-guest-details"> <!-- number of guests -->
+				<div class="res-input">
+					<label>Number of Guests</label>
+					<input />
+				</div>
+				<div class="res-input">
+					<label></label>
+					<input />
+				</div>
+			</fieldset>
+			<fieldset class="res-preorders"> <!-- drink/appetizer orders -->
+				<div class="res-input">
+					<label></label>
+					<input />
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	
+	<div> <!-- submit, save, cancel button panel -->
+		
+	</div>
+</div>
