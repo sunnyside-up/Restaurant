@@ -1,8 +1,8 @@
 var app = angular.module('MRE');
 
 app.controller('MainCtrl', function($scope, $log, $modal) {
-	// Fixes modal caching problem (not sure how this works)
-	var randStr = '?bust=' + Math.random().toString(36).slice(2);
+	
+	var randStr = '?bust=' + Math.random().toString(36).slice(2); // Fixes modal caching problem (not sure how this works)
 
 	$scope.animationsEnabled = true;
 

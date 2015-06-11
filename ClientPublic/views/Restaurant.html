@@ -43,51 +43,35 @@
 					<label>Time</label>
 					<input id="" type="time" ng-model="reservation.time"/>
 				</div>
-				<div class="res-input">
-					<label>Hour</label>
-					<select name="Hour">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-						<option value="11">11</option>
-						<option value="12">12</option>
-					</select>
-				</div>
-				<div class="res-input">
-					<label>Minute</label>
-					<select name="Minute">
-						<option value="1">00</option>
-						<option value="2">15</option>
-						<option value="3">30</option>
-						<option value="4">45</option>
-					</select>
-				</div>
-				<div class="res-input">
-					<label>Time of Day</label>
-					<select name="Time of Day" id="">
-						<option value="1">AM</option>
-						<option value="2">PM</option>
-					</select>
-				</div>
 			</fieldset>
 			<fieldset class="res-guest-details"> <!-- number of guests -->
 				<div class="res-input">
 					<label>Number of Guests</label>
-					<input />
-				</div>
-				<div class="res-input">
-					<label></label>
-					<input />
+					<input id="" type="number"/>
 				</div>
 			</fieldset>
 			<fieldset class="res-preorders"> <!-- drink/appetizer orders -->
+				<div class="res-input">
+					<div class="res-input preorder-type">
+						<label></label>
+						<select name="Type of Preorder">
+							<option value="1">Drink</option>
+							<option value="2">Appetizer</option>
+						</select>
+					</div>
+					<div class="res-input preorder-item">
+						<label></label>
+						<select name="Items">
+							<option value="" ng-repeat="item in this.items"></option>
+						</select>
+					</div>
+					<div class="res-input preorder-quantity">
+						<label></label>
+						<input id="" type="number" />
+					</div>
+				</div>
+			</fieldset>
+			<fieldset class="res-contact-info"> <!-- confirm/enter contact info -->
 				<div class="res-input">
 					<label></label>
 					<input />
