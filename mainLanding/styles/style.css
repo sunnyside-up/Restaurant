@@ -29,8 +29,6 @@ html, body {
 	margin-top: 0;
 }
 
-<<<<<<< HEAD
-=======
 .carousel { z-index: -99; } /* keeps this behind all content */
 .carousel .item {
     position: fixed; 
@@ -77,4 +75,3 @@ html, body {
     opacity:0;
     z-index:2;
 }
->>>>>>> 3a8f2cb3c6c5ca3656a497bbd956cffb3b58e711

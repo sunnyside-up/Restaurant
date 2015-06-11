@@ -15,27 +15,6 @@ app.controller('FindRestaurant', function($scope) {
 			"Friday", 
 			"Saturday"];
 		FR.dayOfWeek = dayArr[day]
-<<<<<<< HEAD
-		console.log(FR.dayOfWeek)
-	}()
-
-	FR.daySelector = function(today, schedule) {
-		// for (var day in schedule[0]) {
-			if(schedule[0].hasOwnProperty(today)) {
-				FR.today = schedule[0][today]
-			}
-		// }
-	}
-
-	FR.phoneNumberFormat = function(number) {
-		var arr = [number]
-		// var number = arr.split('')
-		console.log(arr)
-		return number;
-	}
-
-
-=======
 	}()
 
 	FR.daySelector = function(today, schedule) {
@@ -57,7 +36,6 @@ app.controller('FindRestaurant', function($scope) {
 
 
 
->>>>>>> 3a8f2cb3c6c5ca3656a497bbd956cffb3b58e711
 FR.restaurants = [
 	{
 		"businessName" : "Chucky Cheese Nips",
@@ -220,8 +198,4 @@ FR.restaurants = [
 	
 ]
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 3a8f2cb3c6c5ca3656a497bbd956cffb3b58e711
 });

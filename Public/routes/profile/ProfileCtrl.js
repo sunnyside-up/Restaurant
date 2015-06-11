@@ -46,6 +46,7 @@
       ]
     }
   }
+  
 
 		}]); //end of controller
 })();
