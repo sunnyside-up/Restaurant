@@ -1,24 +1,45 @@
-(function () {
+(function () { 
 	angular.module('MRE')
-		.controller('ProfileCtrl', ['$scope','$modal','$log', function($scope, ProfileService, profile, $modal, $log){
+		.controller('ProfileCtrl', ['$scope', 'ProfileService', '$modal','$log', function($scope, ProfileService, $modal, $log){
 		var PR = this;
-		PR.profile = profile;  //inject from profileService
+		//PR.profile = profile;  //inject from profileService
 	
 
-	//open modal to update restaurant
-	$scope.open = function() {
 
+	//open modal to update restaurant
+	PR.profileUpdateModal = function(size) {
+    console.log('hello');
     var modalInstance = $modal.open({
       animation: $scope.animationsEnabled,
-      templateUrl: 'Public/routes/profile/template/restaurantsProfile.html',
-      controller: 'ProfileCtrl',
-      size: lg,
-      resolve: {
-        profileForm : function () {
-          return $scope.;
-        }
-      }
+      templateUrl: 'routes/profile/template/restaurantsProfile.html?bust=' + Math.random().toString(36).slice(2),
+      controller: 'ProfileCtrl as PR',
+      size: size
     });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+  //need help on file upload, ex.which ng upload service
+  //to use
+  //submit function for updating profile
+  //business hours not complete
+  this.updateProfile = function(name, addressOne, addressTwo, city, state, zip, email, phone, businessHour, tableNumber,capactiy){
+    var update = {
+      userRestaurant.businessName : name,
+      userRestaurant.businessAddress.addressOne : addressOne,
+      userRestaurant.businessAddress.addressTwo : addressTwo,
+      userRestaurant.businessAddress.city : city,
+      userRestaurant.businessAddress.state : state,
+      userRestaurant.businessAddress.zip : zip,
+      userRestaurant.businessEmail : email,
+      userRestaurant.businessNumber : phone,
+      userRestaurant.tablePlacement.tableNumber : tableNumber,
+      userRestaurant.tablePlacement.capacity : capacity,
+    }
+  }
 
 		}]); //end of controller
 })();

@@ -158,14 +158,23 @@ margin-right: auto;
 
 .profile {
 	font-size: 65px;
+	margin-top: -20px;
 }
 
 .profilelist {
 	list-style-type: none;
-	font-size: 20px; 
+	font-size: 15px; 
 	font-size: 2vw;
 }
 
+/*.editProfile {
+	width: 500px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -25px;
+}*/
 .restProfileForm {
 	width: 50%;
 	margin: 0 auto;
@@ -189,3 +198,17 @@ margin-right: auto;
         font-size: 35px;
         color: #36A0FF;
 }
+
+.inlineDisplay {
+	display: inline-block;
+}
+
+/* Menu page */
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+

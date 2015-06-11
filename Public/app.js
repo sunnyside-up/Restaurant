@@ -5,11 +5,12 @@ app.config(function($stateProvider, $urlRouterProvider){
 
 	$urlRouterProvider.otherwise('/re/reservations');
 
-	$stateProvider
+	$stateProvider 
 		.state('profile', {
 			url: '/re/profile',
 			templateUrl: 'routes/profile/profile.html',
-			controllerAs: 'ProfileCtrl as PR'
+			controller: 'ProfileCtrl',
+			controllerAs: 'PR'
 			/* resolve : {    wait until we got a end point then unleash
 				profile : function(ProfileService){
 					return ProfileService.getRestaruantInfo();
@@ -21,6 +22,14 @@ app.config(function($stateProvider, $urlRouterProvider){
 		.state('reservations', {
 			url: '/re/reservations',
 			templateUrl: 'routes/reservations/reservations.html',
-			controllerAs: 'ReservationsCtrl as RE'
-		});
+			controller: 'ReservationsCtrl',
+			controllerAs: 'RE'
+		})
+
+		.state('menu', {
+			url: '/re/menu',
+			templateUrl: 'routes/menu/menu.html',
+			controller: 'MenuCtrl',
+			controllerAs: 'MENU'
+		})
 });

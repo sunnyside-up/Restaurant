@@ -1,119 +1,54 @@
 <!--restaurantsProfile !-->
+ 
 <div class="container-fluid">
     <div class="container">
-        <p class="text-center profile">Profile</p>
+        <legend class="text-center profile">Profile</legend>
     </div>
     <div>
          <form class='restProfileForm'>
-        <ul class="profilelist list-group"> 
-            <li>
-            <i class="fa fa-university blueicon"></i>&nbsp&nbsp 
-            Restaurant Name : {{PR.profile.businessName}}
-            Konoha Raman
-            </li></br>
+            <ul class="profilelist list-group"> 
+                <li>
+                <i class="fa fa-university profileicon fa-x2"></i>&nbsp&nbsp 
+                Restaurant Name : {{PR.profile.businessName}}
+                Konoha Raman
+                </li></br>
 
-            <li>
-            <i class="fa fa-map-marker blueicon"></i>&nbsp&nbsp
-            Address : {{PR.profile.businessAddress.addressOne}}&nbsp 
-            {{PR.profile.businessAddress.addressTwo}}, 
-            {{PR.profile.businessAddress.city}}, 
-            {{PR.profile.businessAddress.state}},
-            {{PR.profile.businessAddress.zip}}
-            Fire Village, sakura ave, #113
-            </li></br>
+                <li>
+                <i class="fa fa-map-marker profileicon"></i>&nbsp&nbsp&nbsp
+                Address : {{PR.profile.businessAddress.addressOne}}&nbsp 
+                {{PR.profile.businessAddress.addressTwo}}, 
+                {{PR.profile.businessAddress.city}}, 
+                {{PR.profile.businessAddress.state}},
+                {{PR.profile.businessAddress.zip}}
+                Fire Village, sakura ave, #113
+                </li></br>
 
-            <li>
-            <i class="fa fa-phone blueicon"></i>&nbsp&nbsp
-            Contact Number : {{PR.profile.businessNumber}} 
-            123.4566
-            </li></br>
+                <li>
+                <i class="fa fa-phone profileicon"></i>&nbsp&nbsp
+                Contact Number : {{PR.profile.businessNumber}} 
+                123.4566
+                </li></br>
 
-            <li><i class="fa fa-envelope-o blueicon"></i>&nbsp&nbsp
-            Email : {{PR.profile.businessEmail}}
-            konoharaman@ninja.com
-            </li></br>
+                <li><i class="fa fa-envelope-o profileicon"></i>&nbsp&nbsp
+                Email : {{PR.profile.businessEmail}}
+                konoharaman@ninja.com
+                </li></br>
 
-            <li><i class="fa fa-clock-o blueicon"></i>&nbsp&nbsp
-            business Hours : {{PR.profile.businessHours}}
-            12 am - 5 pm
-            </li></br>
+                <li><i class="fa fa-clock-o profileicon"></i>&nbsp&nbsp
+                business Hours : {{PR.profile.businessHours}}
+                12 am - 5 pm
+                </li></br>
 
-            <li><i class="fa fa-users blueicon"></i>&nbsp&nbsp
-            Max capacity : {{PR.profile.capacity}}
-            15 
-            </li>
-        </ul>
+                <li><i class="fa fa-users profileicon"></i>&nbsp&nbsp
+                Max capacity : {{PR.profile.capacity}}
+                15 
+                </li>
+            </ul>
         <div id='restEditButton'>
-            <button class="btn btn-link" ng-click="toggle">edit</button>
+            <button class="btn btn-link" ng-click="PR.profileUpdateModal('lg')">edit</button>
         </div>
         
     </form>
     </div>
-    <!-- edit option for profile !-->
-   
+    <!-- edit option for profile !-->   
 </div>
-
-<!--restaurantsProfile !-->
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="well well-sm">
-                <form class="form-horizontal" method="post">
-                    <fieldset>
-                        <legend class="text-center profileheader">Edit Profile</legend>
-
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user profileicon" style="font-size: 27px;"></i></span>
-                            <div class="col-md-8">
-                                <input id="fname" name="name" type="text" placeholder="First Name" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user profileicon" style="font-size: 27px;"></i></span>
-                            <div class="col-md-8">
-                                <input id="lname" name="name" type="text" placeholder="Last Name" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o profileicon" style="font-size: 27px;"></i></span>
-                            <div class="col-md-8">
-                                <input id="email" name="email" type="text" placeholder="Email Address" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square profileicon" style="font-size: 27px;"></i></span>
-                            <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o profileicon" style="font-size: 27px;"></i></span>
-                            <div class="col-md-8">
-                                <textarea class="form-control" id="message" name="message" placeholder="Enter your massage for us here. We will get back to you within 2 business days." rows="7"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-  
-<style>
-
-
-</style>
-
-
