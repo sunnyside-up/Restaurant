@@ -14,14 +14,28 @@ app.config(function($stateProvider, $urlRouterProvider){
 		})
 		.state('findRestaurant', {
 			url: '/find-restaurant',
-			templateUrl: 'views/findRestaurant.html',
+			templateUrl: 'views/FindRestaurant.html',
 			controller: 'FindRestaurant',
 			controllerAs: 'FR'
 		})
-		.state('reservations', {
-			url: '/reservations',
-			templateUrl: 'views/reservations.html',
-			controller: 'ReservationsCtrl',
-			controllerAs: 'RE'
+		.state('restaurant', {
+			url: '/restaurant/:id',
+			templateUrl: 'views/restaurant.html',
+			controller: 'RestaurantCtrl',
+			controllerAs: 'RE',
+			resolve: {
+				getRestById: function($stateParams, RestaurantService) {
+					console.log(parseInt($stateParams.id));
+					for(var i = 0; i < RestaurantService.restaurants.length; i++) {
+						console.log(RestaurantService.restaurants[i].businessId + " " + parseInt($stateParams.id));
+						if(RestaurantService.restaurants[i].businessId === parseInt($stateParams.id)) {
+							console.log("Match Found.");
+							var obj = RestaurantService.restaurants[i];
+							return obj;
+							break;
+						}
+					}
+				}
+			}
 		});
 });

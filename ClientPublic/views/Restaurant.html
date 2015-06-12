@@ -1,0 +1,86 @@
+<div class="container-fluid"> <!-- container -->
+	<div> <!-- restaurant info -->
+		<div class='find-rest-data'>
+		<div class='rest image'></div>
+		<div>
+
+		<div class='rest name'>
+			{{thisRest.businessName}}
+		</div>
+		<div class='rest address'>
+			<span>{{thisRest.businessAddress.addressOne}}</span>
+			<span>{{thisRest.businessAddress.addressTwo}}
+			{{thisRest.businessAddress.city}}
+			{{thisRest.businessAddress.state}}</span>
+			<span>{{thisRest.businessAddress.zip}}</span>
+		</div>
+
+		</div>
+		{{RE.daySelector(RE.dayOfWeek, thisRest.operatingHours)}}
+		<div class='rest hours'>
+		<div ng-repeat='thisRest in RE.today'>
+			<div class='hours' ng-repeat='open in thisRest.hours'>
+				<span>{{RE.dayOfWeek}}</span>
+				<span>Open:  {{open.businessHoursFrom}}</span>
+				<span>Close:  {{open.businessHoursTo}}</span>
+			</div>
+		</div>
+		<span>{{RE.phoneNumberFormat(thisRest.businessNumber)}}</span>
+		</div>
+				
+
+		</div>
+	</div>
+	
+	<div> <!-- form container -->
+		<form>
+			<fieldset class="res-time"> <!-- day and time of reservation -->
+				<div class="res-input">
+					<label>Date</label>
+					<input id="" type="date" ng-model="reservation.date"/>
+				</div>
+				<div class="res-input">
+					<label>Time</label>
+					<input id="" type="time" ng-model="reservation.time"/>
+				</div>
+			</fieldset>
+			<fieldset class="res-guest-details"> <!-- number of guests -->
+				<div class="res-input">
+					<label>Number of Guests</label>
+					<input id="" type="number"/>
+				</div>
+			</fieldset>
+			<fieldset class="res-preorders"> <!-- drink/appetizer orders -->
+				<div class="res-input">
+					<div class="res-input preorder-type">
+						<label></label>
+						<select name="Type of Preorder">
+							<option value="1">Drink</option>
+							<option value="2">Appetizer</option>
+						</select>
+					</div>
+					<div class="res-input preorder-item">
+						<label></label>
+						<select name="Items">
+							<option value="" ng-repeat="item in this.items"></option>
+						</select>
+					</div>
+					<div class="res-input preorder-quantity">
+						<label></label>
+						<input id="" type="number" />
+					</div>
+				</div>
+			</fieldset>
+			<fieldset class="res-contact-info"> <!-- confirm/enter contact info -->
+				<div class="res-input">
+					<label></label>
+					<input />
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	
+	<div> <!-- submit, save, cancel button panel -->
+		
+	</div>
+</div>
