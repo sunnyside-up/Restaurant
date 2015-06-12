@@ -12,11 +12,11 @@
         templateUrl: 'routes/reservations/Modal/modal.html',
         controllerAs: 'REModalCtrl as REM',
         size: size
-  //      resolve: {
-  //        items: function () {
-  //          return REM.items;
-  //        }
-  //      }
+        resolve: {
+          items: function () {
+            return REM.items;
+          }
+        }
       });
   
       modalInstance.result.then(function (selectedItem) {
@@ -24,7 +24,7 @@
       }, function () {
         $log.info('Modal dismissed at: ' + new Date());
       });
-      console.log('open was clicked')
+      console.log('open was clicked');
     };
   
     $scope.toggleAnimation = function () {
