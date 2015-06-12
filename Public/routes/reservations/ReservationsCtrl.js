@@ -1,51 +1,25 @@
 (function () {
 	angular.module('MRE')
-		.controller('ReservationsCtrl', ['$scope', "ReservationsService",function($scope, ReservationsService){
+		.controller('ReservationsCtrl', ['$scope', "ReservationsService",'$modal', '$log',function($scope, ReservationsService, $modal, $log){
 			var RE = this;
-			
-			RE.reservations = [
-				{
-					"name" : "Bob the Builder",
-					"email" : "Wecanfixit@gmail.com",
-					"time" : 11,
-					"phoneNumber" : "409-495-8273",
-					"creditCard" : [ 	
-						{
-						"cardName" : "visa",
-						"cardNumber" : "8950039493049304",
-						"cardExp" : "08/17"
-						}
-					]
-				},
-				{
-					"name" : "ivanna Reservati",
-					"email" : "rightNow@hotmail.com",
-					"time" : 8,
-					"phoneNumber" : "394-039-2849",
-					"creditCard" : [ 	
-						{
-						"cardName" : "master card",
-						"cardNumber" : "7485948374857483",
-						"cardExp" : "09/18"
-						}
-					]
-				},
-				{
-					"name" : "paula mifinga",
-					"email" : "sillyname@aol.com",
-					"time" : 10,
-					"phoneNumber" : "854-392-4859",
-					"creditCard" : [ 	
-						{
-						"cardName" : "american express",
-						"cardNumber" : "8495938495743454",
-						"cardExp" : "06/14"
-						}
-					]
-				}
-			];
-						
-			
-//			RE.reservations = ReservationsService.getReservations();
-		}]); //end of controller
+		
+                 RE.reservations = ReservationsService.getReservations();
+                 RE.reservations = [];
+		
+				 RE.reservationModal = function(size) {
+                    console.log('hello');
+                    var modalInstance = $modal.open({
+                        animation: $scope.animationsEnabled,
+                        templateUrl: 'routes/reservations/Modal/reservationModal.html?bust=' + Math.random().toString(36).slice(2),
+                        controller: 'ReservationModalCtrl as RMC',
+                        size: size
+                    });
+
+                    modalInstance.result.then(function(selectedItem) {
+                        $scope.selected = selectedItem;
+                    }, function() {
+                        $log.info('Modal dismissed at: ' + new Date());
+                    });
+                };
+		}]);	//end of controller	
 })();
