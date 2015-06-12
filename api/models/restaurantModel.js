@@ -3,7 +3,7 @@ var bcrypt = require('bcrypt-nodejs'); // required for windows users*
 // if using linux or apple ios, use bcrypt
 var Schema = mongoose.Schema;
 var q = require('q');
-
+ 
 var userRestaurantSchema = new mongoose.Schema({
 	
 	// businessName: { type: String, required: true },
@@ -22,59 +22,59 @@ var userRestaurantSchema = new mongoose.Schema({
 	
 	businessNumber: Number,
 
-	// operatingHours: [{
+	operatingHours: [{
 		
-	// 	Monday: [
-	// 		{ status: { type: String, enum: ["Open", "Closed"], required: true}},
-	// 		{ hours: [{	
-	// 			businessHoursFrom: Number, 
-	// 			businessHoursTo: Number }]
-	// 		}
-	// 	],
-	// 	Tuesday:[
-	// 		{ status: { type: String, enum: ["Open", "Closed"], required: true}},
-	// 		{ hours: [{	
-	// 			businessHoursFrom: Number, 
-	// 			businessHoursTo: Number }]
-	// 		}
-	// 	],
-	// 	Wednesday: [
-	// 		{ status: { type: String, enum: ["Open", "Closed"], required: true}},
-	// 		{ hours: [{	
-	// 			businessHoursFrom: Number, 
-	// 			businessHoursTo: Number }]
-	// 		}
-	// 	],
-	// 	Thursday: [
-	// 		{ status: { type: String, enum: ["Open", "Closed"], required: true}},
-	// 		{ hours: [{	
-	// 			businessHoursFrom: Number, 
-	// 			businessHoursTo: Number }]
-	// 		}
-	// 	],
-	// 	Friday: [
-	// 		{ status: { type: String, enum: ["Open", "Closed"], required: true}},
-	// 		{ hours: [{	
-	// 			businessHoursFrom: Number, 
-	// 			businessHoursTo: Number }]
-	// 		}
-	// 	],
-	// 	Saturday: [
-	// 		{ status: { type: String, enum: ["Open", "Closed"], required: true}},
-	// 		{ hours: [{	
-	// 			businessHoursFrom: Number, 
-	// 			businessHoursTo: Number }]
-	// 		}
-	// 	],
-	// 	Sunday: [
-	// 		{ status: { type: String, enum: ["Open", "Closed"], required: true}},
-	// 		{ hours: [{	
-	// 			businessHoursFrom: Number, 
-	// 			businessHoursTo: Number }]
-	// 		}
-	// 	]
+		Monday: [
+			{ status: { type: String, enum: ["Open", "Closed"]}},
+			{ hours: [{	
+				businessHoursFrom: Number, 
+				businessHoursTo: Number }]
+			}
+		],
+		Tuesday:[
+			{ status: { type: String, enum: ["Open", "Closed"]}},
+			{ hours: [{	
+				businessHoursFrom: Number, 
+				businessHoursTo: Number }]
+			}
+		],
+		Wednesday: [
+			{ status: { type: String, enum: ["Open", "Closed"]}},
+			{ hours: [{	
+				businessHoursFrom: Number, 
+				businessHoursTo: Number }]
+			}
+		],
+		Thursday: [
+			{ status: { type: String, enum: ["Open", "Closed"]}},
+			{ hours: [{	
+				businessHoursFrom: Number, 
+				businessHoursTo: Number }]
+			}
+		],
+		Friday: [
+			{ status: { type: String, enum: ["Open", "Closed"]}},
+			{ hours: [{	
+				businessHoursFrom: Number, 
+				businessHoursTo: Number }]
+			}
+		],
+		Saturday: [
+			{ status: { type: String, enum: ["Open", "Closed"]}},
+			{ hours: [{	
+				businessHoursFrom: Number, 
+				businessHoursTo: Number }]
+			}
+		],
+		Sunday: [
+			{ status: { type: String, enum: ["Open", "Closed"]}},
+			{ hours: [{	
+				businessHoursFrom: Number, 
+				businessHoursTo: Number }]
+			}
+		]
 		
-	// }],
+	}],
 	
 
 	tablePlacement: [{

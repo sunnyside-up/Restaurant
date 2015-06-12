@@ -198,5 +198,4 @@ FR.restaurants = [
 	
 ]
 
-
 });
