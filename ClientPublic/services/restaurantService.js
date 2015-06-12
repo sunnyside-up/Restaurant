@@ -1,7 +1,35 @@
 var app = angular.module('MRE');
 
-app.service('FindRestaurantService', function($q, $http) {
+app.service('RestaurantService', function($q, $http) {
 	
+	this.day = function() {
+		var date = new Date();
+		var day = date.getDay();
+		var dayArr = [
+			"Sunday", 
+			"Monday", 
+			"Tuesday", 
+			"Wednesday", 
+			"Thursday", 
+			"Friday", 
+			"Saturday"];
+		return dayArr[day];
+	}
+
+	this.daySelector = function(today, schedule) {
+		if(schedule[0].hasOwnProperty(today)) {
+			this.today = schedule[0][today]
+		}
+	}
+
+	this.phoneNumberFormat = function(number) {
+		number = number.toString().split('')
+		var beginning = number.slice(0, 3)
+		var middle = number.slice(3, 6)
+		var end = number.slice(6, 10)
+		return "(" + beginning.join('') + ") " + middle.join('') + " - " + end.join('');
+	}
+
 	this.restaurants = [
 		{
 			"businessName" : "Chucky Cheese Nips",
@@ -15,6 +43,7 @@ app.service('FindRestaurantService', function($q, $http) {
 				"zip" : "83401"
 			},
 			businessNumber: 2085342947,
+			businessId: 1,
 
 			"operatingHours": [{
 				"Sunday": [
@@ -94,6 +123,7 @@ app.service('FindRestaurantService', function($q, $http) {
 				"zip" : "84097"
 			},
 			businessNumber: 8017343957,
+			businessId: 2,
 
 			"operatingHours": [{
 				"Sunday": [

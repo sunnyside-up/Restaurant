@@ -1,31 +1,31 @@
 <div class="container-fluid"> <!-- container -->
 	<div> <!-- restaurant info -->
-		<div class='find-rest-data' ng-repeat='obj in FR.restaurants'>
+		<div class='find-rest-data'>
 		<div class='rest image'></div>
 		<div>
 
 		<div class='rest name'>
-			{{obj.businessName}}
+			{{thisRest.businessName}}
 		</div>
 		<div class='rest address'>
-			<span>{{obj.businessAddress.addressOne}}</span>
-			<span>{{obj.businessAddress.addressTwo}}
-			{{obj.businessAddress.city}}
-			{{obj.businessAddress.state}}</span>
-			<span>{{obj.businessAddress.zip}}</span>
+			<span>{{thisRest.businessAddress.addressOne}}</span>
+			<span>{{thisRest.businessAddress.addressTwo}}
+			{{thisRest.businessAddress.city}}
+			{{thisRest.businessAddress.state}}</span>
+			<span>{{thisRest.businessAddress.zip}}</span>
 		</div>
 
 		</div>
-		{{FR.daySelector(FR.dayOfWeek, obj.operatingHours)}}
+		{{RE.daySelector(RE.dayOfWeek, thisRest.operatingHours)}}
 		<div class='rest hours'>
-		<div ng-repeat='obj in FR.today'>
-			<div class='hours' ng-repeat='open in obj.hours'>
-				<span>{{FR.dayOfWeek}}</span>
+		<div ng-repeat='thisRest in RE.today'>
+			<div class='hours' ng-repeat='open in thisRest.hours'>
+				<span>{{RE.dayOfWeek}}</span>
 				<span>Open:  {{open.businessHoursFrom}}</span>
 				<span>Close:  {{open.businessHoursTo}}</span>
 			</div>
 		</div>
-		<span>{{FR.phoneNumberFormat(obj.businessNumber)}}</span>
+		<span>{{RE.phoneNumberFormat(thisRest.businessNumber)}}</span>
 		</div>
 				
 
