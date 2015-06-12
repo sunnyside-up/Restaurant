@@ -1,6 +1,12 @@
 <div  class="Reservations">
   <div class="row">
-    <div class="col-sm-12 resCont">
+      <div class="col-sm-1">
+        <button class="glyphicon glyphicon-search btn plus" ng-click="RE.reservationModal(lg)" aria-hidden="true"></button>
+          <button class="glyphicon glyphicon-plus btn plus" ng-click="RE.reservationModal(lg)" aria-hidden="true"></button>
+          <button class="glyphicon glyphicon-fire btn plus" ng-click="RE.reservationModal(lg)" aria-hidden="true"></button>  
+
+      </div>
+    <div class="col-sm-11 resCont">
       Level 2
         <div class="col-sm-4">
         <div ng-repeat ="obj in RE.reservations | orderBy: '-time':true" ng-show=Date.now()>
@@ -13,7 +19,6 @@
         </div>
         </div>
           <div class="col-sm-6" >seating</div>
-            <button ng-click="RE.open()">click</button>
     </div>
   </div>
 </div>  
