@@ -5,14 +5,15 @@
 			this.getReservations = function(){
 				return $http({
 				method: 'GET',
-				url:'/re/Reservations'
+				url:'/api/reservation'
 				}).then(function(res){
 					reservations = res.data;
+					console.log('res.data:', res.data);
 					return reservations;
 				});
 				};
 			
-			var reservations = []
+			var reservations = [];
 			
 		}]); //end of service
 })();
