@@ -19,6 +19,7 @@ var RestaurantController = require('./api/controllers/restaurantController');
 var AuthController = require('./api/controllers/authController');
 var MenuController = require('./api/controllers/menuController');
 var ReservationController = require('./api/controllers/reservationController');
+var UserPermissionRestaurantController = require('./api/controllers/userPermissionRestaurantController');
 
 //--server side model--//
 var ClientUser = require('./api/models/clientModel');
@@ -99,8 +100,8 @@ app.post('/api/restaurant/auth', passport.authenticate('local', { failureRedirec
 });
 // restaurant endpoint
 app.get('/api/restaurant', RestaurantController.read);
-app.put('/api/restaurant/:id', RestaurantController.update);
-app.delete('/api/restaurant/:id', RestaurantController.delete);
+app.put('/api/restaurant/update', RestaurantController.update);
+app.delete('/api/restaurant/delete', RestaurantController.delete);
 // client endpoint
 app.get('/api/client', ClientController.read);
 app.put('/api/client/:id', ClientController.update);
@@ -115,8 +116,11 @@ app.post('/api/reservation', ReservationController.create);
 app.get('/api/reservation', ReservationController.read);
 app.put('/api/reservation/:id', ReservationController.update);
 app.delete('/api/reservation/:id', ReservationController.delete);
-
-
+// restaurant user permission endpoint
+app.post('/api/user', UserPermissionRestaurantController.create);
+app.get('/api/user', UserPermissionRestaurantController.read);
+app.put('/api/user/:id', UserPermissionRestaurantController.update);
+app.delete('/api/user/:id', UserPermissionRestaurantController.delete);
 
 
 

@@ -24,6 +24,18 @@ module.exports = {
 		});
 	},
 
+	status: function(req, res) {
+		Reservation
+		.find(req.query)
+		.exec(function(err, result) {
+			if (err) {
+				return res.status(500).res.send(err);
+			} else {
+				return res.send(result);
+			}
+		});
+	},
+
 	update: function(req, res) {
 		Reservation.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
 			if (err) {
