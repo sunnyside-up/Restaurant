@@ -26,7 +26,9 @@ var userClientSchema = new mongoose.Schema({
 	],
 		
 
-	favoriteList: [{type: Schema.Types.ObjectId, ref: 'UserRestaurant'}]
+	favoriteList: [{type: Schema.Types.ObjectId, ref: 'UserRestaurant'}],
+
+	resvHistory: [{type: Schema.Types.ObjectId, ref: 'UserReservation'}]
 
 });
 
