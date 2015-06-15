@@ -4,11 +4,18 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 	
 	// resolve variable for this restaurant
 	$scope.thisRest = getRestById;
-	console.log($scope.thisRest.menu);
-	// date reference
-	var dateObj = new Date();
 
+	// testing methods for verifying ng-model values
+	$scope.dataTesting = {
+		dateChange: function() {
+			console.log($scope.resDay);
+		},
+		timeChange: function() {
+			console.log($scope.resTime);
+		}
+	};
 
+	// methods for displaying today's hours
 	$scope.day = function() {
 		$scope.dayOfWeek = RestaurantService.day();
 	}();
@@ -17,8 +24,9 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 
 	$scope.phoneNumberFormat = RestaurantService.phoneNumberFormat;
 	
+	// methods for Datepicker
 	$scope.today = function() {
-	    $scope.resDay = dateObj;
+	    $scope.resDay = new Date();
 	}();
 
 	$scope.clear = function () {
@@ -31,7 +39,7 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 	// };
 
 	$scope.toggleMin = function() {
-		$scope.minDate = $scope.minDate ? null : dateObj;
+		$scope.minDate = $scope.minDate ? null : new Date();
 	}();
 
 	$scope.open = function($event) {
@@ -49,9 +57,9 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 	$scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
 	$scope.format = $scope.formats[0];
 
-	var tomorrow = dateObj;
+	var tomorrow = new Date();
 	tomorrow.setDate(tomorrow.getDate() + 1);
-	var afterTomorrow = dateObj;
+	var afterTomorrow = new Date();
 	afterTomorrow.setDate(tomorrow.getDate() + 2);
 	
 	$scope.events =
@@ -82,46 +90,19 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 	};
 
 	// Timepicker $scope properties
-	$scope.resTime = dateObj;
+	$scope.resTime = new Date();
 
 	$scope.hstep = 1;
 	$scope.mstep = 15;
 
-	$scope.options = {
-		hstep: [1, 2, 3],
-		mstep: [1, 5, 10, 15, 25, 30]
-	};
-
 	$scope.ismeridian = true;
-	$scope.toggleMode = function() {
-		$scope.ismeridian = ! $scope.ismeridian;
-	};
 
 	$scope.update = function() {
-		var d = dateObj;
-		d.setHours( 14 );
-		d.setMinutes( 0 );
-		$scope.resTime = d;
-	};
-
-	$scope.changed = function () {
-		$log.log('Time changed to: ' + $scope.resTime);
-	};
-
-	$scope.clear = function() {
-		$scope.resTime = null;
+		$scope.resTime = new Date();
+		$scope.resDay = new Date();
 	};
 
 	// Preorder Inputs
-	$scope.displayMenuObj = function() {
-		console.log($scope.menuObj);
-	}
-	$scope.displayItemObj = function() {
-		console.log($scope.itemObj);
-	}
 
-	$scope.displayPickedDate = function() {
-		console.log($scope.resDay);
-	}
-
+	
 })
