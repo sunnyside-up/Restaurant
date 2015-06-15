@@ -1,4 +1,8 @@
 <div class="container-fluid">
+	<!-- <div>
+		<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+		<div id="map-canvas"></div>
+	</div> -->
 	<div class="row search-input">
 		<div class="col-lg-4 col-lg-offset-4">	
 			<div class="input-group">
@@ -22,49 +26,44 @@
 					<option value="4">No Filter</option>
 				</select>
 			</div>
-			<button type="link" class="btn btn-link">Change Location</button> <!-- Either attach to a modal or a hidden div where default location can be changed to a custom one, thus changing the array of restaurants returned from the search. -->
+			<button type="link" class="btn btn-primary">Change Location</button> <!-- Either attach to a modal or a hidden div where default location can be changed to a custom one, thus changing the array of restaurants returned from the search. -->
 		</div>
 	</div>
 
 
 <div class='find-rest-data' ng-repeat='obj in FR.restaurants'>
-	<a href="" ng-click="openRestPage()"><div class='rest image'></div></a>
-	<div>
+	<a href=""><div class='find-rest-data' ng-click="openRestPage()">
+		<div class='rest image'></div>
+		<div>
 
-		<div class='rest name'>
-			{{obj.businessName}}
-		</div>
-		<div class='rest address'>
-			<span>{{obj.businessAddress.addressOne}}</span>
-			<span>{{obj.businessAddress.addressTwo}}
-			{{obj.businessAddress.city}}
-			{{obj.businessAddress.state}}</span>
-			<span>{{obj.businessAddress.zip}}</span>
-		</div>
-
-	</div>
-	{{FR.daySelector(FR.dayOfWeek, obj.operatingHours)}}
-	<div class='rest hours'>
-		<div ng-repeat='obj in FR.today'>
-			<div class='hours' ng-repeat='open in obj.hours'>
-				<span>{{FR.dayOfWeek}}</span>
-				<span>Open:  {{open.businessHoursFrom}}</span>
-				<span>Close:  {{open.businessHoursTo}}</span>
+			<div class='rest name'>
+				{{obj.businessName}}
 			</div>
+			<div class='rest address'>
+				<span>{{obj.businessAddress.addressOne}}</span>
+				<span>{{obj.businessAddress.addressTwo}}
+				{{obj.businessAddress.city}}
+				{{obj.businessAddress.state}}</span>
+				<span>{{obj.businessAddress.zip}}</span>
+			</div>
+
 		</div>
-		<span>{{FR.phoneNumberFormat(obj.businessNumber)}}</span>
-	</div>
+		{{FR.daySelector(FR.dayOfWeek, obj.operatingHours)}}
+		<div class='rest hours'>
+			<div ng-repeat='obj in FR.today'>
+				<div class='hours' ng-repeat='open in obj.hours'>
+					<span>{{FR.dayOfWeek}}</span>
+					<span>Open:  {{open.businessHoursFrom}}</span>
+					<span>Close:  {{open.businessHoursTo}}</span>
+				</div>
+			</div>
+			<span>{{FR.phoneNumberFormat(obj.businessNumber)}}</span>
+		</div>
+	</div></a>
 				
 		
 </div>
-<div>
+<!-- <div>
 	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
 	<div id="map-canvas"></div>
-</div>
-	
-	<!-- Google search scripts -->
-	<script type="text/javascript-lazy" src="//maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-	<script type="text/javascript-lazy" src='../google/google.js'>
-		console.log('it works')
-	</script>
-
+</div> -->
