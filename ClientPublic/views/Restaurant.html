@@ -42,7 +42,7 @@
 				    <div class="row">
 				        <div class="col-md-6">
 				            <p class="input-group">
-				              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+				              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="resDay" is-open="opened" min-date="minDate" max-date="" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
 				              <span class="input-group-btn">
 				                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
 				              </span>
@@ -50,7 +50,7 @@
 				        </div>
 				    </div>
 				    <div class="timepicker">
-						<timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+						<timepicker ng-model="resTime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
 
 						<!-- <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
 
@@ -80,27 +80,38 @@
 					<input id="" type="number"/>
 				</div>
 			</fieldset>
+			<hr />
 			<fieldset class="res-preorders"> <!-- drink/appetizer orders -->
+				<label name="Preorders">Preorders</label>
 				<div class="res-input">
 					<div class="res-input preorder-type">
 						<label></label>
-						<select name="Type of Preorder">
-							<option value="1">Drink</option>
-							<option value="2">Appetizer</option>
+						<select name="Type of Preorder" ng-options="index.category for index in thisRest.menu" ng-model="menuObj">
+						<option value="" disabled selected>-- Choose Preorder Type --</option>
 						</select>
 					</div>
+					<br />
 					<div class="res-input preorder-item">
 						<label></label>
-						<select name="Items">
-							<option value="" ng-repeat="item in this.items"></option>
+						<select name="Items" ng-options="item.name for item in menuObj.items" ng-model="itemObj">
+							<option value="" disabled selected>-- Choose Menu Item --</option>
 						</select>
 					</div>
+					<br />
+					<div class="res-input item-display" ng-show="itemObj">
+						<h5>{{ itemObj.photo }}</h5>
+						<h5>Name: {{ itemObj.name }}</h5>
+						<h5>Description: {{ itemObj.description }}</h5>
+						<h5>Price: {{ itemObj.cost }}</h5>
+					</div>
+					<br />
 					<div class="res-input preorder-quantity">
 						<label></label>
 						<input id="" type="number" />
 					</div>
 				</div>
 			</fieldset>
+			<hr />
 			<fieldset class="res-contact-info"> <!-- confirm/enter contact info -->
 				<div class="res-input">
 					<label></label>

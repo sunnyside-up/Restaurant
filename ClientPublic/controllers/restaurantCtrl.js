@@ -2,7 +2,12 @@ var app = angular.module('MRE');
 
 app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService, $log) {
 	
+	// resolve variable for this restaurant
 	$scope.thisRest = getRestById;
+	console.log($scope.thisRest.menu);
+	// date reference
+	var dateObj = new Date();
+
 
 	$scope.day = function() {
 		$scope.dayOfWeek = RestaurantService.day();
@@ -13,20 +18,20 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 	$scope.phoneNumberFormat = RestaurantService.phoneNumberFormat;
 	
 	$scope.today = function() {
-	    $scope.dt = new Date();
+	    $scope.resDay = dateObj;
 	}();
 
 	$scope.clear = function () {
-		$scope.dt = null;
+		$scope.resDay = null;
 	};
 
 	// Disable weekend selection
-	$scope.disabled = function(date, mode) {
-		return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
-	};
+	// $scope.disabled = function(date, mode) {
+	// 	return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+	// };
 
 	$scope.toggleMin = function() {
-		$scope.minDate = $scope.minDate ? null : new Date();
+		$scope.minDate = $scope.minDate ? null : dateObj;
 	}();
 
 	$scope.open = function($event) {
@@ -44,9 +49,9 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 	$scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
 	$scope.format = $scope.formats[0];
 
-	var tomorrow = new Date();
+	var tomorrow = dateObj;
 	tomorrow.setDate(tomorrow.getDate() + 1);
-	var afterTomorrow = new Date();
+	var afterTomorrow = dateObj;
 	afterTomorrow.setDate(tomorrow.getDate() + 2);
 	
 	$scope.events =
@@ -75,7 +80,9 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 		}
 		return '';
 	};
-	$scope.mytime = new Date();
+
+	// Timepicker $scope properties
+	$scope.resTime = dateObj;
 
 	$scope.hstep = 1;
 	$scope.mstep = 15;
@@ -91,17 +98,26 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 	};
 
 	$scope.update = function() {
-	var d = new Date();
-	d.setHours( 14 );
-	d.setMinutes( 0 );
-	$scope.mytime = d;
+		var d = dateObj;
+		d.setHours( 14 );
+		d.setMinutes( 0 );
+		$scope.resTime = d;
 	};
 
 	$scope.changed = function () {
-		$log.log('Time changed to: ' + $scope.mytime);
+		$log.log('Time changed to: ' + $scope.resTime);
 	};
 
 	$scope.clear = function() {
-		$scope.mytime = null;
+		$scope.resTime = null;
 	};
+
+	// Preorder Inputs
+	$scope.displayMenuObj = function() {
+		console.log($scope.menuObj);
+	}
+	$scope.displayItemObj = function() {
+		console.log($scope.itemObj);
+	}
+
 })
