@@ -120,4 +120,8 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 		console.log($scope.itemObj);
 	}
 
+	$scope.displayPickedDate = function() {
+		console.log($scope.resDay);
+	}
+
 })
