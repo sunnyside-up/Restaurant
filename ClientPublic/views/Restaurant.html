@@ -16,16 +16,16 @@
 		</div>
 
 		</div>
-		{{RE.daySelector(RE.dayOfWeek, thisRest.operatingHours)}}
+		{{daySelector(dayOfWeek, thisRest.operatingHours)}}
 		<div class='rest hours'>
-		<div ng-repeat='thisRest in RE.today'>
-			<div class='hours' ng-repeat='open in thisRest.hours'>
-				<span>{{RE.dayOfWeek}}</span>
-				<span>Open:  {{open.businessHoursFrom}}</span>
-				<span>Close:  {{open.businessHoursTo}}</span>
+		<div>
+			<div class='hours'>
+				<span>{{dayOfWeek}}</span>
+				<span>Open: </span>
+				<span>Close: </span>
 			</div>
 		</div>
-		<span>{{RE.phoneNumberFormat(thisRest.businessNumber)}}</span>
+		<span>{{phoneNumberFormat(thisRest.businessNumber)}}</span>
 		</div>
 				
 
@@ -33,17 +33,47 @@
 	</div>
 	
 	<div> <!-- form container -->
+		<h3>Make a Reservation!</h3>
+		<br />
 		<form>
 			<fieldset class="res-time"> <!-- day and time of reservation -->
-				<div class="res-input">
-					<label>Date</label>
-					<input id="" type="date" ng-model="reservation.date"/>
-				</div>
-				<div class="res-input">
-					<label>Time</label>
-					<input id="" type="time" ng-model="reservation.time"/>
-				</div>
+				<div class="datepicker">
+				<label name="Date">Date</label>
+				    <div class="row">
+				        <div class="col-md-6">
+				            <p class="input-group">
+				              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+				              <span class="input-group-btn">
+				                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+				              </span>
+				            </p>
+				        </div>
+				    </div>
+				    <div class="timepicker">
+						<timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+
+						<!-- <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
+
+						<div class="row"> 
+							<div class="col-xs-6">
+								Hours step is:
+								<select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
+							</div>
+							<div class="col-xs-6">
+								Minutes step is:
+								<select class="form-control" ng-model="mstep" ng-options="opt for opt in options.mstep"></select>
+							</div>
+						</div>
+
+						<hr>
+
+						<button class="btn btn-info" ng-click="toggleMode()">12H / 24H</button>
+						<button class="btn btn-default" ng-click="update()">Set to 14:00</button>
+						<button class="btn btn-danger" ng-click="clear()">Clear</button> -->
+
+					</div>
 			</fieldset>
+			<hr />
 			<fieldset class="res-guest-details"> <!-- number of guests -->
 				<div class="res-input">
 					<label>Number of Guests</label>

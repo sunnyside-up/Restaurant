@@ -1,6 +1,6 @@
 var app = angular.module('MRE');
 
-app.controller('FindRestaurant', function($scope, RestaurantService, $location) {
+app.controller('FindRestaurant', function($scope, RestaurantService, $location, $log, $modal) {
 	var FR = this;
 
 	FR.day = function() {
