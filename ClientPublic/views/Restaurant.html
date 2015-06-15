@@ -43,7 +43,7 @@
 				        <div class="col-md-6">
 				            <p class="input-group">
 				            	<!-- This input will return an ng-model with a date object -->
-				              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="resDay" ng-change="dataTesting.dateChange()" is-open="opened" min-date="minDate" max-date="" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+				              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="resDayAndTime" ng-change="dataTesting.dateChange(); dataTesting.resChange()" is-open="opened" min-date="minDate" max-date="" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
 				              <span class="input-group-btn">
 				                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
 				              </span>
@@ -52,11 +52,11 @@
 				    </div>
 				    <br />
 				    <div class="timepicker">
-						<timepicker ng-model="resTime" ng-change="dataTesting.timeChange()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+						<timepicker ng-model="resDayAndTime" ng-change="dataTesting.timeChange(); dataTesting.resChange()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
 
 						<br />
 
-						<button class="btn btn-default" ng-click="update()">Revert to Current Date & Time</button>
+						<button class="btn btn-default" ng-click="refreshDayAndTime()">Revert to Current Date & Time</button>
 
 					</div>
 			</fieldset>
@@ -64,7 +64,7 @@
 			<fieldset class="res-guest-details"> <!-- number of guests -->
 				<div class="res-input">
 					<label>Number of Guests</label>
-					<input id="" type="number" placeholder="Input Party Size..." min="1"/>
+					<input id="" type="number" placeholder="Input Party Size..." min="1" ng-model="partySize" ng-change="dataTesting.resChange()" />
 				</div>
 			</fieldset>
 			<hr />
@@ -85,32 +85,41 @@
 						</select>
 					</div>
 					<br />
-					<div class="res-input item-display" ng-show="itemObj">
+					<div class="res-display item-select" ng-show="itemObj">
 						<h5>{{ itemObj.photo }}</h5>
 						<h5>Name: {{ itemObj.name }}</h5>
 						<h5>Description: {{ itemObj.description }}</h5>
-						<h5>Price: {{ itemObj.cost }}</h5>
+						<h5>Price: ${{ itemObj.cost }}</h5>
 					</div>
 					<br />
 					<div class="res-input preorder-quantity">
 						<label>Quantity</label>
-						<input id="" type="number" placeholder="Input Quantity..." min="1" />
+						<input id="" type="number" placeholder="Input Quantity..." min="1" ng-model="preorderQuantity"/>
 					</div>
 					<br />
-					<button class="btn btn-info" ng-click="">Add Item</button>
+					<button class="btn btn-info" ng-click="addPreorder()">Add Item</button>
+					<hr />
+					<div class="res-display item-add" ng-repeat="item in preorders">
+						<h5> Item: {{ item.name }} , Quantity: {{ item.quantity }} , Sum Cost: ${{ item.sumCost }} </h5>
+						<button class="btn btn-danger" id="delete-preorder-item">Delete</button>
+					</div>
+
+
 				</div>
 			</fieldset>
 			<hr />
 			<fieldset class="res-contact-info"> <!-- confirm/enter contact info -->
 				<div class="res-input">
-					<label></label>
-					<input />
+					<label>Contact Phone #</label>
+					<input type="number" ng-model="thisUser.phoneNumber"/>
 				</div>
 			</fieldset>
+			<br />
+
 		</form>
 	</div>
 	
 	<div> <!-- submit, save, cancel button panel -->
-		
+		<button class="btn btn-success" ng-click="submitRes()">Go!</button>
 	</div>
 </div>

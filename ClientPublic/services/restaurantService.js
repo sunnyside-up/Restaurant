@@ -105,17 +105,17 @@ app.service('RestaurantService', function($q, $http) {
 				{ category : "Drinks",
 				items : [{
 					name : "Tequila, By Itself, No Chasers",
-					cost : "$4.00",
+					cost : 4.00,
 					description : "Quit crying and be a man.",
 					photo : ""
 					}, {
 					name : "Salt, marinated in Lime Juice and Tequila",
-					cost : "$4.00",
+					cost : 4.00,
 					description : "A meal for champions",
 					photo : ""
 					},{
 					name : "Loaded Corona",
-					cost : "$6.00",
+					cost : 6.00,
 					description : "What's better than beer? Beer with tequila in it. Enjoy.",
 					photo : ""
 					}]
@@ -124,17 +124,17 @@ app.service('RestaurantService', function($q, $http) {
 				{ category : "Appetizers",
 				items : [{
 					name : "Qrazy Quesadillas",
-					cost : "$6.99",
+					cost : 6.99,
 					description : "Two quesadillas sliced up and loaded with a variety of goodies, from blackened chicken to corn, peppers and avocado chunks.",
 					photo : ""
 					}, {
 					name : "Chips & Habanero Salsa",
-					cost : "$3.50",
+					cost : 3.50,
 					description : "Ready for a mouth full of fire? Goes perfectly with a flaming shot of Bacardi 151...if you like shooting napalm out of your ass.",
 					photo : ""
 					}, {
 					name : "Brownbag Burrito",
-					cost : "$5.00",
+					cost : 5.00,
 					description : "A sketchy burrito in a brown paper bag, sliced into sections so you can share the delicious possibility of E. Coli with your friends.",
 					photo : ""
 					}]

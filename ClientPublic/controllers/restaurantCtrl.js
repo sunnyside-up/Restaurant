@@ -1,17 +1,32 @@
 var app = angular.module('MRE');
 
-app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService, $log) {
+app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService, ReservationService, $log) {
 	
 	// resolve variable for this restaurant
 	$scope.thisRest = getRestById;
+	console.log(getRestById);
+
+	var userLoggedIn = true;
+
+	$scope.thisUser = {
+		userId: 481982490,
+		paymentInfo: {
+			cardName: 'bob',
+			cardNumber: 55,
+			cardExp: 666
+		},
+		phoneNumber: 8019995555
+	}
+	$scope.partySize = null;
+	$scope.preorders = [];
 
 	// testing methods for verifying ng-model values
 	$scope.dataTesting = {
 		dateChange: function() {
-			console.log($scope.resDay);
+			console.log($scope.resDayAndTime);
 		},
 		timeChange: function() {
-			console.log($scope.resTime);
+			console.log($scope.resDayAndTime);
 		}
 	};
 
@@ -26,17 +41,12 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 	
 	// methods for Datepicker
 	$scope.today = function() {
-	    $scope.resDay = new Date();
+	    $scope.resDayAndTime = new Date();
 	}();
 
 	$scope.clear = function () {
-		$scope.resDay = null;
+		$scope.resDayAndTime = null;
 	};
-
-	// Disable weekend selection
-	// $scope.disabled = function(date, mode) {
-	// 	return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
-	// };
 
 	$scope.toggleMin = function() {
 		$scope.minDate = $scope.minDate ? null : new Date();
@@ -90,19 +100,53 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 	};
 
 	// Timepicker $scope properties
-	$scope.resTime = new Date();
 
 	$scope.hstep = 1;
 	$scope.mstep = 15;
 
 	$scope.ismeridian = true;
 
-	$scope.update = function() {
-		$scope.resTime = new Date();
-		$scope.resDay = new Date();
+	$scope.refreshDayAndTime = function() {
+		$scope.resDayAndTime = new Date();
 	};
+
 
 	// Preorder Inputs
 
-	
+	$scope.addPreorder = function() {
+		$scope.preorders.push({
+			name: $scope.itemObj.name,
+			quantity: $scope.preorderQuantity,
+			sumCost: $scope.itemObj.cost * $scope.preorderQuantity,
+			index: $scope.preorders.length - 1
+		});
+		console.log($scope.preorders);
+	}
+
+	// Reservation Submit
+	$scope.submitRes = function() {
+		if(!userLoggedIn) {
+			alert("Please log in to continue!");
+			console.log({
+				status: "Active",
+				businessId: $scope.thisRest.businessId,
+				clientId: $scope.thisUser.userId,
+				dayAndTime: $scope.resDayAndTime,
+				partySize: $scope.partySize,
+				preorders: $scope.preorders,
+				paymentInfo: $scope.thisUser.paymentInfo
+			});
+		} else if(userLoggedIn) {
+			ReservationService.submitRes({
+				resvStatus: "Active",
+				businessId: $scope.thisRest.businessId,
+				guestNumber: $scope.thisUser.userId,
+				dayAndTime: $scope.resDayAndTime,
+				guestNumber: $scope.partySize,
+				orderCart: $scope.preorders,
+				creditCard: $scope.thisUser.paymentInfo,
+				phoneNumber: $scope.thisUser.phoneNumber
+			});
+		}
+	};
 })
