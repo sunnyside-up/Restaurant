@@ -3,37 +3,20 @@ var bcrypt = require('bcrypt-nodejs'); // required for windows users*
 // if using linux or apple ios, use bcrypt
 var Schema = mongoose.Schema;
 var q = require('q');
-
-var userClientSchema = new mongoose.Schema({
+ 
+var userPermissionRestaurantSchema = new mongoose.Schema({
 	
-	name: {
-		first: { type: String, required: true },
-		last:  { type: String, required: true }
-	},
-	
-	email: { type: String, required: true, unique: true	},
+	username: { type: String, unique: true, required: true},
 
 	password: { type: String, required: true },
 
-	phoneNumber: Number,
-
-	creditCard: [
-		{ 
-			cardName: String,
-			cardNumber: { type: Number},
-			cardExp: { type: Number}
-		}
-	],
-		
-
-	favoriteList: [{type: Schema.Types.ObjectId, ref: 'UserRestaurant'}],
-
-	resvHistory: [{type: Schema.Types.ObjectId, ref: 'UserReservation'}]
+	permissions: { type: String, required: true, enum: ["Admin", "Manager", "Host"]}
+	
 
 });
 
 // used to hash password for excryption
-userClientSchema.pre('save', function(next) {
+userPermissionRestaurantSchema.pre('save', function(next) {
 	var user = this;
 	if(!user.isModified('password')) {
 		return next();
@@ -55,7 +38,7 @@ userClientSchema.pre('save', function(next) {
 });
 
 // used to compare password enter by log in user
-userClientSchema.methods.comparePw = function(password) {
+userPermissionRestaurantSchema.methods.comparePw = function(password) {
 	var deferred = q.defer();
 	var user = this;
 	bcrypt.compare(password, user.password, function(err, res) {
@@ -68,4 +51,4 @@ userClientSchema.methods.comparePw = function(password) {
 	return deferred.promise;
 };
 
-module.exports = mongoose.model('UserClient', userClientSchema);
+module.exports = mongoose.model('UserPermissionRestaurant', userPermissionRestaurantSchema);

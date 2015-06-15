@@ -1,9 +1,9 @@
-var Restaurant = require('../models/restaurantModel');
+var Restaurant = require('../models/userPermissionRestaurantModel');
 
 module.exports = {
 	create: function(req, res) {
-		var newRestaurant = new Restaurant(req.body);
-		newRestaurant.save(function(err, result) {
+		var newUserPermissionRestaurant = new Restaurant(req.body);
+		newUserPermissionRestaurant.save(function(err, result) {
 			if (err) {
 				return res.status(500).send(err);
 			} else {
@@ -25,7 +25,7 @@ module.exports = {
 	},
 
 	update: function(req, res) {
-		Restaurant.findByIdAndUpdate(req.userrestaurants._id, req.body, function(err, result) {
+		Restaurant.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
 			if (err) {
 				return res.status(500).send(err);
 			} else {
@@ -35,7 +35,7 @@ module.exports = {
 	},
 
 	delete: function(req, res) {
-		Restaurant.findBy_idAndRemove(req.userrestaurants.id, function(err, result) {
+		Restaurant.findByIdAndRemove(req.params.id, function(err, result) {
 			if (err) {
 				return res.status(500).send(err);
 			} else {
