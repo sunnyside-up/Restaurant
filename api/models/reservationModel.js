@@ -10,7 +10,10 @@ var userReservationSchema = new mongoose.Schema({
 	
 	email: [{type: Schema.Types.ObjectId, ref: 'UserClient'}],
 
-	resvDate: { type: Date, required: true}
+	resvDate: {
+		resDayAndTime: { type: Date, required: true},
+		resSubmitTime: { type: Date, required: true}
+	},
 
 	phoneNumber: {type: Number, required: true },
 

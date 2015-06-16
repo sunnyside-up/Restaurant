@@ -133,7 +133,10 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 			ReservationService.submitRes({
 				resvStatus: "Pending",
 				businessId: $scope.thisRest.businessId,
-				dayAndTime: $scope.resDayAndTime,
+				resvDate: {
+					resDayAndTime: $scope.resDayAndTime,
+					resSubmitTime: new Date();
+				},
 				guestNumber: $scope.partySize,
 				orderCart: $scope.preorders,
 				creditCard: $scope.thisUser.paymentInfo,
