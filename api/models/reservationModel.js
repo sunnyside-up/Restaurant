@@ -22,7 +22,7 @@ var userReservationSchema = new mongoose.Schema({
 		}
 	],
 
-	resvStatus: { type: String, enum:["Active", "Seated", "Canceled"]},
+	resvStatus: { type: String, enum:["Pending", "Active", "Seated", "Canceled"]},
 
 	orderCart: [{type: Schema.Types.ObjectId, ref: 'MenuItem'}]
 		
