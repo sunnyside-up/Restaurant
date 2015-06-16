@@ -7,8 +7,8 @@
             this.getRestaruantInfo = function() {
                 var deferred = $q.defer();
                 $http({
-                    method: 'GET'
-            
+                    method: 'GET',
+                    url: '/api/restaurant'
                 }).then(function(response) {
                     deferred.resolve(response.data)
                 })
