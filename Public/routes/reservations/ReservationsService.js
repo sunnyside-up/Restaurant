@@ -15,5 +15,17 @@
 			
 			var reservations = [];
 			
+			
+			this.updateReservation = function(){
+				return $http({
+					method: 'PUT',
+					url: '/api/reservation'
+				}).then(function(res){
+					reservations = res.data;
+					console.log('PUT: res.data', res.data);
+					return reservations;
+				});
+			};
+			
 		}]); //end of service
 })();

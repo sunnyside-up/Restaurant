@@ -32,4 +32,11 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controller: 'MenuCtrl',
 			controllerAs: 'MENU'
 		})
+		
+		.state('userAdmin', {
+			url: '/re/userAdmin',
+			templateUrl: 'routes/UserAdmin/UserAdmin.html',
+			controller: 'UserAdminCtrl',
+			controllerAs: 'AC'
+		})
 });

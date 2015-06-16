@@ -162,3 +162,14 @@ margin-right: auto;
 	opacity: .75;
 }
 
+/*User Admin Page */
+
+.userTable {
+	background: sandybrown;
+	opacity: .75;
+}
+
+.formItemSpacer {
+	margin: 35px;
+	font-size: 20px;
+}
