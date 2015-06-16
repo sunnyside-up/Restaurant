@@ -12,8 +12,5 @@ app.service('ReservationService', function($q, $http) {
 		}).then(function(response) {
 			console.log(response);
 		})
-		// .error(function(err) {
-		// 	console.log(err);
-		// })
 	}
 })

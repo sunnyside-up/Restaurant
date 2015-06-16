@@ -117,7 +117,7 @@ app.get('/api/menu', requireAuth, MenuController.read);
 app.put('/api/menu/:id', requireAuth, MenuController.update);
 app.delete('/api/menu/:id', requireAuth, MenuController.delete);
 // reservation endpoint
-app.post('/api/reservation', requireAuth, ReservationController.create);
+app.post('/api/reservation', ReservationController.create);
 app.get('/api/reservation', requireAuth, ReservationController.read);
 app.put('/api/reservation/:id', requireAuth, ReservationController.update);
 app.delete('/api/reservation/:id', requireAuth, ReservationController.delete);
