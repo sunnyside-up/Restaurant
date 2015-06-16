@@ -98,6 +98,11 @@ app.post('/api/client/auth', passport.authenticate('local', { failureRedirect: '
 app.post('/api/restaurant/auth', passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
 	res.status(200).end();
 });
+// log out endpoints
+app.get('/api/auth/logout', function(req, res) {
+	req.logout();
+	return res.redirect('/');
+});
 // restaurant endpoint
 app.get('/api/restaurant', RestaurantController.read);
 app.put('/api/restaurant/update', RestaurantController.update);
