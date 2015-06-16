@@ -42,34 +42,21 @@
 				    <div class="row">
 				        <div class="col-md-6">
 				            <p class="input-group">
-				              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+				            	<!-- This input will return an ng-model with a date object -->
+				              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="resDayAndTime" ng-change="dataTesting.dateChange(); dataTesting.resChange()" is-open="opened" min-date="minDate" max-date="" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
 				              <span class="input-group-btn">
 				                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
 				              </span>
 				            </p>
 				        </div>
 				    </div>
+				    <br />
 				    <div class="timepicker">
-						<timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+						<timepicker ng-model="resDayAndTime" ng-change="dataTesting.timeChange(); dataTesting.resChange()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
 
-						<!-- <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
+						<br />
 
-						<div class="row"> 
-							<div class="col-xs-6">
-								Hours step is:
-								<select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
-							</div>
-							<div class="col-xs-6">
-								Minutes step is:
-								<select class="form-control" ng-model="mstep" ng-options="opt for opt in options.mstep"></select>
-							</div>
-						</div>
-
-						<hr>
-
-						<button class="btn btn-info" ng-click="toggleMode()">12H / 24H</button>
-						<button class="btn btn-default" ng-click="update()">Set to 14:00</button>
-						<button class="btn btn-danger" ng-click="clear()">Clear</button> -->
+						<button class="btn btn-default" ng-click="refreshDayAndTime()">Revert to Current Date & Time</button>
 
 					</div>
 			</fieldset>
@@ -77,40 +64,62 @@
 			<fieldset class="res-guest-details"> <!-- number of guests -->
 				<div class="res-input">
 					<label>Number of Guests</label>
-					<input id="" type="number"/>
+					<input id="" type="number" placeholder="Input Party Size..." min="1" ng-model="partySize" ng-change="dataTesting.resChange()" />
 				</div>
 			</fieldset>
+			<hr />
 			<fieldset class="res-preorders"> <!-- drink/appetizer orders -->
+				<label name="Preorders">Preorders</label>
 				<div class="res-input">
 					<div class="res-input preorder-type">
 						<label></label>
-						<select name="Type of Preorder">
-							<option value="1">Drink</option>
-							<option value="2">Appetizer</option>
+						<select name="Type of Preorder" ng-options="index.category for index in thisRest.menu" ng-model="menuObj">
+						<option value="" disabled selected>-- Choose Preorder Type --</option>
 						</select>
 					</div>
+					<br />
 					<div class="res-input preorder-item">
 						<label></label>
-						<select name="Items">
-							<option value="" ng-repeat="item in this.items"></option>
+						<select name="Items" ng-options="item.name for item in menuObj.items" ng-model="itemObj">
+							<option value="" disabled selected>-- Choose Menu Item --</option>
 						</select>
 					</div>
-					<div class="res-input preorder-quantity">
-						<label></label>
-						<input id="" type="number" />
+					<br />
+					<div class="res-display item-select" ng-show="itemObj">
+						<h5>{{ itemObj.photo }}</h5>
+						<h5>Name: {{ itemObj.name }}</h5>
+						<h5>Description: {{ itemObj.description }}</h5>
+						<h5>Price: ${{ itemObj.cost }}</h5>
 					</div>
+					<br />
+					<div class="res-input preorder-quantity">
+						<label>Quantity</label>
+						<input id="" type="number" placeholder="Input Quantity..." min="1" ng-model="preorderQuantity"/>
+					</div>
+					<br />
+					<button class="btn btn-info" ng-click="addPreorder()">Add Item</button>
+					<hr />
+					<div class="res-display item-add" ng-repeat="item in preorders">
+						<h5> Item: {{ item.name }} , Quantity: {{ item.quantity }} , Sum Cost: ${{ item.sumCost }} </h5>
+						<button class="btn btn-danger" id="delete-preorder-item">Delete</button>
+					</div>
+
+
 				</div>
 			</fieldset>
+			<hr />
 			<fieldset class="res-contact-info"> <!-- confirm/enter contact info -->
 				<div class="res-input">
-					<label></label>
-					<input />
+					<label>Contact Phone #</label>
+					<input type="number" ng-model="thisUser.phoneNumber"/>
 				</div>
 			</fieldset>
+			<br />
+
 		</form>
 	</div>
 	
 	<div> <!-- submit, save, cancel button panel -->
-		
+		<button class="btn btn-success" ng-click="submitRes()">Go!</button>
 	</div>
 </div>

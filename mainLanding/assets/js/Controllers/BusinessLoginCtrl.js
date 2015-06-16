@@ -9,7 +9,7 @@ app.controller('BusinessLoginCtrl', function($scope, $log, $modalInstance, $loca
 			$location.path('/re');
 		}).catch(function(err) {
 			console.log('err from login: ', err);
-		});;
+		});
 	};
 
 

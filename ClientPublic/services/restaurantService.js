@@ -32,84 +32,114 @@ app.service('RestaurantService', function($q, $http) {
 
 	this.restaurants = [
 		{
-			"businessName" : "Chucky Cheese Nips",
-			"businessEmail" : "CCN@lipchips.net",
-			"password" : "WeLoveChildren",
-			"businessAddress" : {
-				"addressOne" : "123 Happy Lane",
-				"addressTwo" : "",
-				"city" : "Duboise",
-				"state" : "Idaho",
-				"zip" : "83401"
+			businessName : "Chucky Cheese Nips",
+			businessEmail : "CCN@lipchips.net",
+			password : "WeLoveChildren",
+			businessAddress : {
+				addressOne : "123 Happy Lane",
+				addressTwo : "",
+				city : "Duboise",
+				state : "Idaho",
+				zip : "83401"
 			},
 			businessNumber: 2085342947,
 			businessId: 1,
 
-			"operatingHours": [{
-				"Sunday": [
-					{ "status": "Closed"},
-					{ "hours": [{	
-						"businessHoursFrom": "", 
-						"businessHoursTo": "" }]
+			operatingHours: [{
+				Sunday: [
+					{ status: "Closed"},
+					{ hours: [{	
+						businessHoursFrom: "", 
+						businessHoursTo: "" }]
 					}
 				],		
-				"Monday": [
-					{ "status": "Open"},
-					{ "hours": [{	
-						"businessHoursFrom": "10am", 
-						"businessHoursTo": "9pm" }]
+				Monday: [
+					{ status: "Open"},
+					{ hours: [{	
+						businessHoursFrom: "10am", 
+						businessHoursTo: "9pm" }]
 					}
 				],
-				"Tuesday": [
-					{ "status": "Open"},
-					{ "hours": [{	
-						"businessHoursFrom": "10am", 
-						"businessHoursTo": "9pm" }]
+				Tuesday: [
+					{ status: "Open"},
+					{ hours: [{	
+						businessHoursFrom: "10am", 
+						businessHoursTo: "9pm" }]
 					}
 				],
-				"Wednesday": [
-					{ "status": "Open"},
-					{ "hours": [{	
-						"businessHoursFrom": "10am", 
-						"businessHoursTo": "9pm" }]
+				Wednesday: [
+					{ status: "Open"},
+					{ hours: [{	
+						businessHoursFrom: "10am", 
+						businessHoursTo: "9pm" }]
 					}
 				],
-				"Thursday": [
-					{ "status": "Open"},
-					{ "hours": [{	
-						"businessHoursFrom": "10am", 
-						"businessHoursTo": "9pm" }]
+				Thursday: [
+					{ status: "Open"},
+					{ hours: [{	
+						businessHoursFrom: "10am", 
+						businessHoursTo: "9pm" }]
 					}
 				],
-				"Friday": [
-					{ "status": "Open"},
-					{ "hours": [{	
-						"businessHoursFrom": "10am", 
-						"businessHoursTo": "9pm" }]
+				Friday: [
+					{ status: "Open"},
+					{ hours: [{	
+						businessHoursFrom: "10am", 
+						businessHoursTo: "9pm" }]
 					}
 				],
-				"Saturday": [
-					{ "status": "Open"},
-					{ "hours": [{	
-						"businessHoursFrom": "10am", 
-						"businessHoursTo": "9pm" }]
+				Saturday: [
+					{ status: "Open"},
+					{ hours: [{	
+						businessHoursFrom: "10am", 
+						businessHoursTo: "9pm" }]
 					}
 				]			
 			}],
 			
-			"tablePlacement" : [{
-				"tableNumber" : "15",
-				"capacity" : "6"
+			tablePlacement : [{
+				tableNumber : "15",
+				capacity : "6"
 			}],
-			"menu" : [{ 
-				"category" : "",
-				"items" : [{
-					"name" : "",
-					"cost" : "",
-					"description" : "",
-					"photo" : ""
-					}]				
-			}]
+			menu : [
+				{ category : "Drinks",
+				items : [{
+					name : "Tequila, By Itself, No Chasers",
+					cost : 4.00,
+					description : "Quit crying and be a man.",
+					photo : ""
+					}, {
+					name : "Salt, marinated in Lime Juice and Tequila",
+					cost : 4.00,
+					description : "A meal for champions",
+					photo : ""
+					},{
+					name : "Loaded Corona",
+					cost : 6.00,
+					description : "What's better than beer? Beer with tequila in it. Enjoy.",
+					photo : ""
+					}]
+				},
+
+				{ category : "Appetizers",
+				items : [{
+					name : "Qrazy Quesadillas",
+					cost : 6.99,
+					description : "Two quesadillas sliced up and loaded with a variety of goodies, from blackened chicken to corn, peppers and avocado chunks.",
+					photo : ""
+					}, {
+					name : "Chips & Habanero Salsa",
+					cost : 3.50,
+					description : "Ready for a mouth full of fire? Goes perfectly with a flaming shot of Bacardi 151...if you like shooting napalm out of your ass.",
+					photo : ""
+					}, {
+					name : "Brownbag Burrito",
+					cost : 5.00,
+					description : "A sketchy burrito in a brown paper bag, sliced into sections so you can share the delicious possibility of E. Coli with your friends.",
+					photo : ""
+					}]
+				}
+			]
 		},
 		{
 			"businessName" : "Sweeto Burrito",
@@ -190,8 +220,7 @@ app.service('RestaurantService', function($q, $http) {
 					"photo" : ""
 					}]				
 			}]
-		},
-		
-	]
+		}
+	];
 
 })
