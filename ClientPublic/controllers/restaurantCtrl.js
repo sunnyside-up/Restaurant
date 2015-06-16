@@ -9,7 +9,7 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 	var userLoggedIn = true;
 
 	$scope.thisUser = {
-		userId: 481982490,
+		userEmail: curiousgeorge@gmail.com,
 		paymentInfo: {
 			cardName: 'bob',
 			cardNumber: 55,
@@ -127,25 +127,18 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 	$scope.submitRes = function() {
 		if(!userLoggedIn) {
 			alert("Please log in to continue!");
-			console.log({
-				status: "Active",
-				businessId: $scope.thisRest.businessId,
-				clientId: $scope.thisUser.userId,
-				dayAndTime: $scope.resDayAndTime,
-				partySize: $scope.partySize,
-				preorders: $scope.preorders,
-				paymentInfo: $scope.thisUser.paymentInfo
-			});
+			
+			
 		} else if(userLoggedIn) {
 			ReservationService.submitRes({
-				resvStatus: "Active",
+				resvStatus: "Pending",
 				businessId: $scope.thisRest.businessId,
-				guestNumber: $scope.thisUser.userId,
 				dayAndTime: $scope.resDayAndTime,
 				guestNumber: $scope.partySize,
 				orderCart: $scope.preorders,
 				creditCard: $scope.thisUser.paymentInfo,
-				phoneNumber: $scope.thisUser.phoneNumber
+				phoneNumber: $scope.thisUser.phoneNumber,
+				email: $scope.thisUser.userEmail
 			});
 		}
 	};
