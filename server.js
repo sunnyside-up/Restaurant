@@ -98,29 +98,34 @@ app.post('/api/client/auth', passport.authenticate('local', { failureRedirect: '
 app.post('/api/restaurant/auth', passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
 	res.status(200).end();
 });
+// log out endpoints
+app.get('/api/auth/logout', function(req, res) {
+	req.logout();
+	return res.redirect('/');
+});
 // restaurant endpoint
-app.get('/api/restaurant', RestaurantController.read);
-app.put('/api/restaurant/update', RestaurantController.update);
-app.delete('/api/restaurant/delete', RestaurantController.delete);
+app.get('/api/restaurant', requireAuth, RestaurantController.read);
+app.put('/api/restaurant/update', requireAuth, RestaurantController.update);
+app.delete('/api/restaurant/delete', requireAuth, RestaurantController.delete);
 // client endpoint
-app.get('/api/client', ClientController.read);
-app.put('/api/client/:id', ClientController.update);
-app.delete('/api/client/:id', ClientController.delete);
+app.get('/api/client', requireAuth, ClientController.read);
+app.put('/api/client/:id', requireAuth, ClientController.update);
+app.delete('/api/client/:id', requireAuth, ClientController.delete);
 // menu endpoint
-app.post('/api/menu', MenuController.create);
-app.get('/api/menu', MenuController.read);
-app.put('/api/menu/:id', MenuController.update);
-app.delete('/api/menu/:id', MenuController.delete);
+app.post('/api/menu', requireAuth, MenuController.create);
+app.get('/api/menu', requireAuth, MenuController.read);
+app.put('/api/menu/:id', requireAuth, MenuController.update);
+app.delete('/api/menu/:id', requireAuth, MenuController.delete);
 // reservation endpoint
-app.post('/api/reservation', ReservationController.create);
-app.get('/api/reservation', ReservationController.read);
-app.put('/api/reservation/:id', ReservationController.update);
-app.delete('/api/reservation/:id', ReservationController.delete);
+app.post('/api/reservation', requireAuth, ReservationController.create);
+app.get('/api/reservation', requireAuth, ReservationController.read);
+app.put('/api/reservation/:id', requireAuth, ReservationController.update);
+app.delete('/api/reservation/:id', requireAuth, ReservationController.delete);
 // restaurant user permission endpoint
-app.post('/api/user', UserPermissionRestaurantController.create);
-app.get('/api/user', UserPermissionRestaurantController.read);
-app.put('/api/user/:id', UserPermissionRestaurantController.update);
-app.delete('/api/user/:id', UserPermissionRestaurantController.delete);
+app.post('/api/user', requireAuth, UserPermissionRestaurantController.create);
+app.get('/api/user', requireAuth, UserPermissionRestaurantController.read);
+app.put('/api/user/:id', requireAuth, UserPermissionRestaurantController.update);
+app.delete('/api/user/:id', requireAuth, UserPermissionRestaurantController.delete);
 
 
 
