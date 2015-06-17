@@ -13,7 +13,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controllerAs: 'PR',
 			resolve : {    
 				profile : function(ProfileService){
-					return ProfileService.getRestaruantInfo();
+					return ProfileService.getRestaurantInfo();
 				} 
 			} 
 		})
@@ -22,7 +22,12 @@ app.config(function($stateProvider, $urlRouterProvider){
 			url: '/reservations',
 			templateUrl: 'routes/reservations/reservations.html',
 			controller: 'ReservationsCtrl',
-			controllerAs: 'RE'
+			controllerAs: 'RE',
+			resolve: {
+				restaurant: function(ReservationsService){
+					ReservationsService.getReservations();
+				}
+			}
 		})
 
 
@@ -32,4 +37,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controller: 'MenuCtrl',
 			controllerAs: 'MENU'
 		})
+
+
+		// $urlRouterProvider.otherwise(window.location.href = '/')
 });
