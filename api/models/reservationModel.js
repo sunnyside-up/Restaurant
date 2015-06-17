@@ -14,9 +14,9 @@ var userReservationSchema = new mongoose.Schema({
 
 	guestNumber: { type: Number, required: true },
 
-	orderCart: [
-		{ type: Schema.Types.ObjectId, ref: 'MenuItem' }
-	],
+	// orderCart: [
+	// 	{ type: Schema.Types.ObjectId, ref: 'MenuItem' }
+	// ],
 
 	creditCard: {
 		cardName: String,

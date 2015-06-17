@@ -15,7 +15,7 @@ module.exports = {
 
 	read: function(req, res) {
 		Client
-		.find(req.query)
+		.find(req.user._id)
 		.exec(function(err, result) {
 			if (err) {
 				return res.status(500).send(err);
@@ -26,7 +26,7 @@ module.exports = {
 	},
 
 	update: function(req, res) {
-		Client.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
+		Client.findByIdAndUpdate(req.user._id, req.body, function(err, result) {
 			if (err) {
 				return res.status(500).send(err);
 			} else {
@@ -36,7 +36,7 @@ module.exports = {
 	},
 
 	delete: function(req, res) {
-		Client.findByIdAndRemove(req.params.id, function(err, result) {
+		Client.findByIdAndRemove(req.user._id, function(err, result) {
 			if (err) {
 				return res.status(500).send(err);
 			} else {
