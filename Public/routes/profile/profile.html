@@ -1,54 +1,36 @@
 <!--restaurantsProfile !-->
- 
 <div class="container-fluid">
     <div class="container">
         <legend class="text-center profile">Profile</legend>
     </div>
     <div>
-         <form class='restProfileForm'>
-            <ul class="profilelist list-group"> 
+        <form class='restProfileForm'>
+            <ul class="profilelist list-group">
                 <li>
-                <i class="fa fa-university profileicon fa-x2"></i>&nbsp&nbsp 
-                Restaurant Name : {{PR.profile.businessName}}
-                Konoha Raman
-                </li></br>
-
+                    <i class="fa fa-university profileicon fa-x2"></i>&nbsp&nbsp Restaurant Name : {{PR.profile.businessName}}
+                </li>
+                </br>
                 <li>
-                <i class="fa fa-map-marker profileicon"></i>&nbsp&nbsp&nbsp
-                Address : {{PR.profile.businessAddress.addressOne}}&nbsp 
-                {{PR.profile.businessAddress.addressTwo}}, 
-                {{PR.profile.businessAddress.city}}, 
-                {{PR.profile.businessAddress.state}},
-                {{PR.profile.businessAddress.zip}}
-                Fire Village, sakura ave, #113
-                </li></br>
-
+                    <i class="fa fa-map-marker profileicon"></i>&nbsp&nbsp&nbsp Address : {{PR.profile.businessAddress.addressOne}}&nbsp {{PR.profile.businessAddress.addressTwo}}, {{PR.profile.businessAddress.city}}, {{PR.profile.businessAddress.state}}, {{PR.profile.businessAddress.zip}}
+                </li>
+                </br>
                 <li>
-                <i class="fa fa-phone profileicon"></i>&nbsp&nbsp
-                Contact Number : {{PR.profile.businessNumber}} 
-                123.4566
-                </li></br>
-
-                <li><i class="fa fa-envelope-o profileicon"></i>&nbsp&nbsp
-                Email : {{PR.profile.businessEmail}}
-                konoharaman@ninja.com
-                </li></br>
-
-                <li><i class="fa fa-clock-o profileicon"></i>&nbsp&nbsp
-                business Hours : {{PR.profile.businessHours}}
-                12 am - 5 pm
-                </li></br>
-
-                <li><i class="fa fa-users profileicon"></i>&nbsp&nbsp
-                Max capacity : {{PR.profile.capacity}}
-                15 
+                    <i class="fa fa-phone profileicon"></i>&nbsp&nbsp Contact Number : {{PR.profile.businessNumber}}
+                </li>
+                </br>
+                <li><i class="fa fa-envelope-o profileicon"></i>&nbsp&nbsp Email : {{PR.profile.businessEmail}}
+                </li>
+                </br>
+                <li><i class="fa fa-clock-o profileicon"></i>&nbsp&nbsp business Hours : {{PR.profile.businessHours}}
+                </li>
+                </br>
+                <li><i class="fa fa-users profileicon"></i>&nbsp&nbsp Max capacity : {{PR.profile.capacity}}
                 </li>
             </ul>
-        <div id='restEditButton'>
-            <button class="btn btn-link" ng-click="PR.profileUpdateModal('lg')">edit</button>
-        </div>
-        
-    </form>
+            <div id='restEditButton'>
+                <button class="btn btn-link" ng-click="PR.profileUpdateModal('lg')">edit</button>
+            </div>
+        </form>
     </div>
-    <!-- edit option for profile !-->   
+    <!-- edit option for profile !-->
 </div>
