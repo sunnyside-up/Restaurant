@@ -25,11 +25,15 @@
                         }
  
                         RestaurantsProfileService.updateProfile(update).then(function(res) {
-                            profile.profile.push(update);
-                            update = {};
+                            //write a test for proprety if it's empty then take
+                            //out of the update object
+                            
+                            userRestaurant.push(update);
                             $modalInstance.dismiss('cancel');
                         })      
                     };
+
+
         }]) //end of controller
 })();
 

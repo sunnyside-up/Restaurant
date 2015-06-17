@@ -3,7 +3,7 @@ var app = angular.module('MRE', ['ui.router','ui.bootstrap']);
 
 app.config(function($stateProvider, $urlRouterProvider){
 
-	$urlRouterProvider.otherwise('/re/reservations');
+	$urlRouterProvider.otherwise('/');
 
 	$stateProvider 
 		.state('profile', {
