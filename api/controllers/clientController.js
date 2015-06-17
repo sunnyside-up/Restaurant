@@ -13,16 +13,6 @@ module.exports = {
 		});
 	},
 
-	readById: function(req, res) {
-		Client.findById(req.params.id, function(err, result) {
-			if (err) {
-				return res.status(500).send(err);
-			} else {
-				return res.send(result);
-			}
-		});		
-	},
-
 	read: function(req, res) {
 		Client
 		.find(req.query)
