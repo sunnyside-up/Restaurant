@@ -49,21 +49,41 @@ passport.use(new LocalStrategy({
 	passwordField: 'password'
 }, function(email, password, done) {
 	//define how we match user credentials to db values
-	RestaurantUser.findOne({ businessEmail: email }, function(err, user){
-		if (!user) {
-			done(new Error("This user does not exist"));
+	ClientUser.findOne({ email: email }, function(error, user){
+		//no client, no error look in restaurant model
+		if(!error && !user){
+			RestaurantUser.findOne({ businessEmail: email}, function(error, user){
+				if(!user){
+					done(new Error("This user does not exist"));
+				} else if (error){
+					done(new Error("Please verify your password and try again"))
+				} else {
+					user.comparePw(password).then(function(doesMatch) {
+					console.log('password match: ', doesMatch);
+						if (doesMatch) {
+							console.log('user in localStrategy: ', user);
+							done(null, user);
+						}
+						else {
+							done(new Error("Please verify your password and try again"));
+						}
+					})
+				}
+			})
+		} else if (!error && user){
+			console.log('comparePassword User: ', user);
+			user.comparePw(password).then(function(doesMatch) {
+				console.log('password match: ', doesMatch);
+				if (doesMatch) {
+					console.log('user in localStrategy: ', user);
+					done(null, user);
+				} else {
+					done(new Error("Please verify your password and try again"));
+				}
+			})
 		}
-		user.comparePw(password).then(function(doesMatch) {
-			console.log('password match: ', doesMatch);
-			if (doesMatch) {
-				console.log('user in localStrategy: ', user);
-				done(null, user);
-			}
-			else {
-				done(new Error("Please verify your password and try again"));
-			}
-		});
-	});
+	})
+
 }));
 
 app.use('/re', express.static(__dirname+'/Public'));
@@ -73,7 +93,8 @@ app.use('/', express.static(__dirname+'/mainLanding'));
 
 // establishing passport serializer and deserializer
 passport.serializeUser(function(user, done) {
-  done(null, user._id);
+
+  	done(null, user._id);
 });
 passport.deserializeUser(function(id, done) {
   RestaurantUser.findById(id, function (err, user) {
@@ -102,7 +123,7 @@ var logMe = function(req, res, done) {
 app.post('/api/client', ClientController.create);
 app.post('/api/restaurant', RestaurantController.create);
 // login endpoint
-app.post('/api/client/auth', passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
+app.post('/api/client/auth', logMe, passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
 	console.log("res from server.js: ", res)
 	res.status(200).end();
 });
