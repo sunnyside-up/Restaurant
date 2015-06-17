@@ -35,7 +35,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 			url: '/menu',
 			templateUrl: 'routes/menu/menu.html',
 			controller: 'MenuCtrl',
-			controllerAs: 'MENU'
+			controllerAs: 'MENU',
 		})
 
 

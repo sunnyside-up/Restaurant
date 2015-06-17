@@ -26,7 +26,7 @@
                         }
  
                         RestaurantsProfileService.updateProfile(update).then(function(res) {
-                            userRestaurant.push(update);
+                            // userRestaurant.push(update);
                             $modalInstance.dismiss('cancel');
                         })      
                     };

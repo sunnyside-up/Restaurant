@@ -1,9 +1,10 @@
 (function() {
     angular.module('MRE')
-        .controller('AddItemCtrl', ['$scope', 'AddItemService', '$modalInstance',
-            function($scope, AddItemService, $modalInstance) {
+        .controller('AddItemCtrl', ['$scope', 'AddItemService', '$modalInstance', 'ProfileService', 'profile',
+            function($scope, AddItemService, $modalInstance, ProfileService, profile) {
                 var AIC = this;
                 $scope.test = "test";
+                console.log(profile);
                 //adding item to the menu
                 AIC.addMenuItem = function(category, name, cost, description, photos) {
                     var newItem = {
@@ -17,7 +18,7 @@
                     }
 
                     AddItemService.addMenuItem(newItem).then(function(res) {
-                        menuItem.menu.push(newItem);
+                        profile[0].menu.push(newItem);
                         $modalInstance.dismiss('cancel');
                     })
                 }
