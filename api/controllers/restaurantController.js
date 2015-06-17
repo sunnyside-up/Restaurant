@@ -13,8 +13,9 @@ module.exports = {
 	},
 
 	read: function(req, res) {
+		console.log('restaurantController: ', req.user);
 		Restaurant
-		.find(req.query)
+		.find(req.user._id)
 		.exec(function(err, result) {
 			if (err) {
 				return res.status(500).send(err);
