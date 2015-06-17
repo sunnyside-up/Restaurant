@@ -3,8 +3,6 @@ var app = angular.module('MRE', ['ui.router','ui.bootstrap']);
 
 app.config(function($stateProvider, $urlRouterProvider){
 
-	$urlRouterProvider.otherwise('/re/reservations');
-
 	$stateProvider 
 		.state('profile', {
 			url: '/re/profile',
@@ -13,7 +11,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controllerAs: 'PR'
 			/* resolve : {    wait until we got a end point then unleash
 				profile : function(ProfileService){
-					return ProfileService.getRestaruantInfo();
+					return ProfileService.getRestaurantInfo();
 				} 
 			} */
 		})
@@ -22,7 +20,12 @@ app.config(function($stateProvider, $urlRouterProvider){
 			url: '/re/reservations',
 			templateUrl: 'routes/reservations/reservations.html',
 			controller: 'ReservationsCtrl',
-			controllerAs: 'RE'
+			controllerAs: 'RE',
+			resolve: {
+				restaurant: function(ReservationsService){
+					ReservationsService.getReservations();
+				}
+			}
 		})
 
 
@@ -32,4 +35,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controller: 'MenuCtrl',
 			controllerAs: 'MENU'
 		})
+
+
+		// $urlRouterProvider.otherwise(window.location.href = '/')
 });

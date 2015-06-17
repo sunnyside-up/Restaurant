@@ -20,7 +20,7 @@ app.service('clientService', function($http, $q, $window) {
 			url: '/api/client/auth',
 			data: user
 		}).then(function(res) {
-			$window.location.href = '/public'
+			// $window.location.href = '/public'
 		});
 	};
 	

@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs'); // required for windows users*
+var bcrypt = require('bcryptjs'); // required for windows users*
 // if using linux or apple ios, use bcrypt
 var Schema = mongoose.Schema;
 var q = require('q');
