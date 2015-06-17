@@ -8,8 +8,13 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 
 	var userLoggedIn = true;
 
+	// Reservation Details
 	$scope.thisUser = {
-		userId: 481982490,
+		email: 'curiousgeorge@gmail.com',
+		name: {
+			first: 'bob',
+			last: 'saggett'
+		},
 		paymentInfo: {
 			cardName: 'bob',
 			cardNumber: 55,
@@ -19,6 +24,7 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 	}
 	$scope.partySize = null;
 	$scope.preorders = [];
+	$scope.resDayAndTime = new Date();
 
 	// testing methods for verifying ng-model values
 	$scope.dataTesting = {
@@ -118,7 +124,7 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 			name: $scope.itemObj.name,
 			quantity: $scope.preorderQuantity,
 			sumCost: $scope.itemObj.cost * $scope.preorderQuantity,
-			index: $scope.preorders.length - 1
+			index: $scope.preorders.length
 		});
 		console.log($scope.preorders);
 	}
@@ -127,25 +133,20 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 	$scope.submitRes = function() {
 		if(!userLoggedIn) {
 			alert("Please log in to continue!");
-			console.log({
-				status: "Active",
-				businessId: $scope.thisRest.businessId,
-				clientId: $scope.thisUser.userId,
-				dayAndTime: $scope.resDayAndTime,
-				partySize: $scope.partySize,
-				preorders: $scope.preorders,
-				paymentInfo: $scope.thisUser.paymentInfo
-			});
+			
+			
 		} else if(userLoggedIn) {
 			ReservationService.submitRes({
-				resvStatus: "Active",
-				businessId: $scope.thisRest.businessId,
-				guestNumber: $scope.thisUser.userId,
-				dayAndTime: $scope.resDayAndTime,
+				resvStatus: "Pending",
+				businessId: getRestById.businessId,
+				resDayAndTime: $scope.resDayAndTime,
+				resSubmitTime: new Date(),
 				guestNumber: $scope.partySize,
 				orderCart: $scope.preorders,
 				creditCard: $scope.thisUser.paymentInfo,
-				phoneNumber: $scope.thisUser.phoneNumber
+				name: $scope.thisUser.name,
+				phoneNumber: $scope.thisUser.phoneNumber,
+				email: $scope.thisUser.email
 			});
 		}
 	};

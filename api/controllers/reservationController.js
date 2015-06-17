@@ -5,14 +5,17 @@ module.exports = {
 		var newReservation = new Reservation(req.body);
 		newReservation.save(function(err, result) {
 			if (err) {
+				console.log("reservationCtrl", err);
 				return res.status(500).send(err);
 			} else {
+				console.log("Success!");
 				return res.send(result);
 			}
 		});
 	},
 
 	read: function(req, res) {
+		console.log('req.user', req.user)
 		Reservation
 		.find(req.query)
 		.exec(function(err, result) {
