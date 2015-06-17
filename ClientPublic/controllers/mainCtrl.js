@@ -8,7 +8,7 @@ app.controller('MainCtrl', function($scope, $log, $modal, $location) {
 
 	$scope.mainMenu = {
 		profile: function() {
-			console.log('Work in progress!');
+			$location.path('/profile/' + 2);
 		},
 		search: function() {
 			$location.path('/find-restaurant');

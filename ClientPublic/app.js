@@ -7,7 +7,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 	$stateProvider
 		.state('dashboard', {
 			url: '/dashboard',
-			templateUrl: 'views/dashboard.html',
+			templateUrl: 'views/Dashboard.html',
 			controller: 'DashboardCtrl',
 			controllerAs: 'DB'
 			
@@ -18,9 +18,19 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controller: 'FindRestaurant',
 			controllerAs: 'FR'
 		})
+		.state('profile', {
+			url: '/profile/:id',
+			templateUrl: 'views/Profile.html',
+			controller: 'ProfileCtrl',
+			resolve: {
+				getUserById: function() {
+					console.log('Poop.');
+				}
+			}
+		})
 		.state('restaurant', {
 			url: '/restaurant/:id',
-			templateUrl: 'views/restaurant.html',
+			templateUrl: 'views/Restaurant.html',
 			controller: 'RestaurantCtrl',
 			controllerAs: 'RE',
 			resolve: {

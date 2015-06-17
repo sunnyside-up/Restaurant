@@ -1,0 +1,54 @@
+<!-- No CSS Applied Yet! -->
+<div class="container-fluid">
+    <div class="container">
+        <legend class="text-center profile">Profile</legend>
+    </div>
+    <div>
+         <form class='userProfileForm'>
+            <ul class="profilelist list-group"> 
+                <li>
+                    <i class=""></i>
+                    <div class="edit-profile input">
+                        <label class"edit-profile label">First Name: </label>
+                        <div ng-show="!beingEdited"  ng-model="user.name.first">{{ user.name.first }}</div>
+                        <input type="text" ng-hide="!beingEdited" ng-model="user.name.first" />
+                    </div>
+                </li>
+                <br />
+                <li>
+                    <i class=""></i>
+                    <div class="edit-profile input">
+                        <label class"edit-profile label">Last Name: </label>
+                        <div ng-show="!beingEdited" ng-model="user.name.last">{{ user.name.last }}</div>
+                        <input type="text" ng-hide="!beingEdited" ng-model="user.name.last" />
+                    </div>
+                </li>
+                <br />
+                <li>
+                    <i class=""></i>
+                    <div class="edit-profile input">
+                        <label class"edit-profile label">Email: </label>
+                        <div ng-show="!beingEdited" ng-model="user.email">{{ user.email }}</div>
+                        <input type="text" ng-hide="!beingEdited" ng-model="user.email" />
+                    </div>
+                </li>
+                <br />
+                <li>
+                    <i class=""></i>
+                    <div class="edit-profile input">
+                        <label class"edit-profile label">Phone Number: </label>
+                        <div ng-show="!beingEdited" ng-model="user.phoneNumber">{{ user.phoneNumber }}</div>
+                        <input type="number" ng-hide="!beingEdited" ng-model="user.phoneNumber" />
+                    </div>
+                </li>
+                <br />
+
+            </ul>
+        <div id='userEditButton'>
+            <button class="btn btn-link" ng-click="beingEdited = !beingEdited">edit</button>
+        </div>
+        
+    </form>
+    </div>
+    <!-- edit option for profile !-->   
+</div>

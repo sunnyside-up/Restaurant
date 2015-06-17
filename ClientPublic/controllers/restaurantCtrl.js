@@ -142,7 +142,7 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 				resDayAndTime: $scope.resDayAndTime,
 				resSubmitTime: new Date(),
 				guestNumber: $scope.partySize,
-				orderCart: $scope.preorders,
+				// orderCart: $scope.preorders,
 				creditCard: $scope.thisUser.paymentInfo,
 				name: $scope.thisUser.name,
 				phoneNumber: $scope.thisUser.phoneNumber,
