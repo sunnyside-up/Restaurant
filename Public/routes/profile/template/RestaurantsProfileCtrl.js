@@ -4,6 +4,7 @@
                 function($scope, RestaurantsProfileService, $modalInstance) {
                     //submit function for updating profile
                     //business hours not complete
+
                     var RPC = this;
                     $scope.test = 'test';
                     RPC.updateProfile = function(name, addressOne, addressTwo, city, state, zip, email, phone, businessHour, tableNumber, capacity) {
@@ -25,9 +26,6 @@
                         }
  
                         RestaurantsProfileService.updateProfile(update).then(function(res) {
-                            //write a test for proprety if it's empty then take
-                            //out of the update object
-                            
                             userRestaurant.push(update);
                             $modalInstance.dismiss('cancel');
                         })      

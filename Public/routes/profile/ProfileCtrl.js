@@ -4,7 +4,8 @@
 		var PR = this;
 		//PR.profile = profile;  //inject from profileService
 
-
+    PR.data = profile;
+    console.log(PR.data);
 	//open modal to update restaurant
 	PR.profileUpdateModal = function(size) {
     console.log('hello');

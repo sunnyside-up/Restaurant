@@ -82,12 +82,8 @@ passport.deserializeUser(function(id, done) {
 });
 
 // prevents unauthorization access to after login pages
-<<<<<<< HEAD
-var requireAuth = function(req, res, next) {
-	console.log(req.user);
-=======
+
 function requireAuth (req, res, next) {
->>>>>>> 75aca4cf2ceb0be9c502f47362aab0c71e7c1cb1
 	if (!req.isAuthenticated()) {
 		return res.status(401).end();
 	}
@@ -134,13 +130,9 @@ app.get('/api/menu', requireAuth, MenuController.read);
 app.put('/api/menu/update', requireAuth, MenuController.update);
 app.delete('/api/menu/:id', requireAuth, MenuController.delete);
 // reservation endpoint
-<<<<<<< HEAD
-app.post('/api/reservation', requireAuth, ReservationController.create);
-app.get('/api/reservation', requireAuth, ReservationController.read);
-=======
+
 app.post('/api/reservation', ReservationController.create);
 app.get('/api/reservation', logMe, requireAuth, ReservationController.read);
->>>>>>> 75aca4cf2ceb0be9c502f47362aab0c71e7c1cb1
 app.put('/api/reservation/:id', requireAuth, ReservationController.update);
 app.delete('/api/reservation/:id', requireAuth, ReservationController.delete);
 // restaurant user permission endpoint
