@@ -6,7 +6,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 
 	$stateProvider
 		.state('dashboard', {
-			url: '/dashboard',
+			url: '/dashboard/:id',
 			templateUrl: 'views/Dashboard.html',
 			controller: 'DashboardCtrl',
 			controllerAs: 'DB'
@@ -24,7 +24,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controller: 'ProfileCtrl',
 			resolve: {
 				getUserById: function() {
-					console.log('Poop.');
+					console.log('Still need to get express.js to send user information.');
 				}
 			}
 		})

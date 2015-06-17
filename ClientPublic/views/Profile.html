@@ -1,12 +1,11 @@
 <!-- No CSS Applied Yet! -->
 <div class="container-fluid">
     <div class="container">
-        <legend class="text-center profile">Profile</legend>
-    </div>
-    <div>
-         <form class='userProfileForm'>
-            <ul class="profilelist list-group"> 
-                <li>
+        <form class="form-inline">
+            <h2 class="">Profile</h2>
+            <hr />
+            <ul class="list-group"> 
+                <li class="list-group-item">
                     <i class=""></i>
                     <div class="edit-profile input">
                         <label class"edit-profile label">First Name: </label>
@@ -14,8 +13,7 @@
                         <input type="text" ng-hide="!beingEdited" ng-model="user.name.first" />
                     </div>
                 </li>
-                <br />
-                <li>
+                <li class="list-group-item">
                     <i class=""></i>
                     <div class="edit-profile input">
                         <label class"edit-profile label">Last Name: </label>
@@ -23,8 +21,7 @@
                         <input type="text" ng-hide="!beingEdited" ng-model="user.name.last" />
                     </div>
                 </li>
-                <br />
-                <li>
+                <li class="list-group-item">
                     <i class=""></i>
                     <div class="edit-profile input">
                         <label class"edit-profile label">Email: </label>
@@ -32,8 +29,7 @@
                         <input type="text" ng-hide="!beingEdited" ng-model="user.email" />
                     </div>
                 </li>
-                <br />
-                <li>
+                <li class="list-group-item">
                     <i class=""></i>
                     <div class="edit-profile input">
                         <label class"edit-profile label">Phone Number: </label>
@@ -41,14 +37,17 @@
                         <input type="number" ng-hide="!beingEdited" ng-model="user.phoneNumber" />
                     </div>
                 </li>
-                <br />
 
             </ul>
-        <div id='userEditButton'>
-            <button class="btn btn-link" ng-click="beingEdited = !beingEdited">edit</button>
+        </form>
+        <div class=''>
+            <button class="btn btn-default" ng-click="beingEdited = true" ng-show="!beingEdited">Edit Info</button>
+            <button class="btn btn-default" ng-click="beingEdited = false" ng-hide="!beingEdited">Done Editing</button>
+            <button class="btn btn-primary" ng-click="saveInfo()">Save</button>
+            <button class="btn btn-danger" ng-click="resetInfo()">Cancel</button>
         </div>
         
-    </form>
+        
     </div>
     <!-- edit option for profile !-->   
 </div>
