@@ -13,9 +13,9 @@ module.exports = {
 	},
 
 	read: function(req, res) {
-		console.log('restaurantController: ', req)
+		console.log('restaurantController: ', req.user);
 		Restaurant
-		.find(req.query)
+		.find(req.user._id)
 		.exec(function(err, result) {
 			if (err) {
 				return res.status(500).send(err);
@@ -36,7 +36,7 @@ module.exports = {
 	},
 
 	delete: function(req, res) {
-		Restaurant.findBy_idAndRemove(req.userrestaurants.id, function(err, result) {
+		Restaurant.findBy_idAndRemove(req.user._id, function(err, result) {
 			if (err) {
 				return res.status(500).send(err);
 			} else {

@@ -6,8 +6,8 @@ app.config(function($stateProvider, $urlRouterProvider){
 
 	$stateProvider
 		.state('dashboard', {
-			url: '/dashboard',
-			templateUrl: 'views/dashboard.html',
+			url: '/dashboard/:id',
+			templateUrl: 'views/Dashboard.html',
 			controller: 'DashboardCtrl',
 			controllerAs: 'DB'
 			
@@ -18,9 +18,19 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controller: 'FindRestaurant',
 			controllerAs: 'FR'
 		})
+		.state('profile', {
+			url: '/profile/:id',
+			templateUrl: 'views/Profile.html',
+			controller: 'ProfileCtrl',
+			resolve: {
+				getUserById: function() {
+					console.log('Still need to get express.js to send user information.');
+				}
+			}
+		})
 		.state('restaurant', {
 			url: '/restaurant/:id',
-			templateUrl: 'views/restaurant.html',
+			templateUrl: 'views/Restaurant.html',
 			controller: 'RestaurantCtrl',
 			controllerAs: 'RE',
 			resolve: {

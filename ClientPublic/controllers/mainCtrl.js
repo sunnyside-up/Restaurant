@@ -1,6 +1,6 @@
 var app = angular.module('MRE');
 
-app.controller('MainCtrl', function($scope, $log, $modal, $location) {
+app.controller('MainCtrl', function($scope, $log, $modal, $location, UserService) {
 	
 	var randStr = '?bust=' + Math.random().toString(36).slice(2); // Fixes modal caching problem (not sure how this works)
 
@@ -8,13 +8,19 @@ app.controller('MainCtrl', function($scope, $log, $modal, $location) {
 
 	$scope.mainMenu = {
 		profile: function() {
-			console.log('Work in progress!');
+			$location.path('/profile/' + 2);
+			// if(!isloggedin) {
+
+			// } else if(isLoggedin) {
+			// 	console.log('Success!');
+			// 	$location.path('/profile/' + 2);
+			// }
 		},
 		search: function() {
 			$location.path('/find-restaurant');
 		},
 		dashboard: function() {
-			$location.path('/dashboard');
+			$location.path('/dashboard/' + 2);
 		},
 		appSettings: function(size) {
 			var modalInstance = $modal.open({

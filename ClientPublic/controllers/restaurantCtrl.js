@@ -91,18 +91,7 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 	];
 
 	$scope.getDayClass = function(date, mode) {
-		if (mode === 'day') {
-		  var dayToCheck = new Date(date).setHours(0,0,0,0);
-
-		  for (var i=0;i<$scope.events.length;i++){
-		    var currentDay = new Date($scope.events[i].date).setHours(0,0,0,0);
-
-		    if (dayToCheck === currentDay) {
-		      return $scope.events[i].status;
-		    }
-		  }
-		}
-		return '';
+		ReservationService.getDayClass(date, mode);
 	};
 
 	// Timepicker $scope properties
@@ -142,7 +131,7 @@ app.controller('RestaurantCtrl', function($scope, getRestById, RestaurantService
 				resDayAndTime: $scope.resDayAndTime,
 				resSubmitTime: new Date(),
 				guestNumber: $scope.partySize,
-				orderCart: $scope.preorders,
+				// orderCart: $scope.preorders,
 				creditCard: $scope.thisUser.paymentInfo,
 				name: $scope.thisUser.name,
 				phoneNumber: $scope.thisUser.phoneNumber,
