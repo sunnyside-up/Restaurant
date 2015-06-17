@@ -13,6 +13,7 @@ module.exports = {
 	},
 
 	read: function(req, res) {
+		console.log('restaurantController: ', req)
 		Restaurant
 		.find(req.query)
 		.exec(function(err, result) {
