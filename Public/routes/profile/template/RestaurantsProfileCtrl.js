@@ -4,6 +4,7 @@
                 function($scope, RestaurantsProfileService, $modalInstance) {
                     //submit function for updating profile
                     //business hours not complete
+
                     var RPC = this;
                     $scope.test = 'test';
                     RPC.updateProfile = function(name, addressOne, addressTwo, city, state, zip, email, phone, businessHour, tableNumber, capacity) {
@@ -25,11 +26,12 @@
                         }
  
                         RestaurantsProfileService.updateProfile(update).then(function(res) {
-                            profile.profile.push(update);
-                            update = {};
+                            userRestaurant.push(update);
                             $modalInstance.dismiss('cancel');
                         })      
                     };
+
+
         }]) //end of controller
 })();
 

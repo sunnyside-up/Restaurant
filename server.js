@@ -103,6 +103,7 @@ passport.deserializeUser(function(id, done) {
 });
 
 // prevents unauthorization access to after login pages
+
 function requireAuth (req, res, next) {
 	if (!req.isAuthenticated()) {
 		return res.status(401).end();
@@ -147,9 +148,10 @@ app.delete('/api/client/:id', requireAuth, ClientController.delete);
 // menu endpoint
 app.post('/api/menu', requireAuth, MenuController.create);
 app.get('/api/menu', requireAuth, MenuController.read);
-app.put('/api/menu/:id', requireAuth, MenuController.update);
+app.put('/api/menu/update', requireAuth, MenuController.update);
 app.delete('/api/menu/:id', requireAuth, MenuController.delete);
 // reservation endpoint
+
 app.post('/api/reservation', ReservationController.create);
 app.get('/api/reservation', logMe, requireAuth, ReservationController.read);
 app.put('/api/reservation/:id', requireAuth, ReservationController.update);
@@ -161,7 +163,7 @@ app.put('/api/user/:id', requireAuth, UserPermissionRestaurantController.update)
 app.delete('/api/user/:id', requireAuth, UserPermissionRestaurantController.delete);
 
 
-
+ 
 //--connections--//
 app.listen(port, function(){
 	console.log('Listening on port: ', port);

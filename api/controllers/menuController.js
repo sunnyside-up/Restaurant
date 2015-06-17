@@ -2,6 +2,7 @@ var Menu = require('../models/menuItemModel');
 
 module.exports = {
 	create: function(req, res) {
+		console.log(req.body)
 		var newMenu = new Menu(req.body);
 		newMenu.save(function(err, result) {
 			if (err) {
