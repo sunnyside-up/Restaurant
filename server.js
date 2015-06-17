@@ -26,7 +26,10 @@ var RestaurantUser = require('./api/models/restaurantModel');
 
 //--app variables--//
 var port = env.PORT || 10000;
-var mongoUri = 'mongodb://localhost:27017/mre';
+// local db with mongodb
+// var mongoUri = 'mongodb://localhost:27017/mre';
+// online db with mongolab
+var mongoUri = 'mongodb://sunnysideup:sunnysideup123@ds045057.mongolab.com:45057/restaurants';
 
 //--middleware--//
 
