@@ -1,12 +1,10 @@
 (function() {
         angular.module('MRE')
-            .controller('RestaurantsProfileCtrl', ['$scope', 'RestaurantsProfileService', '$modalInstance',
-                function($scope, RestaurantsProfileService, $modalInstance) {
+            .controller('RestaurantsProfileCtrl', ['$scope', 'RestaurantsProfileService', '$modalInstance', 'ProfileService', 'profile',
+                function($scope, RestaurantsProfileService, ProfileService, profile, $modalInstance) {
                     //submit function for updating profile
                     //business hours not complete
-
                     var RPC = this;
-                    $scope.test = 'test';
                     RPC.updateProfile = function(name, addressOne, addressTwo, city, state, zip, email, phone, businessHour, tableNumber, capacity) {
                         var update = {
                             businessName: name,
@@ -26,7 +24,7 @@
                         }
  
                         RestaurantsProfileService.updateProfile(update).then(function(res) {
-                            // userRestaurant.push(update);
+                            profile[0].userRestaurant.push(update);
                             $modalInstance.dismiss('cancel');
                         })      
                     };
