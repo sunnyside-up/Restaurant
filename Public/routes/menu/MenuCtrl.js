@@ -17,7 +17,12 @@
                         animation: $scope.animationsEnabled,
                         templateUrl: 'routes/menu/template/addItem.html?bust=' + Math.random().toString(36).slice(2),
                         controller: 'AddItemCtrl as AIC',
-                        size: size
+                        size: size,
+                        resolve : {
+                            profile : function(ProfileService){
+                                return ProfileService.getRestaurantInfo();
+                            } 
+                        }
                     });
 
                     modalInstance.result.then(function(selectedItem) {
