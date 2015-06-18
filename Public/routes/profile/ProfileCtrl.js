@@ -13,7 +13,12 @@
       animation: $scope.animationsEnabled,
       templateUrl: 'routes/profile/template/restaurantsProfile.html?bust=' + Math.random().toString(36).slice(2),
       controller: 'RestaurantsProfileCtrl as RPC',
-      size: size
+      size: size,
+      resolove : {
+        profile: function(ProfileService) {
+          return ProfileService.getRestaurantInfo();
+        }
+      }
     });
 
     modalInstance.result.then(function (selectedItem) {
