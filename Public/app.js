@@ -3,35 +3,41 @@ var app = angular.module('MRE', ['ui.router','ui.bootstrap']);
 
 app.config(function($stateProvider, $urlRouterProvider){
 
-	$urlRouterProvider.otherwise('/re/reservations');
+	$urlRouterProvider.otherwise('/');
 
 	$stateProvider 
 		.state('profile', {
-			url: '/re/profile',
+			url: '/profile',
 			templateUrl: 'routes/profile/profile.html',
 			controller: 'ProfileCtrl',
-			controllerAs: 'PR'
-			/* resolve : {    wait until we got a end point then unleash
+			controllerAs: 'PR',
+			resolve : {    
 				profile : function(ProfileService){
-					return ProfileService.getRestaruantInfo();
+					return ProfileService.getRestaurantInfo();
 				} 
-			} */
+			} 
 		})
 		
 		.state('reservations', {
-			url: '/re/reservations',
+			url: '/reservations',
 			templateUrl: 'routes/reservations/reservations.html',
 			controller: 'ReservationsCtrl',
-			controllerAs: 'RE'
+			controllerAs: 'RE',
+			resolve: {
+				restaurant: function(ReservationsService){
+					ReservationsService.getReservations();
+				}
+			}
 		})
 
 
 		.state('menu', {
-			url: '/re/menu',
+			url: '/menu',
 			templateUrl: 'routes/menu/menu.html',
 			controller: 'MenuCtrl',
 			controllerAs: 'MENU'
 		})
+
 		
 		.state('userAdmin', {
 			url: '/re/userAdmin',
@@ -39,4 +45,9 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controller: 'UserAdminCtrl',
 			controllerAs: 'AC'
 		})
+
+
+
+		// $urlRouterProvider.otherwise(window.location.href = '/')
+
 });

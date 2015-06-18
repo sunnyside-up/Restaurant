@@ -3,9 +3,9 @@
 		.service('ReservationsService', ['$q', '$http', function($q, $http){
 			
 			this.getReservations = function(){
-				return $http({
+				$http({
 				method: 'GET',
-				url:'/api/reservation'
+				url: '/api/reservation'
 				}).then(function(res){
 					reservations = res.data;
 					console.log('res.data:', res.data);

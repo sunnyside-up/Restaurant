@@ -1,9 +1,9 @@
 (function () {
 	angular.module('MRE')
-		.controller('ReservationsCtrl', ['$scope', "ReservationsService",'$modal', '$log',function($scope, ReservationsService, $modal, $log){
+		.controller('ReservationsCtrl', ['$scope', "ReservationsService",'$modal', '$log',function($scope, ReservationsService, $modal, $log, restaurant){
 			var RE = this;
 		
-                 RE.reservations = ReservationsService.getReservations();
+                 RE.reservations = restaurant;
                  RE.reservations = [];
                  
                  RE.updateReservation = ReservationsService.updateReservation;

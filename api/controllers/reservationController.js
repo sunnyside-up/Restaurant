@@ -15,6 +15,7 @@ module.exports = {
 	},
 
 	read: function(req, res) {
+		console.log('req.user', req.user)
 		Reservation
 		.find(req.query)
 		.exec(function(err, result) {

@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs'); // required for windows users*
+var bcrypt = require('bcryptjs'); // required for windows users*
 // if using linux or apple ios, use bcrypt
 var Schema = mongoose.Schema;
 var q = require('q');
@@ -43,7 +43,7 @@ userClientSchema.pre('save', function(next) {
 		if(err) {
 			return next();
 		}
-		bcrypt.hash(user.password, salt, null, function(err, hash) {
+		bcrypt.hash(user.password, salt, function(err, hash) {
 			if (err) {
 				return next();
 			}

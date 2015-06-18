@@ -1,15 +1,14 @@
 //--node_modules--//
 var express = require('express');
 var app = express();
-
-var bcrypt = require('bcrypt-nodejs');
+var bcrypt = require('bcryptjs');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
+// var io = require('socket.io').listen(server);
+var cookieParser = require('cookie-parser');
 
 //--internal modules--//
 var env = require('./.envVar');
@@ -27,76 +26,114 @@ var RestaurantUser = require('./api/models/restaurantModel');
 
 //--app variables--//
 var port = env.PORT || 10000;
-var mongoUri = 'mongodb://localhost:27017/mre';
+// local db with mongodb
+// var mongoUri = 'mongodb://localhost:27017/mre';
+// online db with mongolab
+var mongoUri = 'mongodb://sunnysideup:sunnysideup123@ds045057.mongolab.com:45057/restaurants';
 
 //--middleware--//
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(session({
+	secret: 'oursecrettext',//env.SESSION_SECRET,
+	saveUninitialized: false,
+	resave: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+//--passport--//
+// require('./pass.js')(passport, LocalStrategy, User);
+// local strategy for passport
+
+passport.use(new LocalStrategy({
+	usernameField: 'email',
+	passwordField: 'password'
+}, function(email, password, done) {
+	//define how we match user credentials to db values
+	ClientUser.findOne({ email: email }, function(error, user){
+		//no client, no error look in restaurant model
+		if(!error && !user){
+			RestaurantUser.findOne({ businessEmail: email}, function(error, user){
+				if(!user){
+					done(new Error("This user does not exist"));
+				} else if (error){
+					done(new Error("Please verify your password and try again"))
+				} else {
+					user.comparePw(password).then(function(doesMatch) {
+					console.log('password match: ', doesMatch);
+						if (doesMatch) {
+							console.log('user in localStrategy: ', user);
+							done(null, user);
+						}
+						else {
+							done(new Error("Please verify your password and try again"));
+						}
+					})
+				}
+			})
+		} else if (!error && user){
+			console.log('comparePassword User: ', user);
+			user.comparePw(password).then(function(doesMatch) {
+				console.log('password match: ', doesMatch);
+				if (doesMatch) {
+					console.log('user in localStrategy: ', user);
+					done(null, user);
+				} else {
+					done(new Error("Please verify your password and try again"));
+				}
+			})
+		}
+	})
+
+}));
+
 app.use('/re', express.static(__dirname+'/Public'));
 app.use('/public', express.static(__dirname+'/ClientPublic'));
 app.use('/auth', express.static(__dirname+'/authPublic'));
 app.use('/', express.static(__dirname+'/mainLanding'));
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(session({
-	resave: false,
-	saveUninitialized: true,
-	secret: 'oursecrettext'//env.SESSION_SECRET
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-
-//--passport--//
-// require('./pass.js')(passport, LocalStrategy, User);
-// local strategy for passport
-passport.use(new LocalStrategy({
-	usernameField: 'email'
-}, function(email, password, done) {
-	//define how we match user credentials to db values
-	User.findOne({ email: email }, function(err, user){
-		if (!user) {
-			done(new Error("This user does not exist"));
-		}
-		user.comparePw(password).then(function(doesMatch) {
-			console.log('password match: ', doesMatch);
-			if (doesMatch) {
-				console.log('user in localStrategy: ', user);
-				done(null, user);
-			}
-			else {
-				done(new Error("Please verify your password and try again"));
-			}
-		});
-	});
-}));
 // establishing passport serializer and deserializer
 passport.serializeUser(function(user, done) {
-  done(null, user._id);
+
+  	done(null, user._id);
 });
 passport.deserializeUser(function(id, done) {
-  User.findById(id, function (err, user) {
+  RestaurantUser.findById(id, function (err, user) {
     done(err, user);
   });
 });
 
 // prevents unauthorization access to after login pages
-var requireAuth = function(req, res, next) {
+
+function requireAuth (req, res, next) {
 	if (!req.isAuthenticated()) {
 		return res.status(401).end();
 	}
-	console.log(req.user);
 	next();
 };
+
+var logMe = function(req, res, done) {
+	console.log('DATA FROM REQUEST ', req.path);
+	console.log('req.body: ', req.body);
+	console.log('req.session: ', req.session);
+	console.log('req.user: ', req.user);
+	done();
+}
 
 //--routes--//
 // create user end-point
 app.post('/api/client', ClientController.create);
 app.post('/api/restaurant', RestaurantController.create);
 // login endpoint
-app.post('/api/client/auth', passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
+app.post('/api/client/auth', logMe, passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
+	console.log("res from server.js: ", res)
 	res.status(200).end();
 });
-app.post('/api/restaurant/auth', passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
+app.post('/api/restaurant/auth', logMe, passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
 	res.status(200).end();
+
 });
 // log out endpoints
 app.get('/api/auth/logout', function(req, res) {
@@ -114,11 +151,12 @@ app.delete('/api/client/:id', requireAuth, ClientController.delete);
 // menu endpoint
 app.post('/api/menu', requireAuth, MenuController.create);
 app.get('/api/menu', requireAuth, MenuController.read);
-app.put('/api/menu/:id', requireAuth, MenuController.update);
+app.put('/api/menu/update', requireAuth, MenuController.update);
 app.delete('/api/menu/:id', requireAuth, MenuController.delete);
 // reservation endpoint
+
 app.post('/api/reservation', ReservationController.create);
-app.get('/api/reservation', requireAuth, ReservationController.read);
+app.get('/api/reservation', logMe, requireAuth, ReservationController.read);
 app.put('/api/reservation/:id', requireAuth, ReservationController.update);
 app.delete('/api/reservation/:id', requireAuth, ReservationController.delete);
 // restaurant user permission endpoint
@@ -128,9 +166,9 @@ app.put('/api/user/:id', requireAuth, UserPermissionRestaurantController.update)
 app.delete('/api/user/:id', requireAuth, UserPermissionRestaurantController.delete);
 
 
-
+ 
 //--connections--//
-server.listen(port, function(){
+app.listen(port, function(){
 	console.log('Listening on port: ', port);
 });
 

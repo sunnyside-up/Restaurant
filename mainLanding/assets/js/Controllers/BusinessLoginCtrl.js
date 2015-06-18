@@ -6,7 +6,8 @@ app.controller('BusinessLoginCtrl', function($scope, $log, $modalInstance, $loca
 		console.log('$scope.user: ', $scope.Business);
 		businessService.login($scope.Business).then(function(res) {
 			console.log('Logged in');
-			$location.path('/re');
+
+			// $location.path('/re');
 		}).catch(function(err) {
 			console.log('err from login: ', err);
 		});
