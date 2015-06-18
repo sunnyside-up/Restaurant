@@ -6,19 +6,16 @@
                 $scope.test = "test";
                 console.log(profile);
                 //adding item to the menu
-                AIC.addMenuItem = function(category, name, cost, description, photos) {
-                    var newItem = {
-                        category: category,
-                        items: [{
-                            name: name,
-                            cost: cost,
-                            description: description,
-                            photos: photos
-                        }]
+                AIC.addMenuItem = function(name, cost, description, photos) {
+                    var newDrink = {
+                                name: name,
+                                cost: cost,
+                                description: description,
+                                photos: photos 
                     }
+                    
 
-                    AddItemService.addMenuItem(newItem).then(function(res) {
-                        profile[0].menu.push(newItem);
+                    AddItemService.addMenuItem(newDrink).then(function(res) {
                         $modalInstance.dismiss('cancel');
                     })
                 }
