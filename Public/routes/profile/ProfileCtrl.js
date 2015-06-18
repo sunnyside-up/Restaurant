@@ -5,7 +5,8 @@
 		//PR.profile = profile;  //inject from profileService
 
     PR.data = profile;
-    console.log(PR.data);
+    console.log('PR.data from ProfileCtrl: ', PR.data[0]);
+
 	//open modal to update restaurant
 	PR.profileUpdateModal = function(size) {
     console.log('hello');
@@ -14,11 +15,11 @@
       templateUrl: 'routes/profile/template/restaurantsProfile.html?bust=' + Math.random().toString(36).slice(2),
       controller: 'RestaurantsProfileCtrl as RPC',
       size: size,
-      resolove : {
-        profile: function(ProfileService) {
-          return ProfileService.getRestaurantInfo();
-        }
-      }
+      // resolve : {
+      //   profile: function(ProfileService) {
+      //     return ProfileService.getRestaurantInfo();
+      //   }
+      // }
     });
 
     modalInstance.result.then(function (selectedItem) {
