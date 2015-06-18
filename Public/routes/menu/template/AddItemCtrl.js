@@ -18,7 +18,7 @@
                     }
 
                     AddItemService.addMenuItem(newItem).then(function(res) {
-                        profile[0].menuItem.push(newItem);
+                        profile[0].menu.push(newItem);
                         $modalInstance.dismiss('cancel');
                     })
                 }
