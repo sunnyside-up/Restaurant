@@ -7,6 +7,12 @@
     PR.data = profile;
     console.log('PR.data from ProfileCtrl: ', PR.data[0]);
 
+    $scope.businessAddSec = false;
+
+    if(PR.data[0].businessAddress.addressTwo) {
+      $scope.businessAddSec = true;
+    }
+
 	//open modal to update restaurant
 	PR.profileUpdateModal = function(size) {
     console.log('hello');
