@@ -7,11 +7,10 @@ app.service('UserService', function($q, $http) {
 		$http({
 			method: 'GET',
 			url: '/api/client'
-		}).error(function(err) {
-			console.log('This is the error:', err);
 		}).then(function(response) {
 			console.log('This is the data:', response.data);
+			dfd.resolve(response.data);
 		});
-		return response.data;
+		return dfd.promise;
 	}
 })
