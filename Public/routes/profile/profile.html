@@ -10,40 +10,40 @@
             <!--  <li>
             <i class="fa fa-university profileicon fa-x2"></i>&nbsp&nbsp Restaurant Name : {{PR.data[0].businessName}}
             </li> -->
-        <div class='col-md-1'>
+        <div class='col-xs-1 col-md-1'>
             <i class="fa fa-map-marker fa-2x profileicon"></i>
         </div>
-        <div class='col-md-11 textedOutput'>
+        <div class='col-xs-11 col-md-11 textedOutput'>
             Address : <br />
             {{PR.data[0].businessAddress.addressOne}} <br />
-            {{PR.data[0].businessAddress.addressTwo}} <br />
+            <div ng-hide='businessSecAdd'>{{PR.data[0].businessAddress.addressTwo}}</div> <br />
             {{PR.data[0].businessAddress.city}}, {{PR.data[0].businessAddress.state}}, {{PR.data[0].businessAddress.zip}}
         </div>
-        <div class='col-md-1'>
+        <div class='col-xs-1 col-md-1'>
             <i class="fa fa-phone fa-2x profileicon"></i>
         </div>
-        <div class='col-md-11 textedOutput'>
+        <div class='col-xs-11 col-md-11 textedOutput'>
             Contact Number : {{PR.data[0].businessNumber}}
         </div>
-        <div class='col-md-1'>
+        <div class='col-xs-1 col-md-1'>
             <i class="fa fa-envelope-o fa-2x profileicon"></i>
         </div>
-        <div class='col-md-11 textedOutput'>
+        <div class='col-xs-11 col-md-11 textedOutput'>
             Email : {{PR.data[0].businessEmail}}
         </div>
-        <div class='col-md-1'>
+        <div class='col-xs-1 col-md-1'>
             <i class="fa fa-clock-o fa-2x profileicon"></i>
         </div>
-        <div class='col-md-11 textedOutput'>
+        <div class='col-xs-11 col-md-11 textedOutput'>
             Business Hours : {{PR.profile.businessHours}}
         </div>
-        <div class='col-md-1'>
+        <div class='col-xs-1 col-md-1'>
             <i class="fa fa-users fa-2x profileicon"></i>
         </div>
-        <div class='col-md-11 textedOutput'>
+        <div class='col-xs-11 col-md-11 textedOutput'>
             Max capacity : {{PR.profile.capacity}}
         </div>
-        <div  class='col-md-12' id='restEditButton'>
+        <div  class='col-xs-12 col-md-12' id='restEditButton'>
             <button class="btn btn-primary btn-xs" ng-click="PR.profileUpdateModal('lg')">edit</button>
         </div>
 
