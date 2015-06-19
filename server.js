@@ -109,16 +109,17 @@ passport.deserializeUser(function(id, done) {
 
 function requireAuth (req, res, next) {
 	if (!req.isAuthenticated()) {
+		console.log('requireAuth for res.body: ', res.body);
 		return res.status(401).end();
 	}
 	next();
 };
 
 var logMe = function(req, res, done) {
-	console.log('DATA FROM REQUEST ', req.path);
-	console.log('req.body: ', req.body);
+	// console.log('DATA FROM REQUEST ', req.path);
+	// console.log('req.body: ', req.body);
 	console.log('req.session: ', req.session);
-	console.log('req.user: ', req.user);
+	// console.log('req.user: ', req.user);
 	done();
 }
 
@@ -133,7 +134,6 @@ app.post('/api/client/auth', logMe, passport.authenticate('local', { failureRedi
 });
 app.post('/api/restaurant/auth', logMe, passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
 	res.status(200).end();
-
 });
 // log out endpoints
 app.get('/api/auth/logout', function(req, res) {

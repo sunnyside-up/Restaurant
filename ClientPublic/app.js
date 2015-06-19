@@ -19,12 +19,12 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controllerAs: 'FR'
 		})
 		.state('profile', {
-			url: '/profile/:id',
+			url: '/profile',
 			templateUrl: 'views/Profile.html',
 			controller: 'ProfileCtrl',
 			resolve: {
-				getUserById: function() {
-					console.log('Still need to get express.js to send user information.');
+				getUserById: function(UserService) {
+					return UserService.getUserInfo();
 				}
 			}
 		})
