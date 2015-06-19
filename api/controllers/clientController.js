@@ -14,6 +14,7 @@ module.exports = {
 	},
 
 	read: function(req, res) {
+		console.log('ClientController: ', req.user);
 		Client
 		.find(req.user._id)
 		.exec(function(err, result) {
