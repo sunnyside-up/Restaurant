@@ -5,7 +5,9 @@
                     //submit function for updating profile
                     //business hours not complete
                     var RPC = this;
-                    RPC.updateProfile = function(name, image, addressOne, addressTwo, city, state, zip, email, phone, businessHour, tableNumber, capacity) {
+
+                    console.log(profile)
+                    RPC.updateProfile = function(name, addressOne, addressTwo, city, state, zip, email, phone, businessHour, tableNumber, capacity) {
                         var update = {
                             businessName: name,
                             businessImg: image,
@@ -25,7 +27,7 @@
                         }
  
                         RestaurantsProfileService.updateProfile(update).then(function(res) {
-                            profile[0].userRestaurant.push(update);
+                            profile[0].UserRestaurant.push(update);
                             $modalInstance.dismiss('cancel');
                         })      
                     };

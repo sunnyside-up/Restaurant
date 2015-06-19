@@ -13,4 +13,5 @@ app.service('UserService', function($q, $http) {
 		});
 		return dfd.promise;
 	}
-})
+    
+});

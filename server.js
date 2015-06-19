@@ -118,16 +118,17 @@ passport.deserializeUser(function(id, done) {
 
 function requireAuth (req, res, next) {
 	if (!req.isAuthenticated()) {
+		console.log('requireAuth for res.body: ', res.body);
 		return res.status(401).end();
 	}
 	next();
 };
 
 var logMe = function(req, res, done) {
-	console.log('DATA FROM REQUEST ', req.path);
-	console.log('req.body: ', req.body);
+	// console.log('DATA FROM REQUEST ', req.path);
+	// console.log('req.body: ', req.body);
 	console.log('req.session: ', req.session);
-	console.log('req.user: ', req.user);
+	// console.log('req.user: ', req.user);
 	done();
 }
 
@@ -142,7 +143,6 @@ app.post('/api/client/auth', passport.authenticate('local', { failureRedirect: '
 });
 app.post('/api/restaurant/auth', passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
 	res.status(200).end();
-
 });
 // log out endpoints
 app.get('/api/auth/logout', function(req, res) {
@@ -158,7 +158,8 @@ app.get('/api/client', ClientController.read);
 app.put('/api/client/:id', requireAuth, ClientController.update);
 app.delete('/api/client/:id', requireAuth, ClientController.delete);
 // menu endpoint
-app.post('/api/menu', requireAuth, MenuController.create);
+app.post('/api/menu/drink', requireAuth, MenuController.addDrink);
+app.post('/api/menu/appetizer', requireAuth, MenuController.addAppetizer);
 app.get('/api/menu', requireAuth, MenuController.read);
 app.put('/api/menu/update', requireAuth, MenuController.update);
 app.delete('/api/menu/:id', requireAuth, MenuController.delete);
