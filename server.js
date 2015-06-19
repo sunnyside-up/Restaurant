@@ -101,7 +101,16 @@ passport.serializeUser(function(user, done) {
 });
 passport.deserializeUser(function(id, done) {
   RestaurantUser.findById(id, function (err, user) {
-    done(err, user);
+  	if(err) done(err);
+  	if(user){
+  		done(null, user);
+  	}
+  	else if(!user) {
+  		ClientUser.findById(id, function(err, user) {
+  			if(err) done(err);
+  			done(null, user);
+  		})
+  	}
   });
 });
 
@@ -128,11 +137,11 @@ var logMe = function(req, res, done) {
 app.post('/api/client', ClientController.create);
 app.post('/api/restaurant', RestaurantController.create);
 // login endpoint
-app.post('/api/client/auth', logMe, passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
+app.post('/api/client/auth', passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
 	console.log("res from server.js: ", res)
 	res.status(200).end();
 });
-app.post('/api/restaurant/auth', logMe, passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
+app.post('/api/restaurant/auth', passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
 	res.status(200).end();
 });
 // log out endpoints
@@ -145,7 +154,7 @@ app.get('/api/restaurant', requireAuth, RestaurantController.read);
 app.put('/api/restaurant/update', requireAuth, RestaurantController.update);
 app.delete('/api/restaurant/delete', requireAuth, RestaurantController.delete);
 // client endpoint
-app.get('/api/client', requireAuth, ClientController.read);
+app.get('/api/client', ClientController.read);
 app.put('/api/client/:id', requireAuth, ClientController.update);
 app.delete('/api/client/:id', requireAuth, ClientController.delete);
 // menu endpoint

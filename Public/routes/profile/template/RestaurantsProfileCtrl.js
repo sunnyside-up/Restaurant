@@ -5,10 +5,12 @@
                     //submit function for updating profile
                     //business hours not complete
                     var RPC = this;
+
                     console.log(profile)
                     RPC.updateProfile = function(name, addressOne, addressTwo, city, state, zip, email, phone, businessHour, tableNumber, capacity) {
                         var update = {
                             businessName: name,
+                            businessImg: image,
                             businessAddress: {
                                 addressOne: addressOne,
                                 addressTwo: addressTwo,
