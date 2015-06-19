@@ -1,4 +1,4 @@
-var app = angular.module('MRE', ['ui.router', 'ui.bootstrap', 'ngLoadScript']);
+var app = angular.module('MRE', ['ui.router', 'ui.bootstrap', 'ngLoadScript', 'ngUpload']);
 
 app.config(function($stateProvider, $urlRouterProvider){
 

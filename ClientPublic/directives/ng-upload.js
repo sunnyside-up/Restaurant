@@ -1,4 +1,4 @@
-angular.module('MRE')  
+angular.module('ngUpload', [])
   .directive('uploadSubmit', ["$parse", function($parse) {
     // Utility function to get the closest parent element with a given tag
     function getParentNodeByTagName(element, tagName) {

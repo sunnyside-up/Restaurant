@@ -35,9 +35,6 @@ app.controller('MainCtrl', function($scope, $log, $modal, $location, UserService
 			}, function() {
 				$log.info('Modal dismissed at: ' + new Date());
 			})
-		},
-		logOut: function() {
-			console.log('Work in progress!');
 		}
 	};
 

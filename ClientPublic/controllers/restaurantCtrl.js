@@ -4,24 +4,25 @@ app.controller('RestaurantCtrl', function($scope, getRestById, getClient, UserSe
 	
 	// resolve variable for this restaurant
 	$scope.thisRest = getRestById;
+	$scope.thisUser = getClient;
 	console.log(getRestById);
 
 	var userLoggedIn = true;
 
 	// Reservation Details
-	$scope.thisUser = {
-		email: 'curiousgeorge@gmail.com',
-		name: {
-			first: 'bob',
-			last: 'saggett'
-		},
-		paymentInfo: {
-			cardName: 'bob',
-			cardNumber: 55,
-			cardExp: 666
-		},
-		phoneNumber: 8019995555
-	}
+	// $scope.thisUser = {
+	// 	email: 'curiousgeorge@gmail.com',
+	// 	name: {
+	// 		first: 'bob',
+	// 		last: 'saggett'
+	// 	},
+	// 	paymentInfo: {
+	// 		cardName: 'bob',
+	// 		cardNumber: 55,
+	// 		cardExp: 666
+	// 	},
+	// 	phoneNumber: 8019995555
+	// }
 	$scope.partySize = null;
 	$scope.preorders = [];
 	$scope.resDayAndTime = new Date();
