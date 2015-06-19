@@ -23,7 +23,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 			templateUrl: 'views/Profile.html',
 			controller: 'ProfileCtrl',
 			resolve: {
-				getUserById: function() {
+				getClient: function(userService) {
 					console.log('Still need to get express.js to send user information.');
 				}
 			}
@@ -45,6 +45,9 @@ app.config(function($stateProvider, $urlRouterProvider){
 							break;
 						}
 					}
+				},
+				getClient: function(UserService) {
+					return UserService.getClient();
 				}
 			}
 		});
