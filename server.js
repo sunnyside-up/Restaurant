@@ -149,7 +149,8 @@ app.get('/api/client', requireAuth, ClientController.read);
 app.put('/api/client/:id', requireAuth, ClientController.update);
 app.delete('/api/client/:id', requireAuth, ClientController.delete);
 // menu endpoint
-app.post('/api/menu', requireAuth, MenuController.create);
+app.post('/api/menu/drink', requireAuth, MenuController.addDrink);
+app.post('/api/menu/appetizer', requireAuth, MenuController.addAppetizer);
 app.get('/api/menu', requireAuth, MenuController.read);
 app.put('/api/menu/update', requireAuth, MenuController.update);
 app.delete('/api/menu/:id', requireAuth, MenuController.delete);
