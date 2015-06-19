@@ -31,8 +31,12 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-color: transparent;
-	/*height: 1000px;*/
+	height: 1000px;
 	padding: 50px;
+}
+
+.RElogout {
+	margin-right: 20px;
 }
 
 .Reservations {
@@ -133,14 +137,12 @@ margin-right: auto;
 }
 
 .profileheader {
-        color: #36A0FF;
-        font-size: 27px;
-        padding: 10px;
+    font-size: 27px;
+    font-weight: bold;
 }
 
 .profileicon {
-        font-size: 35px;
-        color: #36A0FF;
+    color: #36A0FF;
 }
 
 .inlineDisplay {
@@ -152,6 +154,13 @@ margin-right: auto;
 	width: 50%;
 	margin: 0 auto;
 }
+
+.textedOutput {
+	font-size: 25px;
+	margin: 2 0;
+}
+
+
 
 /* Menu page */
 
@@ -168,3 +177,14 @@ margin-right: auto;
 	opacity: .75;
 }
 
+/*User Admin Page */
+
+.userTable {
+	background: sandybrown;
+	opacity: .75;
+}
+
+.formItemSpacer {
+	margin: 35px;
+	font-size: 20px;
+}

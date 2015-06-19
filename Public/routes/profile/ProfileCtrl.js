@@ -15,11 +15,11 @@
       templateUrl: 'routes/profile/template/restaurantsProfile.html?bust=' + Math.random().toString(36).slice(2),
       controller: 'RestaurantsProfileCtrl as RPC',
       size: size,
-      // resolve : {
-      //   profile: function(ProfileService) {
-      //     return ProfileService.getRestaurantInfo();
-      //   }
-      // }
+      resolve : {
+        profile: function(ProfileService) {
+          return ProfileService.getRestaurantInfo();
+        }
+      }
     });
 
     modalInstance.result.then(function (selectedItem) {

@@ -5,6 +5,8 @@
 		
                  RE.reservations = restaurant;
                  RE.reservations = [];
+                 
+                 RE.updateReservation = ReservationsService.updateReservation;
 		
 				 RE.reservationModal = function(size) {
                     console.log('hello');
