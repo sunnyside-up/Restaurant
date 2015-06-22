@@ -154,7 +154,7 @@ app.get('/api/restaurant', RestaurantController.read);
 app.put('/api/restaurant/update', requireAuth, RestaurantController.update);
 app.delete('/api/restaurant/delete', requireAuth, RestaurantController.delete);
 // client endpoint
-app.get('/api/client', ClientController.read);
+app.get('/api/client', requireAuth, ClientController.read);
 app.put('/api/client/:id', requireAuth, ClientController.update);
 app.delete('/api/client/:id', requireAuth, ClientController.delete);
 // menu endpoint

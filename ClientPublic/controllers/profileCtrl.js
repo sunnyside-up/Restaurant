@@ -1,7 +1,7 @@
 var app = angular.module('MRE');
 
-app.controller('ProfileCtrl', function($scope, getUserById) {
+app.controller('ProfileCtrl', function($scope, UserService, getClient2) {
 	
-	$scope.user = getUserById;
+	$scope.user = getClient2;
 	
 });
