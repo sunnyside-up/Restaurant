@@ -18,10 +18,6 @@ module.exports = {
 						return res.send(result);
 					}
 				});
-			} else if (result){
-				console.log("this item already exist");
-				// go back and $push req.body onto menu
-				//Menu.findOneAndUpdate({ restaurant: req.user._id}, { menu: $push(req.body), $upsert: true})
 			}
 		})
 	},
@@ -41,11 +37,7 @@ module.exports = {
 						return res.send(result);
 					}
 				});
-			} else if (result){
-				console.log("this item already exist");
-				// go back and $push req.body onto menu
-				//Menu.findOneAndUpdate({ restaurant: req.user._id}, { menu: $push(req.body), $upsert: true})
-			}
+			} 
 		})
 	},
 	
