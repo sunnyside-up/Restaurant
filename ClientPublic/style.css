@@ -4,6 +4,9 @@ html, body {
 	margin: 0;
 	padding: 0;
 	background: url(images/family-eating.jpg) no-repeat center center fixed;
+	background-attachment: fixed;
+    background-size: cover;
+    -moz-background-size: cover;
 }
 
 a:hover {

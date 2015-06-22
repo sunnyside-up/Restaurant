@@ -10,26 +10,26 @@
                 <div class="form-group">
                     <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-user profileicon" style="font-size: 27px;"></i></span>
                     <div class="col-md-8">
-                        <input id="restaurantName" ng-model="EP.editUserInfo.name.first" name="name" type="text" placeholder="First Name" class="form-control" ng-change="">
-                        <input id="restaurantName" ng-model="EP.editUserInfo.name.last" name="name" type="text" placeholder="Last Name" class="form-control">
+                        <input id="first-name" ng-model="user.name.first" name="name" type="text" placeholder="First Name" class="form-control" ng-change="test()">
+                        <input id="last-name" ng-model="user.name.last" name="name" type="text" placeholder="Last Name" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-envelope-o profileicon" style="font-size: 27px;"></i></span>
                     <div class="col-md-8">
-                        <input id="email" name="email" type="text" placeholder="Email Address" ng-model="EP.editUserInfo.email" class="form-control">
+                        <input id="email" name="email" type="text" placeholder="Email Address" ng-model="user.email" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-phone-square profileicon" style="font-size: 27px;"></i></span>
                     <div class="col-md-8">
-                        <input id="phone" name="phone" type="text" placeholder="Phone Number" ng-model="EP.editUserInfo.phone" class="form-control">
+                        <input id="phone" name="phone" type="text" placeholder="Phone Number" ng-model="user.phoneNumber" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-star profileicon" style="font-size: 27px;"></i></span>
                     <div class="col-md-8">
-                        <input id="favorites" name="favorites" type="text" placeholder="Favorites" ng-model="EP.editUserInfo.favorites" class="form-control">
+                        <input id="favorites" name="favorites" type="text" placeholder="Favorites" ng-model="user.favorites" class="form-control">
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
     </div>
 
     <div class="modal-footer">
-        <button type="submit" class="btn btn-primary btn-lg" ng-click="EP.updateProfile(); $dismiss()">Save</button>
+        <button type="submit" class="btn btn-primary btn-lg" ng-click="updateProfile(); $dismiss(); reloadPage()">Save</button>
         <button class="btn btn-danger btn-lg" ng-click="$dismiss()">Cancel</button>
     </div>
 
