@@ -10,7 +10,7 @@
                     RPC.updateProfile = function(name, addressOne, addressTwo, city, state, zip, email, phone, businessHour, tableNumber, capacity) {
                         var update = {
                             businessName: name,
-                            businessImg: image,
+                            // businessImg: image,
                             businessAddress: {
                                 addressOne: addressOne,
                                 addressTwo: addressTwo,
