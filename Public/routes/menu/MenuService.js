@@ -8,7 +8,8 @@
 				method : 'GET',
 				url : '/api/menu'     
 			}).then(function(response){
-				deferred.resolve(response.data)
+				deferred.resolve(response.data)                    
+                    console.log("response.date from MenuService: ", response.data)
 			})
 				return deferred.promise;
 		} 

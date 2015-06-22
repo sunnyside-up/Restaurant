@@ -1,14 +1,16 @@
 (function() { 
     angular.module('MRE')
         .controller('MenuCtrl'
-            , ['$scope', 'MenuService', '$modal', '$log', function($scope, MenuService, $modal, $log) {
+            , ['$scope', 'MenuService', '$modal', '$log', 'menuItem', function($scope, MenuService, $modal, $log, menuItem) {
                 var MENU = this;
 
-                this.getMenuInfo = function() {
-                    MenuService.getMenuInfo().then(function(data) {
-                        MENU.menuInfo = data
-                    })
-                }
+                console.log('menuItem from app.js in MenuCtrl: ', menuItem[0].menu);
+
+                MENU.app = menuItem[0].menu.appetizer;
+                console.log('MENU.app from MenuCtrl: ', MENU.app);
+
+                MENU.drink = menuItem[0].menu.drink;
+                console.log('MENU.drink from MenuCtrl: ', MENU.drink);
             
                 //open modal to update restaurant
                 MENU.addNewDrink = function(size) {
