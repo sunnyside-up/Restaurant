@@ -1,7 +1,9 @@
 var app = angular.module('MRE');
 
-app.controller('DashboardCtrl', function($scope, UserService, getClient1) {
-	var DB = this;
+app.controller('CustDashboardCtrl', function($scope, UserService, getClient1) {
+	
+	var CD = this;
+	
 	this.user = getClient1;
 
 });

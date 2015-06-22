@@ -1,18 +1,20 @@
 var Menu = require('../models/menuItemModel');
 
 module.exports = {
+
 	addDrink: function(req, res) {
 		// console.log('menu controller', req.body)
-		console.log('menu conroller req.user', req.user);
+
+		console.log('menu controller req.body', req.body);
 		// go look in mongo and see if Menu exists for restaurant 
 		Menu.findOne({ restaurant: req.user._id}, function(err, menu){
-			console.log(menu);
-
+			console.log('menu argument from api/menuController: ', menu);
+			if(!menu){
 				var newMenu = new Menu();
 				newMenu.restaurant = req.user._id;
 				console.log("from menu controller",req.body)
 				newMenu.menu.drink.push(req.body);
-				console.log('newmenu', newMenu);
+				console.log('newmenu created', newMenu);
 				newMenu.save(function(err, result) {
 					if (err) {
 						return res.status(500).send(err);
@@ -20,7 +22,18 @@ module.exports = {
 						return res.send(result);
 					}
 				});
-			
+			} else {
+				menu.restaurant = req.user._id;
+				menu.menu.drink.push(req.body);
+				console.log('added to newmenu', menu);
+				menu.save(function(err, result) {
+					if (err) {
+						return res.status(500).send(err);
+					} else {
+						return res.send(result);
+					}
+				});
+			}
 		})
 	},
 
@@ -38,8 +51,19 @@ module.exports = {
 					} else {
 						return res.send(result);
 					}
+				});	
+			} else {
+				menu.restaurant = req.user._id;
+				menu.menu.appetizer.push(req.body);
+				console.log('added to newmenu', menu);
+				menu.save(function(err, result) {
+					if (err) {
+						return res.status(500).send(err);
+					} else {
+						return res.send(result);
+					}
 				});
-			} 
+			}
 		})
 	},
 	

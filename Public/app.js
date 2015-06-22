@@ -25,7 +25,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controllerAs: 'RE',
 			resolve: {
 				restaurant: function(ReservationsService){
-					ReservationsService.getReservations();
+					return ReservationsService.getReservations();
 				}
 			}
 		})
