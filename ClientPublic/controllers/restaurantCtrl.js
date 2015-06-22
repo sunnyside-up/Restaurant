@@ -1,27 +1,28 @@
 var app = angular.module('MRE');
 
-app.controller('RestaurantCtrl', function($scope, getRestById, getClient, UserService, RestaurantService, ReservationService, $log) {
+app.controller('RestaurantCtrl', function($scope, getRestById, getClient3, UserService, RestaurantService, ReservationService, $log) {
 	
 	// resolve variable for this restaurant
 	$scope.thisRest = getRestById;
+	$scope.thisUser = getClient3;
 	console.log(getRestById);
 
 	var userLoggedIn = true;
 
 	// Reservation Details
-	$scope.thisUser = {
-		email: 'curiousgeorge@gmail.com',
-		name: {
-			first: 'bob',
-			last: 'saggett'
-		},
-		paymentInfo: {
-			cardName: 'bob',
-			cardNumber: 55,
-			cardExp: 666
-		},
-		phoneNumber: 8019995555
-	}
+	// $scope.thisUser = {
+	// 	email: 'curiousgeorge@gmail.com',
+	// 	name: {
+	// 		first: 'bob',
+	// 		last: 'saggett'
+	// 	},
+	// 	paymentInfo: {
+	// 		cardName: 'bob',
+	// 		cardNumber: 55,
+	// 		cardExp: 666
+	// 	},
+	// 	phoneNumber: 8019995555
+	// }
 	$scope.partySize = null;
 	$scope.preorders = [];
 	$scope.resDayAndTime = new Date();
