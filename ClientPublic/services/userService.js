@@ -9,8 +9,8 @@ app.service('UserService', function($q, $http) {
 			method: 'GET',
 			url: '/api/client'
 		}).then(function(response) {
-			console.log('This is the data:', response.data);
-			dfd.resolve(response.data);
+			console.log('Step 2: The Data:', response.data);
+			dfd.resolve(response.data[0]);
 		});
 		return dfd.promise;
 	}
