@@ -1,6 +1,6 @@
 var app = angular.module('MRE');
 
-app.controller('AppSettingsCtrl', function($scope, $log, $modalInstance, DashboardService) {
+app.controller('EditProfileCtrl', function($scope, $log, $modalInstance, DashboardService) {
 	var AS = this;
 
 	$scope.checkbox = {

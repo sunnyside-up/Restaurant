@@ -8,8 +8,8 @@ app.config(function($stateProvider, $urlRouterProvider){
 		.state('custdashboard', {
 			url: '/cust-dashboard',
 			templateUrl: 'views/Dashboard.html',
-			controller: 'DashboardCtrl',
-			controllerAs: 'DB',
+			controller: 'CustDashboardCtrl',
+			controllerAs: 'CD',
 			resolve: {
 				getClient1: function(UserService) {
 					return UserService.getClient();
@@ -26,7 +26,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 		.state('custprofile', {
 			url: '/cust-profile',
 			templateUrl: 'views/Profile.html',
-			controller: 'ProfileCtrl',
+			controller: 'CustProfileCtrl',
 			controllerAs: 'CP',
 			resolve: {
 				getClient2: function(UserService) {

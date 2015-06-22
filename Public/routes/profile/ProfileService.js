@@ -11,7 +11,7 @@
                     url: '/api/restaurant'
                 }).then(function(response) {
                     deferred.resolve(response.data)                    
-                    console.log("response.date from RestaurantProfileService: ", response.data)
+                    console.log("response.data from RestaurantProfileService: ", response.data)
                 })
                 return deferred.promise;
             }

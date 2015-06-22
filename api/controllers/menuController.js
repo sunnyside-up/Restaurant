@@ -57,7 +57,7 @@ module.exports = {
 	read: function(req, res) {
 		console.log('menuctrl', req)
 		Menu
-		.find({'restaurant':req.user._id)
+		.find('restaurant: ', req.user._id)
 		.exec()
 		.then(function(result) {
 			res.status(200).json(result);
