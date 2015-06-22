@@ -1,15 +1,20 @@
-var app = angular.module('MRE', ['ui.router', 'ui.bootstrap', 'ngLoadScript', 'ngUpload']);
+var app = angular.module('MRE', ['ui.router', 'ui.bootstrap', 'ngLoadScript']);
 
 app.config(function($stateProvider, $urlRouterProvider){
 
 	$urlRouterProvider.otherwise('/find-restaurant');
 
 	$stateProvider
-		.state('dashboard', {
-			url: '/dashboard/:id',
+		.state('custdashboard', {
+			url: '/cust-dashboard',
 			templateUrl: 'views/Dashboard.html',
 			controller: 'DashboardCtrl',
-			controllerAs: 'DB'
+			controllerAs: 'DB',
+			resolve: {
+				getClient1: function(UserService) {
+					return UserService.getClient();
+				}
+			}
 			
 		})
 		.state('findRestaurant', {
@@ -18,13 +23,14 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controller: 'FindRestaurant',
 			controllerAs: 'FR'
 		})
-		.state('profile', {
-			url: '/profile',
+		.state('custprofile', {
+			url: '/cust-profile',
 			templateUrl: 'views/Profile.html',
 			controller: 'ProfileCtrl',
+			controllerAs: 'CP',
 			resolve: {
-				getClient: function(userService) {
-					console.log('Still need to get express.js to send user information.');
+				getClient2: function(UserService) {
+					return UserService.getClient();
 				}
 			}
 		})
@@ -46,7 +52,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 						}
 					}
 				},
-				getClient: function(UserService) {
+				getClient3: function(UserService) {
 					return UserService.getClient();
 				}
 			}

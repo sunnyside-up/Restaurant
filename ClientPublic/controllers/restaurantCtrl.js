@@ -1,10 +1,10 @@
 var app = angular.module('MRE');
 
-app.controller('RestaurantCtrl', function($scope, getRestById, getClient, UserService, RestaurantService, ReservationService, $log) {
+app.controller('RestaurantCtrl', function($scope, getRestById, getClient3, UserService, RestaurantService, ReservationService, $log) {
 	
 	// resolve variable for this restaurant
 	$scope.thisRest = getRestById;
-	$scope.thisUser = getClient;
+	$scope.thisUser = getClient3;
 	console.log(getRestById);
 
 	var userLoggedIn = true;

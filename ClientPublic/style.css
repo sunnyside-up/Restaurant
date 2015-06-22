@@ -3,7 +3,7 @@ html, body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	background: #574C4F;
+	background: url(images/family-eating.jpg) no-repeat center center fixed;
 }
 
 a:hover {
@@ -153,4 +153,27 @@ a:hover {
 	background-color: orange;
 	border-radius: 32px;
 	color: black;
+}
+
+/*Profile Page Styling*/
+
+.profileheader {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.profileicon {
+    color: #36A0FF;
+}
+
+
+
+.profileView {
+	height: 100%;
+	margin: 0 auto;
+}
+
+.textedOutput {
+	font-size: 25px;
+	margin: 0;
 }

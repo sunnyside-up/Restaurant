@@ -1,53 +1,41 @@
-<!-- No CSS Applied Yet! -->
 <div class="container-fluid">
-    <div class="container">
-        <form class="form-inline">
-            <h2 class="">Profile</h2>
-            <hr />
-            <ul class="list-group"> 
-                <li class="list-group-item">
-                    <i class=""></i>
-                    <div class="edit-profile input">
-                        <label class"edit-profile label">First Name: </label>
-                        <div ng-show="!beingEdited"  ng-model="user.name.first">{{ user.name.first }}</div>
-                        <input type="text" ng-hide="!beingEdited" ng-model="user.name.first" />
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <i class=""></i>
-                    <div class="edit-profile input">
-                        <label class"edit-profile label">Last Name: </label>
-                        <div ng-show="!beingEdited" ng-model="user.name.last">{{ user.name.last }}</div>
-                        <input type="text" ng-hide="!beingEdited" ng-model="user.name.last" />
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <i class=""></i>
-                    <div class="edit-profile input">
-                        <label class"edit-profile label">Email: </label>
-                        <div ng-show="!beingEdited" ng-model="user.email">{{ user.email }}</div>
-                        <input type="text" ng-hide="!beingEdited" ng-model="user.email" />
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <i class=""></i>
-                    <div class="edit-profile input">
-                        <label class"edit-profile label">Phone Number: </label>
-                        <div ng-show="!beingEdited" ng-model="user.phoneNumber">{{ user.phoneNumber }}</div>
-                        <input type="number" ng-hide="!beingEdited" ng-model="user.phoneNumber" />
-                    </div>
-                </li>
+    <div class="jumbotron profileView">
+        <div class='row'>
 
-            </ul>
-        </form>
-        <div class=''>
-            <button class="btn btn-default" ng-click="beingEdited = true" ng-show="!beingEdited">Edit Info</button>
-            <button class="btn btn-default" ng-click="beingEdited = false" ng-hide="!beingEdited">Done Editing</button>
-            <button class="btn btn-primary" ng-click="saveInfo()">Save</button>
-            <button class="btn btn-danger" ng-click="resetInfo()">Cancel</button>
-        </div>
-        
-        
+            <div class="text-center">
+                <i class="fa fa-user fa-2x profileicon"></i>
+                <span class='profileheader'>{{PR.data[0].businessName}}'s Profile</span>
+            </div>
+            <hr />
+            <div class='col-xs-1 col-md-1'>
+                <i class="fa fa-user fa-2x profileicon"></i>
+            </div>
+            <div class='col-xs-11 col-md-11 textedOutput'>
+                Name : {{PR.data[0].businessNumber}}
+            </div>
+            <div class='col-xs-12 col-md-6 textedOutput'>
+                First : {{PR.data[0].businessNumber}}
+            </div>
+            <div class='col-xs-12 col-md-6 textedOutput'>
+                Last : {{PR.data[0].businessNumber}}
+            </div>
+            <div class='col-xs-1 col-md-1'>
+                <i class="fa fa-phone fa-2x profileicon"></i>
+            </div>
+            <div class='col-xs-11 col-md-11 textedOutput'>
+                Contact Number : {{PR.data[0].businessNumber}}
+            </div>
+            <div class='col-xs-1 col-md-1'>
+                <i class="fa fa-envelope-o fa-2x profileicon"></i>
+            </div>
+            <div class='col-xs-11 col-md-11 textedOutput'>
+                Email : {{PR.data[0].businessEmail}}
+            </div>
+            <div  class='col-xs-12 col-md-12' id='restEditButton'>
+                <button class="btn btn-primary btn-xs" ng-click="PR.profileUpdateModal('lg')">Edit</button>
+            </div>
+
+        </div> <!-- close /.row -->
+        <!-- edit option for profile !-->
     </div>
-    <!-- edit option for profile !-->   
 </div>
