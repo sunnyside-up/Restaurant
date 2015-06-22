@@ -9,7 +9,7 @@
                         MENU.menuInfo = data
                     })
                 }
-                console.log(MENU.menuInfo)
+            
                 //open modal to update restaurant
                 MENU.addNewDrink = function(size) {
                     var modalInstance = $modal.open({

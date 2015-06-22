@@ -150,7 +150,7 @@ app.get('/api/auth/logout', function(req, res) {
 	return res.redirect('/');
 });
 // restaurant endpoint
-app.get('/api/restaurant', requireAuth, RestaurantController.read);
+app.get('/api/restaurant', RestaurantController.read);
 app.put('/api/restaurant/update', requireAuth, RestaurantController.update);
 app.delete('/api/restaurant/delete', requireAuth, RestaurantController.delete);
 // client endpoint
