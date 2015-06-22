@@ -8,9 +8,11 @@
                         <button type="submit" class="btn pull-right btn-primary btn-xs" ng-click="MENU.addNewAppetizer('lg')">Add</button>
 					</h2>
                 </div>
-                <div>
-                    <div class="panel-body">
-                    </div>
+                <div class="panel-body" ng-repeat='app in MENU.apps'>
+                    Name: {{app.name}} <br />
+                    Description: {{app.description}} <br />
+                    Cost: {{app.cost}} <br />
+                    <hr />
                 </div>
             </div>
             <div class="panel panel-default">
@@ -20,9 +22,11 @@
                         <button type="submit" class="btn pull-right btn-primary btn-xs" ng-click="MENU.addNewDrink('lg')">Add</button>
 					</h2>
                 </div>
-                <div>
-                    <div class="panel-body">
-                    </div>
+                <div class="panel-body" ng-repeat='drink in MENU.drinks'>
+                    Name: {{drink.name}} <br />
+                    Description: {{drink.description}} <br />
+                    Cost: {{drink.cost}} <br />
+                    <hr />
                 </div>
             </div>
         </div>
