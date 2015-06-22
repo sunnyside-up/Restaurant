@@ -14,7 +14,7 @@
         			return deferred.promise;
             }
 
-            this.addNewAppetizer = function(newAppetizer) {
+            this.addNewAppetizer = function(newAppetizer, profileId) {
                 var deferred = $q.defer();
                 $http({
                     method : 'POST',

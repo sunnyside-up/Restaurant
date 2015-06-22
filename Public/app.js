@@ -13,9 +13,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controllerAs: 'PR',
 			resolve : {    
 				profile : function(ProfileService){
-					return ProfileService.getRestaurantInfo().then(function(response) {
-						console.log('resolve response', response);
-					})
+					return ProfileService.getRestaurantInfo();
 				} 
 			} 
 		})

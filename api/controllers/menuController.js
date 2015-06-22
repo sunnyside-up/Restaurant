@@ -24,9 +24,6 @@ module.exports = {
 				//Menu.findOneAndUpdate({ restaurant: req.user._id}, { menu: $push(req.body), $upsert: true})
 			}
 		})
-
-		// if it does exist, then bush req.body onto menu array
-		// if Menu doesn't exist, create
 	},
 
 	addAppetizer: function(req, res) {
@@ -35,6 +32,7 @@ module.exports = {
 		Menu.findOne({ restaurant: req.user._id}, function(err, menu){
 			if(!menu){
 				var newMenu = new Menu();
+				newMenu.restaurant = req.user._id;
 				newMenu.menu.appetizer.push(req.body);
 				newMenu.save(function(err, result) {
 					if (err) {
@@ -49,22 +47,18 @@ module.exports = {
 				//Menu.findOneAndUpdate({ restaurant: req.user._id}, { menu: $push(req.body), $upsert: true})
 			}
 		})
- 
-		// if it does exist, then bush req.body onto menu array
-		// if Menu doesn't exist, create
 	},
 	
 	read: function(req, res) {
-		console.log('menuctrl', req)
 		Menu
-		.find({'restaurant':req.user._id)
+		.find({'restaurant': req.user._id},
 		.exec()
 		.then(function(result) {
 			res.status(200).json(result);
 			}, function(err) {
 			res.status(500).json(err);
-		});
-	},
+		})
+	)},
 
 	update: function(req, res) {
 		Menu.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
