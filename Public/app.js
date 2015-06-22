@@ -13,7 +13,9 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controllerAs: 'PR',
 			resolve : {    
 				profile : function(ProfileService){
-					return ProfileService.getRestaurantInfo();
+					return ProfileService.getRestaurantInfo().then(function(response) {
+						console.log('resolve response', response);
+					})
 				} 
 			} 
 		})
@@ -35,7 +37,12 @@ app.config(function($stateProvider, $urlRouterProvider){
 			url: '/menu',
 			templateUrl: 'routes/menu/menu.html',
 			controller: 'MenuCtrl',
-			controllerAs: 'MENU'
+			controllerAs: 'MENU',
+			resolve : {
+				menuItem : function(MenuService){
+					return MenuService.getMenuInfo();
+				}
+			}
 		})
 
 		

@@ -1,7 +1,7 @@
 (function() {
     angular.module('MRE')
         .service('AddItemService', ['$q', '$http', function($q, $http) {
-        	this.addNewDrink = function(newDrink) {
+        	this.addNewDrink = function(newDrink, profileId) {
         		var deferred = $q.defer();
         		console.log(newDrink);
         		$http({
