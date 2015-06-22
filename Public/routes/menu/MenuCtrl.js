@@ -1,9 +1,15 @@
 (function() { 
     angular.module('MRE')
         .controller('MenuCtrl'
-            , ['$scope', 'MenuService', '$modal', '$log', 'menuItem', function($scope, MenuService, menuItem, $modal, $log) {
+            , ['$scope', 'MenuService', '$modal', '$log', function($scope, MenuService, $modal, $log) {
                 var MENU = this;
-                console.log(menuItem);
+
+                this.getMenuInfo = function() {
+                    MenuService.getMenuInfo().then(function(data) {
+                        MENU.menuInfo = data
+                    })
+                }
+            
                 //open modal to update restaurant
                 MENU.addNewDrink = function(size) {
                     var modalInstance = $modal.open({

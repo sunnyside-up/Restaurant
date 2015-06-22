@@ -13,4 +13,4 @@
 				return deferred.promise;
 		} 
 	}]); // end of service
-})(); 
+})();  

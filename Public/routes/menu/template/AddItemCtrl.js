@@ -4,6 +4,7 @@
             function($scope, AddItemService, $modalInstance, ProfileService, profile) {
                 var AIC = this;
                 $scope.test = "test";
+                $scope.profile = profile;
                 console.log(profile);
                 //adding item to the menu
                 AIC.addNewDrink = function(name, cost, description, photos) {

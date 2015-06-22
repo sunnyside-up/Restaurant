@@ -2,12 +2,14 @@ var Menu = require('../models/menuItemModel');
 
 module.exports = {
 	addDrink: function(req, res) {
-		console.log('menu controller', req.body)
+		// console.log('menu controller', req.body)
+		// console.log('menu conroller req.user', req);
 		// go look in mongo and see if Menu exists for restaurant 
 		Menu.findOne({ restaurant: req.user._id}, function(err, menu){
 			if(!menu){
 				var newMenu = new Menu();
 				newMenu.menu.drink.push(req.body);
+				console.log('newmenu', newMenu);
 				newMenu.save(function(err, result) {
 					if (err) {
 						return res.status(500).send(err);
@@ -46,7 +48,7 @@ module.exports = {
 				//Menu.findOneAndUpdate({ restaurant: req.user._id}, { menu: $push(req.body), $upsert: true})
 			}
 		})
-
+ 
 		// if it does exist, then bush req.body onto menu array
 		// if Menu doesn't exist, create
 	},

@@ -2,10 +2,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var q = require('q');
 
-var menuItemSchema = new mongoose.Schema({
+var menuItemSchema = new Schema({
 	
-	restaurant: [{type: Schema.Types.ObjectId, ref: 'UserRestaurant'}],
-
+	restaurant: [{type: Schema.Types.ObjectId, ref: 'UserClient'}],
 	menu: {
 			drink : [{ 
 				name: String,
