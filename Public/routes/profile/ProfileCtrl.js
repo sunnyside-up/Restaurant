@@ -3,6 +3,7 @@
 		.controller('ProfileCtrl', ['$scope', '$modal','$log', 'ProfileService', 'profile', function($scope, $modal, $log, ProfileService, profile){
 		var PR = this;
 		//PR.profile = profile;  //inject from profileService
+    console.log('profile from ProfileCtrl: ', profile);
 
     PR.data = profile;
     console.log('PR.data from ProfileCtrl: ', PR.data[0]);
