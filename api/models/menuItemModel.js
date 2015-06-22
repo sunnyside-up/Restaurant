@@ -4,7 +4,8 @@ var q = require('q');
 
 var menuItemSchema = new Schema({
 	
-	restaurant: [{type: Schema.Types.ObjectId, ref: 'UserClient'}],
+	restaurant: { type: String },
+	// restaurant: [{type: Schema.Types.ObjectId, ref: 'UserRestaurant'}],
 	menu: {
 			drink : [{ 
 				name: String,

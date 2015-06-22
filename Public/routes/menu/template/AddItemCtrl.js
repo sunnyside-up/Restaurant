@@ -3,18 +3,21 @@
         .controller('AddItemCtrl', ['$scope', 'AddItemService', '$modalInstance', 'ProfileService', 'profile',
             function($scope, AddItemService, $modalInstance, ProfileService, profile) {
                 var AIC = this;
-                $scope.test = "test";
-                $scope.profile = profile;
+                
+                AIC.profile = profile;
+                AIC.profileId = profile[0]._id;
                 console.log(profile);
                 //adding item to the menu
                 AIC.addNewDrink = function(name, cost, description, photos) {
+                    var profileId = AIC.profileId;
+                    console.log("addItemCtrl", profileId);
                     var newDrink = {
                         name: name,
                         cost: cost,
                         description: description,
                         photos: photos
                     }
-                    AddItemService.addNewDrink(newDrink).then(function(res) {
+                    AddItemService.addNewDrink(newDrink, profileId).then(function(res) {
                         $modalInstance.dismiss('cancel');
                     })
                 }
