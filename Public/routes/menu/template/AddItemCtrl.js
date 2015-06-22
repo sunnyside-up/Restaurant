@@ -23,6 +23,7 @@
                 }
 
                 AIC.addNewAppetizer = function(name, cost, description, photos) {
+                    var profileId = AIC.profileId;
                     var newAppetizer = {
                         name: name,
                         cost: cost,
