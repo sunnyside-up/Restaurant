@@ -4,13 +4,13 @@
             , ['$scope', 'MenuService', '$modal', '$log', 'menuItem', function($scope, MenuService, $modal, $log, menuItem) {
                 var MENU = this;
 
-                console.log('menuItem from app.js in MenuCtrl: ', menuItem[0].menu);
+                // console.log('menuItem from app.js in MenuCtrl: ', menuItem[0].menu);
 
-                MENU.app = menuItem[0].menu.appetizer;
-                console.log('MENU.app from MenuCtrl: ', MENU.app);
+                // MENU.apps = menuItem[0].menu.appetizer;
+                // console.log('MENU.app from MenuCtrl: ', MENU.apps);
 
-                MENU.drink = menuItem[0].menu.drink;
-                console.log('MENU.drink from MenuCtrl: ', MENU.drink);
+                // MENU.drinks = menuItem[0].menu.drink;
+                // console.log('MENU.drink from MenuCtrl: ', MENU.drinks);
             
                 //open modal to update restaurant
                 MENU.addNewDrink = function(size) {
