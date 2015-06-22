@@ -14,15 +14,21 @@ app.config(function($stateProvider, $urlRouterProvider){
 				getClient1: function(UserService) {
 					return UserService.getClient();
 				}
-			}
-			
+			}			
 		})
+
 		.state('findRestaurant', {
 			url: '/find-restaurant',
 			templateUrl: 'views/FindRestaurant.html',
 			controller: 'FindRestaurant',
-			controllerAs: 'FR'
+			controllerAs: 'FR',
+			resolve : {    
+				profileFromClientAppJS : function(restaurantService){
+					return restaurantService.getRestaurantInfo();
+				} 
+			} 
 		})
+
 		.state('custprofile', {
 			url: '/cust-profile',
 			templateUrl: 'views/Profile.html',
@@ -34,6 +40,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 				}
 			}
 		})
+
 		.state('restaurant', {
 			url: '/restaurant/:id',
 			templateUrl: 'views/Restaurant.html',

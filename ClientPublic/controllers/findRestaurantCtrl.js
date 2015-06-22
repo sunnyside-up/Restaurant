@@ -1,7 +1,9 @@
 var app = angular.module('MRE');
 
-app.controller('FindRestaurant', function($scope, RestaurantService, $location, $log, $modal) {
+app.controller('FindRestaurant', function($scope, RestaurantService, $location, $log, $modal, profileFromClientAppJS) {
 	var FR = this;
+
+	console.log('profileFromClientAppJS in FindRestaurant Ctrl: ', profileFromClientAppJS);
 
 	FR.day = function() {
 		FR.dayOfWeek = RestaurantService.day();
