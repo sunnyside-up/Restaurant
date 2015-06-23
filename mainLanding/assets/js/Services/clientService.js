@@ -13,7 +13,7 @@ app.service('clientService', function($http, $q, $window) {
 				method: 'POST',
 				url: '/api/client/auth',
 				data: {
-					email: user.username,
+					email: user.email,
 					password: user.password
 				}
 			}).then(function(res) {
