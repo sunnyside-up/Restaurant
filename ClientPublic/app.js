@@ -2,7 +2,7 @@ var app = angular.module('MRE', ['ui.router', 'ui.bootstrap', 'ngLoadScript']);
 
 app.config(function($stateProvider, $urlRouterProvider){
 
-	$urlRouterProvider.otherwise('/find-restaurant');
+	// $urlRouterProvider.otherwise('/find-restaurant');
 
 	$stateProvider
 		.state('custdashboard', {
@@ -45,25 +45,15 @@ app.config(function($stateProvider, $urlRouterProvider){
 			url: '/restaurant/:id',
 			templateUrl: 'views/Restaurant.html',
 			controller: 'RestaurantCtrl',
-			controllerAs: 'RE',
 			resolve: {
 				getRestById: function($stateParams, RestaurantService) {
 					console.log('$stateParams in app.js client side', $stateParams.id);
-					return $stateParams.id;
-					// for(var i = 0; i < RestaurantService.restaurants.length; i++) {
-					// 	console.log(RestaurantService.restaurants[i].businessId + " " + parseInt($stateParams.id));
-					// 	if(RestaurantService.restaurants[i].businessId === parseInt($stateParams.id)) {
-					// 		console.log("Match Found.");
-					// 		var obj = RestaurantService.restaurants[i];
-					// 		return obj;
-					// 		break;
-					// 	}
-					// }
+					return RestaurantService.getRestaurantById($stateParams.id);
 				},
 				getClient3: function(UserService) {
 					console.log('UserService in app.js client side', $UserService);
 					return UserService.getClient();
 				}
 			}
-		});
+		})
 });
