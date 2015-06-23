@@ -6,7 +6,7 @@ var userReservationSchema = new mongoose.Schema({
 	
 	resvStatus: { type: String, enum:["Pending", "Active", "Seated", "Canceled"]},
 	
-	businessId: { type: Number, required: true },
+	businessId: { type: String, required: true },
 
 	resDayAndTime: { type: Date, required: true },
 
@@ -14,15 +14,15 @@ var userReservationSchema = new mongoose.Schema({
 
 	guestNumber: { type: Number, required: true },
 
-	// orderCart: [
-	// 	{ type: Schema.Types.ObjectId, ref: 'MenuItem' }
-	// ],
+	orderCart: [
+		{ type: Schema.Types.ObjectId, ref: 'MenuItem' }
+	],
 
-	creditCard: {
-		cardName: String,
-		cardNumber: { type: Number , required: true },
-		cardExp: { type: Number , required: true }
-	},
+	// creditCard: {
+	// 	cardName: String,
+	// 	cardNumber: { type: Number , required: true },
+	// 	cardExp: { type: Number , required: true }
+	// },
 
 	name: {
 		first: { type: String, required: true },

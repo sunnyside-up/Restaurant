@@ -22,7 +22,7 @@ app.service('RestaurantService', function($q, $http) {
             method: 'GET',
             url: '/api/restaurant/' + resId
         }).then(function(response) {
-            deferred.resolve(response.data)                    
+        	deferred.resolve(response.data);                 
             console.log("response.data from restaurantService: ", response.data)
         })
         return deferred.promise;
