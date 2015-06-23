@@ -3,15 +3,17 @@
 		.service('ReservationsService', ['$q', '$http', function($q, $http){
 			
 			this.getReservations = function(){
+				var deferred = $q.defer();
 				$http({
 				method: 'GET',
 				url: '/api/reservation'
 				}).then(function(res){
-					reservations = res.data;
-					console.log('res.data:', res.data);
-					return reservations;
+					deferred.resolve(res.data) 
+					var reservations = res.data;
+					console.log('reservations from reservationService: ', reservations);
 				});
-				};
+				return deferred.promise;
+			};
 			
 			var reservations = [];
 			

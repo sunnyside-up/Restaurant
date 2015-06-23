@@ -17,6 +17,7 @@ app.service('RestaurantService', function($q, $http) {
     }
 
     this.getRestaurantById = function(resId) {
+    	console.log('resId in RestaurantService: ', resId);
         var deferred = $q.defer();
         $http({
             method: 'GET',
@@ -27,7 +28,7 @@ app.service('RestaurantService', function($q, $http) {
         })
         return deferred.promise;
     }
-	
+
 	// this.day = function() {
 	// 	var date = new Date();
 	// 	var day = date.getDay();
