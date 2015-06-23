@@ -15,15 +15,13 @@ app.service('RestaurantService', function($q, $http) {
         })
         return deferred.promise;
     }
-	
-    //get restaruant info for profile page
-    this.getIndRestaurantInfo = function(restId) {
-    	console.log('value of restId in restaurantService: ', restId)
+
+    this.getRestaurantById = function(resId) {
+    	console.log('resId in RestaurantService: ', resId);
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: '/api/restaurant',
-            data: restId
+            url: '/api/restaurant/' + resId
         }).then(function(response) {
             deferred.resolve(response.data)                    
             console.log("response.data from restaurantService: ", response.data)

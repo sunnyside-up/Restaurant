@@ -38,6 +38,19 @@ module.exports = {
 		});
 	},
 
+	readById: function(req, res) {
+		console.log('read by id: ', req.params.id);
+		Restaurant
+		.findById(req.params.id)
+		.exec(function(err, result) {
+			if (err) {
+				return res.status(500).send(err);
+			} else {
+				return res.send(result);
+			}
+		});
+	},
+
 	update: function(req, res) {
 		Restaurant.findByIdAndUpdate(req.user._id, req.body, function(err, result) {
 			if (err) {
