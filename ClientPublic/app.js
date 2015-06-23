@@ -48,6 +48,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 			resolve: {
 				getRestById: function($stateParams, RestaurantService) {
 					console.log('$stateParams in app.js client side', $stateParams.id);
+
 					return RestaurantService.getRestaurantById($stateParams.id)
 					.then(function(res) {
 						console.log(res);

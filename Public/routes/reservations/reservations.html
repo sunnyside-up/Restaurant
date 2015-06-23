@@ -9,12 +9,13 @@
     <div class="col-sm-11 resCont">
       Level 2
         <div class="col-sm-4">
-        <div ng-repeat ="obj in RE.reservations | orderBy: '-time':true" ng-show=Date.now()>
+        <div ng-repeat ="obj in RE.reservations">
           <div class="resCard">
-            <div>{{obj.name}}</div>
-            <div>{{obj.time}}</div>
-            <div>{{obj.email}}</div>
-            <div>{{obj.phoneNumber}}</div>
+            <div>Name: {{obj.name.first}} {{obj.name.last}}</div>
+            <div>Reservation Time: {{obj.resDayAndTime}}</div>
+            <div>Email: {{obj.email}}</div>
+            <div>Number: {{obj.phoneNumber}}</div>
+            <div>Guest Amount: {{obj.guestNumber}}</div>
     <button ng-click="RE.updateReservation()">Click me</button>
           </div>
         </div>
