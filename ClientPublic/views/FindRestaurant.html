@@ -31,38 +31,38 @@
 	</div>
 
 
-<div class='find-rest-data' ng-repeat='obj in FR.restaurants'>
-	<a href=""><div class='find-rest-data' ng-click="openRestPage()">
-		<div class='rest image'></div>
-		<div>
+<div class='find-rest-data' ng-repeat='data in datas'>
+	<a href="">
+		<div class='find-rest-data' ng-click="openRestPage()">
+			<div class='rest image'></div>
+			<div>
 
-			<div class='rest name'>
-				{{obj.businessName}}
-			</div>
-			<div class='rest address'>
-				<span>{{obj.businessAddress.addressOne}}</span>
-				<span>{{obj.businessAddress.addressTwo}}
-				{{obj.businessAddress.city}}
-				{{obj.businessAddress.state}}</span>
-				<span>{{obj.businessAddress.zip}}</span>
-			</div>
-
-		</div>
-		{{FR.daySelector(FR.dayOfWeek, obj.operatingHours)}}
-		<div class='rest hours'>
-			<div ng-repeat='obj in FR.today'>
-				<div class='hours' ng-repeat='open in obj.hours'>
-					<span>{{FR.dayOfWeek}}</span>
-					<span>Open:  {{open.businessHoursFrom}}</span>
-					<span>Close:  {{open.businessHoursTo}}</span>
+				<div class='rest name'>
+					{{data.businessName}}
 				</div>
+				<div class='rest address'>
+					<span>{{data.businessAddress.addressOne}}</span>
+					<span>{{data.businessAddress.addressTwo}}</span>
+					<span>{{data.businessAddress.city}},{{data.businessAddress.state}}</span>
+					<span>{{data.businessAddress.zip}}</span>
+				</div>
+
 			</div>
-			<span>{{FR.phoneNumberFormat(obj.businessNumber)}}</span>
+			<!-- {{FR.daySelector(FR.dayOfWeek, data.operatingHours)}} -->
+			<div class='rest hours'>
+				<!-- <div ng-repeat='data in FR.today'>
+					<div class='hours' ng-repeat='open in data.hours'>
+						<span>{{FR.dayOfWeek}}</span>
+						<span>Open:  {{open.businessHoursFrom}}</span>
+						<span>Close:  {{open.businessHoursTo}}</span>
+					</div>
+				</div> -->
+				<span>{{FR.phoneNumberFormat(data.businessNumber)}}</span>
+			</div>
 		</div>
-	</div></a>
-				
-		
+	</a>
 </div>
+
 <!-- <div>
 	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
 	<div id="map-canvas"></div>

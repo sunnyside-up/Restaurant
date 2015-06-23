@@ -14,15 +14,21 @@ app.config(function($stateProvider, $urlRouterProvider){
 				getClient1: function(UserService) {
 					return UserService.getClient();
 				}
-			}
-			
+			}			
 		})
+
 		.state('findRestaurant', {
 			url: '/find-restaurant',
 			templateUrl: 'views/FindRestaurant.html',
 			controller: 'FindRestaurant',
-			controllerAs: 'FR'
+			controllerAs: 'FR',
+			resolve : {    
+				profileFromClientAppJS : function(RestaurantService){
+					return RestaurantService.getRestaurantInfo();
+				} 
+			} 
 		})
+
 		.state('custprofile', {
 			url: '/cust-profile',
 			templateUrl: 'views/Profile.html',
@@ -34,6 +40,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 				}
 			}
 		})
+
 		.state('restaurant', {
 			url: '/restaurant/:id',
 			templateUrl: 'views/Restaurant.html',
@@ -41,18 +48,20 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controllerAs: 'RE',
 			resolve: {
 				getRestById: function($stateParams, RestaurantService) {
-					console.log(parseInt($stateParams.id));
-					for(var i = 0; i < RestaurantService.restaurants.length; i++) {
-						console.log(RestaurantService.restaurants[i].businessId + " " + parseInt($stateParams.id));
-						if(RestaurantService.restaurants[i].businessId === parseInt($stateParams.id)) {
-							console.log("Match Found.");
-							var obj = RestaurantService.restaurants[i];
-							return obj;
-							break;
-						}
-					}
+					console.log('$stateParams in app.js client side', $stateParams.id);
+					return $stateParams.id;
+					// for(var i = 0; i < RestaurantService.restaurants.length; i++) {
+					// 	console.log(RestaurantService.restaurants[i].businessId + " " + parseInt($stateParams.id));
+					// 	if(RestaurantService.restaurants[i].businessId === parseInt($stateParams.id)) {
+					// 		console.log("Match Found.");
+					// 		var obj = RestaurantService.restaurants[i];
+					// 		return obj;
+					// 		break;
+					// 	}
+					// }
 				},
 				getClient3: function(UserService) {
+					console.log('UserService in app.js client side', $UserService);
 					return UserService.getClient();
 				}
 			}
