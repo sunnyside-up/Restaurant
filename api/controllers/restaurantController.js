@@ -13,7 +13,7 @@ module.exports = {
 	},
 
 	readClient: function(req, res) {
-		// console.log('readClient in restaurantController: ', req.query);
+		console.log('readClient in restaurantController: ', req.query);
 		Restaurant
 		.find(req.query)
 		.exec(function(err, result) {

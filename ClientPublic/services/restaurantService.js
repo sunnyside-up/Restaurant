@@ -16,6 +16,21 @@ app.service('RestaurantService', function($q, $http) {
         return deferred.promise;
     }
 	
+    //get restaruant info for profile page
+    this.getIndRestaurantInfo = function(restId) {
+    	console.log('value of restId in restaurantService: ', restId)
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: '/api/restaurant',
+            data: restId
+        }).then(function(response) {
+            deferred.resolve(response.data)                    
+            console.log("response.data from restaurantService: ", response.data)
+        })
+        return deferred.promise;
+    }
+
 	// this.day = function() {
 	// 	var date = new Date();
 	// 	var day = date.getDay();

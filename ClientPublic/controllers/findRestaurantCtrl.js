@@ -19,11 +19,11 @@ app.controller('FindRestaurant', function($scope, RestaurantService, $location, 
 
 	$scope.openRestPage = function() {
 		console.log(this.data._id);
-		for(var i = 0; i < $scope.datas.length; i++){
-			if($scope.datas[i]._id === this.data._id){
-				$location.path('/restaurant/' + this.data._id);
-			}
-		}
+		// for(var i = 0; i < $scope.datas.length; i++){
+		// 	if($scope.datas[i]._id === this.data._id){
+		// 		$location.path('/restaurant/' + this.data._id);
+		// 	}
+		// }
 	}
 
 });
