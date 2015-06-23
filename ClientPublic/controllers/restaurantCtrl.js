@@ -5,7 +5,8 @@ app.controller('RestaurantCtrl', function($scope, getRestById, getClient3, UserS
 	// resolve variable for this restaurant
 	$scope.thisRest = getRestById;
 	$scope.thisUser = getClient3;
-	console.log(getRestById);
+	console.log('getRestById in restaurantCtrl: ', getRestById);
+	console.log('getClient3 in restaurantCtrl: ', getClient3);
 
 	var userLoggedIn = true;
 

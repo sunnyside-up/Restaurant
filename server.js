@@ -151,6 +151,7 @@ app.get('/api/auth/logout', function(req, res) {
 });
 // restaurant endpoint
 app.get('/api/restaurant', RestaurantController.read);
+app.get('/api/findrestaurant', RestaurantController.readClient);
 app.put('/api/restaurant/update', requireAuth, RestaurantController.update);
 app.delete('/api/restaurant/delete', requireAuth, RestaurantController.delete);
 // client endpoint
