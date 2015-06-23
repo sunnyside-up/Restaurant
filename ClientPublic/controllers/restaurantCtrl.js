@@ -1,29 +1,12 @@
 var app = angular.module('MRE');
 
-app.controller('RestaurantCtrl', function($scope, getRestById, getClient3, UserService, RestaurantService, ReservationService, $log) {
+app.controller('RestaurantCtrl', function($scope, getRestById, UserService, RestaurantService, ReservationService, $log) {
 	
 	// resolve variable for this restaurant
 	$scope.thisRest = getRestById;
-	$scope.thisUser = getClient3;
 	console.log('getRestById in restaurantCtrl: ', getRestById);
-	console.log('getClient3 in restaurantCtrl: ', getClient3);
 
-	var userLoggedIn = true;
-
-	// Reservation Details
-	// $scope.thisUser = {
-	// 	email: 'curiousgeorge@gmail.com',
-	// 	name: {
-	// 		first: 'bob',
-	// 		last: 'saggett'
-	// 	},
-	// 	paymentInfo: {
-	// 		cardName: 'bob',
-	// 		cardNumber: 55,
-	// 		cardExp: 666
-	// 	},
-	// 	phoneNumber: 8019995555
-	// }
+	
 	$scope.partySize = null;
 	$scope.preorders = [];
 	$scope.resDayAndTime = new Date();
@@ -38,15 +21,6 @@ app.controller('RestaurantCtrl', function($scope, getRestById, getClient3, UserS
 		}
 	};
 
-	// methods for displaying today's hours
-	$scope.day = function() {
-		$scope.dayOfWeek = RestaurantService.day();
-	}();
-
-	$scope.daySelector = RestaurantService.daySelector;
-
-	$scope.phoneNumberFormat = RestaurantService.phoneNumberFormat;
-	
 	// methods for Datepicker
 	$scope.today = function() {
 	    $scope.resDayAndTime = new Date();
@@ -119,25 +93,27 @@ app.controller('RestaurantCtrl', function($scope, getRestById, getClient3, UserS
 		});
 		console.log($scope.preorders);
 	}
-
+	
 	// Reservation Submit
 	$scope.submitRes = function() {
-		if(!userLoggedIn) {
-			alert("Please log in to continue!");
-			
-		} else if(userLoggedIn) {
-			ReservationService.submitRes({
+		var submitRes = ReservationService.submitRes;
+		return UserService.getClient()
+		.then(function(res, ReservationService) {
+			console.log(res);
+			submitRes({
 				resvStatus: "Pending",
-				businessId: getRestById.businessId,
+				businessId: $scope.thisRest._id,
 				resDayAndTime: $scope.resDayAndTime,
 				resSubmitTime: new Date(),
 				guestNumber: $scope.partySize,
-				// orderCart: $scope.preorders,
-				creditCard: $scope.thisUser.paymentInfo,
-				name: $scope.thisUser.name,
-				phoneNumber: $scope.thisUser.phoneNumber,
-				email: $scope.thisUser.email
+				orderCart: $scope.preorders,
+				name: res.name,
+				phoneNumber: res.phoneNumber,
+				email: res.email
 			});
-		}
+		}).catch(function(err) {
+			console.log(err);
+		});
+		
 	};
 })
