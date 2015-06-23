@@ -1,6 +1,6 @@
 var app = angular.module('MRE');
 
-app.service('ReservationService', function($q, $http) {
+app.service('ReservationService', function($q, $http, $window) {
 	
 	this.getDayClass = function(date, mode) {
 		if (mode === 'day') {
@@ -26,6 +26,7 @@ app.service('ReservationService', function($q, $http) {
 			data: obj
 		}).then(function(response) {
 			console.log('response from reservationService: ', response);
+			$window.location.href = '/public';
 		})
 	};
 })

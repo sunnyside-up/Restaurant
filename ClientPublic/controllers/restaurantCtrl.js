@@ -114,6 +114,5 @@ app.controller('RestaurantCtrl', function($scope, getRestById, UserService, Rest
 		}).catch(function(err) {
 			console.log(err);
 		});
-		
 	};
 })
