@@ -8,7 +8,7 @@ app.service('RestaurantService', function($q, $http) {
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: '/api/restaurant'
+            url: '/api/findrestaurant'
         }).then(function(response) {
             deferred.resolve(response.data)                    
             console.log("response.data from restaurantService: ", response.data)

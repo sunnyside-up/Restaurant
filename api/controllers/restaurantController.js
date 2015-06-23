@@ -12,6 +12,19 @@ module.exports = {
 		});
 	},
 
+	readClient: function(req, res) {
+		// console.log('readClient in restaurantController: ', req.query);
+		Restaurant
+		.find(req.query)
+		.exec(function(err, result) {
+			if (err) {
+				return res.status(500).send(err);
+			} else {
+				return res.send(result);
+			}
+		});
+	},
+
 	read: function(req, res) {
 		console.log('restaurantController: ', req.user);
 		Restaurant
